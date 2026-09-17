@@ -4,7 +4,7 @@
 
 ### Co-founder & Product Lead @ [Originull](https://originull.com) · AI/Automation Engineer · Bengaluru, India
 
-[![Typing SVG](https://readme-typing-svg.demolab.com/?font=Fira+Code&size=20&pause=1200&color=A78BFA&center=true&vCenter=true&width=650&lines=Co-founder+%40+Originull+%E2%80%94+AI-native+3D+generation;Training+a+fighting-game+AI+on+a+real+fly+connectome;Real+star+catalogues.+Real+deep+time.+Real+data.;LLM+routing%2C+critics%2C+and+systems+that+don't+lie+about+themselves)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com/?font=Fira+Code&size=20&pause=1200&color=A78BFA&center=true&vCenter=true&width=650&lines=Co-founder+%40+Originull%3A+AI-native+3D+generation;Training+a+fighting-game+AI+on+a+real+fly+connectome;Real+star+catalogues.+Real+deep+time.+Real+data.;LLM+routing%2C+critics%2C+and+systems+that+don't+lie+about+themselves)](https://git.io/typing-svg)
 
 [![Portfolio](https://img.shields.io/badge/portfolio-mukndd.com-A78BFA?style=for-the-badge)](https://mukndd.com)
 [![Email](https://img.shields.io/badge/email-mukundg1101%40gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:mukundg1101@gmail.com)
@@ -17,19 +17,19 @@
 
 ## about me
 
-I build across software, AI, hardware, and interactive systems — whatever a given idea actually needs. Most projects here start the same way: a question I couldn't leave alone that turned into something real enough to run, break, and keep pushing on.
+I build across software, AI, hardware, and interactive systems: whatever a given idea actually needs. Most projects here start the same way: a question I couldn't leave alone that turned into something real enough to run, break, and keep pushing on.
 
-- 🚀 Co-founder & Product Lead at **[Originull](https://originull.com)** — an AI platform that turns prompts/images into checkable, editable, versioned 3D, not an ungovernable mesh blob
-- 🧠 Currently obsessed with: whether a *real biological wiring diagram* (not a hand-designed network) can drive believable game AI — see **Flyweight** below
+- 🚀 Co-founder & Product Lead at **[Originull](https://originull.com)**: an AI platform that turns prompts/images into checkable, editable, versioned 3D, not an ungovernable mesh blob
+- 🧠 Currently obsessed with whether a *real biological wiring diagram* (not a hand-designed network) can drive believable game AI. See **Flyweight** below
 - 🎓 CS undergrad, Dayananda Sagar University (2026) · Network School, Singapore & Malaysia
 - 🛠️ Comfortable across the whole stack: LLM orchestration and routing, backend/infra (Supabase, Postgres, FastAPI), and computer vision/hardware
-- 📎 Every number on my [portfolio](https://mukndd.com) ships with a source and a verified flag — nothing renders without both. Same standard applies here.
+- 📎 Every number on my [portfolio](https://mukndd.com) ships with a source and a verified flag: nothing renders without both. Same standard applies here.
 
 ---
 
 ## what i'm building right now
 
-**[Originull](https://originull.com)** — a browser workspace that turns product images, prompts, and existing 3D assets into customizable, web-ready 3D. The generation step is an LLM writing *parametric geometry code*, checked by an automated "Functional Critic" before it's ever shown as final — not a diffusion model guessing a mesh. Re-architected the generation routing/pipeline to cut single-image COGS ~96% (~27×, $0.63 → $0.023) and latency 24% (2.53s → 1.92s), across a multi-provider layer spanning 3 vendors and 8 model endpoints. 717 of the production repo's 723 commits are mine.
+**[Originull](https://originull.com)**: a browser workspace that turns product images, prompts, and existing 3D assets into customizable, web-ready 3D. The generation step is an LLM writing *parametric geometry code*, checked by an automated "Functional Critic" before it's ever shown as final, not a diffusion model guessing a mesh. Re-architected the generation routing/pipeline to cut single-image COGS ~96% (~27×, $0.63 → $0.023) and latency 24% (2.53s → 1.92s), across a multi-provider layer spanning 3 vendors and 8 model endpoints. 717 of the production repo's 723 commits are mine.
 
 ---
 
@@ -40,14 +40,14 @@ I build across software, AI, hardware, and interactive systems — whatever a gi
 <td width="50%" valign="top">
 
 **🧬 [Flyweight](https://github.com/mukndd/flyweight)**
-A 2D fighting game where one controller isn't hand-tuned — its wiring comes from the real **FlyWire fruit-fly connectome**, reduced to a fixed, hash-verified 1,536-neuron / 170,489-edge subgraph. Only the artificial sensory encoder and motor readout are trained (via Cross-Entropy Method); the biological graph never learns. First full training run: **0% → 100%** held-out win rate — reported alongside its own honestly-flagged caveats about brittle convergence.
+A 2D fighting game where one controller isn't hand-tuned: its wiring comes from the real **FlyWire fruit-fly connectome**, reduced to a fixed, hash-verified 1,536-neuron / 170,489-edge subgraph. Only the artificial sensory encoder and motor readout are trained (via Cross-Entropy Method); the biological graph never learns. First full training run: **0% → 100%** held-out win rate, reported alongside its own honestly-flagged caveats about brittle convergence.
 `Python` `FastAPI` `WebSockets` `NumPy/SciPy` `React` `Three.js`
 
 </td>
 <td width="50%" valign="top">
 
 **🌍 [Findin](https://findin.world)**
-A browser game combining geography with deep time: read the evidence, guess **where** an animal lived and **when** — with real paleogeographic coastlines for extinct species instead of pretending ancient life belongs on today's map. Built the full content pipeline (GBIF, Paleobiology Database, GPlates-derived reconstructions) with quality gates; 60 species manually verified for launch.
+A browser game combining geography with deep time: read the evidence, guess **where** an animal lived and **when**, with real paleogeographic coastlines for extinct species instead of pretending ancient life belongs on today's map. Built the full content pipeline (GBIF, Paleobiology Database, GPlates-derived reconstructions) with quality gates; 60 species manually verified for launch.
 `Next.js` `TypeScript` `Supabase` `PostHog`
 
 </td>
@@ -56,14 +56,14 @@ A browser game combining geography with deep time: read the evidence, guess **wh
 <td width="50%" valign="top">
 
 **✨ [Asterisms](https://asterisms.space)**
-A daily constellation-learning game on a *real* astronomy catalogue — 88 IAU constellations, 74 Western asterisms, 9,036 real cataloged stars, projected with real gnomonic RA/Dec math, not decorative particle stars. Gameplay content is static/generated; Neon Postgres handles only puzzle scheduling and leaderboards, so a DB outage degrades the leaderboard, never the game. Sole builder — data pipeline, gameplay, frontend.
+A daily constellation-learning game on a *real* astronomy catalogue: 88 IAU constellations, 74 Western asterisms, 9,036 real cataloged stars, projected with real gnomonic RA/Dec math, not decorative particle stars. Gameplay content is static/generated; Neon Postgres handles only puzzle scheduling and leaderboards, so a DB outage degrades the leaderboard, never the game. Sole builder: data pipeline, gameplay, frontend.
 `Next.js` `Neon` `Drizzle` `PostHog` · [case study](https://github.com/mukndd/asterisms-case-study)
 
 </td>
 <td width="50%" valign="top">
 
 **🎓 [CareerBridge](https://github.com/mukndd/CareerBridge)**
-A full-stack campus placement platform built for Dayananda Sagar University — student, recruiter, and admin flows with an OpenAI-assisted matching layer.
+A full-stack campus placement platform built for Dayananda Sagar University: student, recruiter, and admin flows with an OpenAI-assisted matching layer.
 `NestJS` `PostgreSQL` `Prisma` `Redis` `OpenAI API` `React`
 [live demo →](https://career-bridge-seven.vercel.app)
 
@@ -73,14 +73,14 @@ A full-stack campus placement platform built for Dayananda Sagar University — 
 <td width="50%" valign="top">
 
 **✋ [Gesture-Based System Equalizer](https://github.com/mukndd/gesture-based-eq)**
-A webcam, your hand, and a 10-band system-wide audio EQ — no mouse, no sliders. Finger-count selects the band, a pinch adjusts it with exponential smoothing to kill jitter, an L-shape gesture locks it, a two-hand gesture resets. Drives real system audio through Equalizer APO. ~98% recognition accuracy, sub-500ms response, 30 FPS.
+A webcam, your hand, and a 10-band system-wide audio EQ: no mouse, no sliders. Finger-count selects the band, a pinch adjusts it with exponential smoothing to kill jitter, an L-shape gesture locks it, a two-hand gesture resets. Drives real system audio through Equalizer APO. ~98% recognition accuracy, sub-500ms response, 30 FPS.
 `Python` `OpenCV` `MediaPipe` `PyQt5`
 
 </td>
 <td width="50%" valign="top">
 
 **🐛 more in progress**
-A hardware-verified back catalogue (Raspberry Pi + ESP32 ADB remote, OpenCV face-tracking LED-matrix eye) and a real-time polyphonic keyboard-instrument engine (`qwerty-instrument`) live on my [portfolio](https://mukndd.com) — every claim there is checked against source, not just described.
+A hardware-verified back catalogue (Raspberry Pi + ESP32 ADB remote, OpenCV face-tracking LED-matrix eye) and a real-time polyphonic keyboard-instrument engine (`qwerty-instrument`) live on my [portfolio](https://mukndd.com), where every claim is checked against source, not just described.
 
 </td>
 </tr>
