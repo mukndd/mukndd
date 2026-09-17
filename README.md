@@ -29,6 +29,11 @@ I build products end to end: from ambiguous requirements and UX through frontend
 
 **[Originull](https://originull.com)**: a browser workspace that turns product images, prompts, and existing 3D assets into customizable, web-ready 3D. The generation step is an LLM writing *parametric geometry code*, checked by an automated "Functional Critic" before it's ever shown as final, not a diffusion model guessing a mesh. Outbound LLM calls are standardized through a single gateway (OpenRouter) rather than direct provider clients, which keeps routing, cost review, and fallbacks easier to reason about. Full-stack ownership: product direction, the React/TypeScript/Three.js workspace, Supabase-backed auth/storage/billing, and the async generation pipeline (jobs, retries, webhooks, fallback handling). 717 of the production repo's 723 commits are mine.
 
+<p align="center">
+  <img src="media/originull-polar-bear-generated.png" width="49%" alt="Originull workspace showing a generated polar bear creative mesh" />
+  <img src="media/originull-polar-bear-material.png" width="49%" alt="Originull workspace showing material editing on a polar bear mesh" />
+</p>
+
 ---
 
 ## selected projects
@@ -41,12 +46,20 @@ I build products end to end: from ambiguous requirements and UX through frontend
 A 2D fighting game where one controller isn't hand-tuned: its wiring comes from the real **FlyWire fruit-fly connectome**, reduced to a fixed, hash-verified 1,536-neuron / 170,489-edge subgraph. Only the artificial sensory encoder and motor readout are trained (via Cross-Entropy Method); the biological graph never learns. First full training run: **0% → 100%** held-out win rate, reported alongside its own honestly-flagged caveats about brittle convergence.
 `Python` `FastAPI` `WebSockets` `NumPy/SciPy` `React` `Three.js`
 
+<br/>
+<img src="media/flyweight-game-controls.png" width="100%" alt="Flyweight arcade fight screen and controller UI" />
+<img src="media/flyweight-connectome.png" width="100%" alt="FlyWire connectome visualization used as biological inspiration for Flyweight" />
+
 </td>
 <td width="33%" valign="top">
 
 **🌍 [Findin](https://findin.world)**
 A browser game combining geography with deep time: read the evidence, guess **where** an animal lived and **when**, with real paleogeographic coastlines for extinct species instead of pretending ancient life belongs on today's map. Built the full content pipeline (GBIF, Paleobiology Database, GPlates-derived reconstructions) with quality gates; 60 species manually verified for launch.
 `Next.js` `TypeScript` `Supabase` `PostHog`
+
+<br/>
+<img src="media/findin-antique-world-map.png" width="100%" alt="Findin world-map visual for guessing where extinct species lived" />
+<img src="media/findin-geologic-timescale.png" width="100%" alt="Findin deep-time visual showing geological periods" />
 
 </td>
 <td width="33%" valign="top">
@@ -55,11 +68,25 @@ A browser game combining geography with deep time: read the evidence, guess **wh
 A daily constellation-learning game on a *real* astronomy catalogue: 88 IAU constellations, 74 Western asterisms, 9,036 real cataloged stars, projected with real gnomonic RA/Dec math, not decorative particle stars. Neon Postgres handles only puzzle scheduling and leaderboards, so a DB outage degrades the leaderboard, never the game. Sole builder: data pipeline, gameplay, frontend.
 `Next.js` `Neon` `Drizzle` `PostHog` · [case study](https://github.com/mukndd/asterisms-case-study)
 
+<br/>
+<img src="media/asterisms-constellation-map.png" width="100%" alt="Asterisms constellation map with real star positions" />
+<img src="media/asterisms-star-atlas.png" width="100%" alt="Asterisms star-atlas visual with constellations and zodiac drawings" />
+
 </td>
 </tr>
 </table>
 
-More (CareerBridge, Gesture-Based System Equalizer, hardware builds) on the [portfolio](https://mukndd.com), where every claim is checked against source.
+## more builds
+
+**✋ [Gesture-Based System Equalizer](https://github.com/mukndd/gesture-based-eq)**: a webcam, your hand, and a 10-band system-wide audio EQ: no mouse, no sliders. Finger-count selects the band, a pinch adjusts it with exponential smoothing to kill jitter, an L-shape gesture locks it, and a two-hand gesture resets.
+`Python` `OpenCV` `MediaPipe` `PyQt5`
+
+<p align="center">
+  <img src="media/gesture-eq-live-bands.png" width="49%" alt="Gesture-Based System Equalizer live ten-band audio display" />
+  <img src="media/gesture-eq-waveform.png" width="49%" alt="Gesture-Based System Equalizer waveform visual" />
+</p>
+
+More (CareerBridge, hardware builds) on the [portfolio](https://mukndd.com), where every claim is checked against source.
 
 ---
 
