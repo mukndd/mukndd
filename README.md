@@ -1,6 +1,6 @@
 <div align="center">
 
-# hey, i'm mukund 👋
+<img width="100%" alt="Mukund Gupta" src="https://capsule-render.vercel.app/api?type=waving&height=200&color=0:4C1D95,50:7C3AED,100:A78BFA&text=Mukund%20Gupta&fontColor=ffffff&fontSize=48&animation=fadeIn&fontAlignY=38&desc=building%20things%20to%20see%20what%20happens&descAlignY=58&descSize=17&section=header" />
 
 ### Co-founder & Product Lead @ [Originull](https://originull.com) · AI/Automation Engineer · Bengaluru, India
 
@@ -24,6 +24,14 @@ I build across software, AI, hardware, and interactive systems: whatever a given
 - 🎓 CS undergrad, Dayananda Sagar University (2026) · Network School, Singapore & Malaysia
 - 🛠️ Comfortable across the whole stack: LLM orchestration and routing, backend/infra (Supabase, Postgres, FastAPI), and computer vision/hardware
 - 📎 Every number on my [portfolio](https://mukndd.com) ships with a source and a verified flag: nothing renders without both. Same standard applies here.
+
+```text
+🔭 currently building   Originull's generation-routing and functional-critic pipeline
+🧪 currently researching whether a fixed biological connectome can drive believable game AI (Flyweight)
+🌱 currently learning    RAG architectures, embeddings and vector search, deeper LLM orchestration patterns
+💬 ask me about          LLM routing/critics, connectome-constrained controllers, paleogeography in a guessing game
+📫 reach me              mukundg1101@gmail.com
+```
 
 ---
 
@@ -132,16 +140,30 @@ A hardware-verified back catalogue (Raspberry Pi + ESP32 ADB remote, OpenCV face
 
 <div align="center">
 
-<img height="165" src="https://github-readme-stats.vercel.app/api?username=mukndd&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" />
-<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=mukndd&layout=compact&theme=tokyonight&hide_border=true" />
+<img height="165" alt="Mukund's GitHub stats" src="https://github-readme-stats.vercel.app/api?username=mukndd&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" />
+<img height="165" alt="Mukund's top languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=mukndd&layout=compact&theme=tokyonight&hide_border=true" />
 
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=mukndd&theme=tokyonight&hide_border=true" />
+<img alt="Mukund's GitHub streak" src="https://github-readme-streak-stats.herokuapp.com/?user=mukndd&theme=tokyonight&hide_border=true" />
+
+### trophy case
+
+<img alt="Mukund's GitHub trophies" src="https://github-profile-trophy.vercel.app/?username=mukndd&theme=tokyonight&no-frame=true&no-bg=true&row=1&column=6&margin-w=8" />
+
+### contribution snake
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/mukndd/mukndd/output/github-contribution-grid-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/mukndd/mukndd/output/github-contribution-grid-snake.svg" />
+  <img alt="a snake eating my GitHub contribution graph" src="https://raw.githubusercontent.com/mukndd/mukndd/output/github-contribution-grid-snake.svg" />
+</picture>
 
 </div>
 
 ---
 
 <div align="center">
+
+<img alt="a random dev quote" src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight" />
 
 *building things to see what happens.* · reach me at **mukundg1101@gmail.com**
 
