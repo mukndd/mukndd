@@ -37,7 +37,7 @@ I build across software, AI, hardware, and interactive systems: whatever a given
 
 ## what i'm building right now
 
-**[Originull](https://originull.com)**: a browser workspace that turns product images, prompts, and existing 3D assets into customizable, web-ready 3D. The generation step is an LLM writing *parametric geometry code*, checked by an automated "Functional Critic" before it's ever shown as final, not a diffusion model guessing a mesh. Re-architected the generation routing/pipeline to cut single-image COGS ~96% (~27×, $0.63 → $0.023) and latency 24% (2.53s → 1.92s), across a multi-provider layer spanning 3 vendors and 8 model endpoints. 717 of the production repo's 723 commits are mine.
+**[Originull](https://originull.com)**: a browser workspace that turns product images, prompts, and existing 3D assets into customizable, web-ready 3D. The generation step is an LLM writing *parametric geometry code*, checked by an automated "Functional Critic" before it's ever shown as final, not a diffusion model guessing a mesh. Outbound LLM calls are standardized through a single gateway (OpenRouter) rather than direct provider clients, which keeps routing, cost review, and fallbacks easier to reason about. Full-stack ownership: product direction, the React/TypeScript/Three.js workspace, Supabase-backed auth/storage/billing, and the async generation pipeline (jobs, retries, webhooks, fallback handling). 717 of the production repo's 723 commits are mine.
 
 <div align="center">
 <sub>real generation results, not stock renders</sub>
@@ -98,9 +98,9 @@ A full-stack campus placement platform built for Dayananda Sagar University: stu
 <td width="50%" valign="top">
 
 **✋ [Gesture-Based System Equalizer](https://github.com/mukndd/gesture-based-eq)**
-A webcam, your hand, and a 10-band system-wide audio EQ: no mouse, no sliders. Finger-count selects the band, a pinch adjusts it with exponential smoothing to kill jitter, an L-shape gesture locks it, a two-hand gesture resets. Drives real system audio through Equalizer APO. ~98% recognition accuracy, sub-500ms response, 30 FPS.
+A webcam, your hand, and a 10-band system-wide audio EQ: no mouse, no sliders. Finger-count selects the band, a pinch adjusts it with exponential smoothing to kill jitter, an L-shape gesture locks it, a two-hand gesture resets. Drives real system audio through Equalizer APO.
 `Python` `OpenCV` `MediaPipe` `PyQt5`
-<br/><sub>real screenshot pending, source is public above</sub>
+<br/><sub>real screenshot and benchmark numbers pending, source is public above</sub>
 
 </td>
 <td width="50%" valign="top">
