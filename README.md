@@ -1,6 +1,6 @@
 <div align="center">
 
-<img width="100%" alt="Mukund G" src="https://capsule-render.vercel.app/api?type=waving&height=200&color=0:4C1D95,50:7C3AED,100:A78BFA&text=Mukund%20G&fontColor=ffffff&fontSize=48&animation=fadeIn&fontAlignY=38&desc=building+whatever+catches+my+fancy%2C+then+seeing+what+happens&descAlignY=58&descSize=17&section=header" />
+<img width="100%" alt="Mukund G" src="https://capsule-render.vercel.app/api?type=waving&height=200&color=0:4C1D95,50:7C3AED,100:A78BFA&text=Mukund%20G&fontColor=ffffff&fontSize=48&animation=fadeIn&fontAlignY=38&desc=building+whatever+catches+my+fancy&descAlignY=58&descSize=17&section=header" />
 
 ### Co-founder & Product Lead @ [Originull](https://originull.com) · AI/Automation Engineer · Bengaluru, India
 
@@ -25,30 +25,11 @@ I build across software, AI, hardware, and interactive systems: whatever a given
 - 🛠️ Comfortable across the whole stack: LLM orchestration and routing, backend/infra (Supabase, Postgres, FastAPI), and computer vision/hardware
 - 📎 Every number on my [portfolio](https://mukndd.com) ships with a source and a verified flag: nothing renders without both. Same standard applies here.
 
-```text
-🔭 currently building   Originull's generation-routing and functional-critic pipeline
-🧪 currently researching whether a fixed biological connectome can drive believable game AI (Flyweight)
-🌱 currently learning    RAG architectures, embeddings and vector search, deeper LLM orchestration patterns
-💬 ask me about          LLM routing/critics, connectome-constrained controllers, paleogeography in a guessing game
-📫 reach me              mukundg1101@gmail.com
-```
-
 ---
 
 ## what i'm building right now
 
 **[Originull](https://originull.com)**: a browser workspace that turns product images, prompts, and existing 3D assets into customizable, web-ready 3D. The generation step is an LLM writing *parametric geometry code*, checked by an automated "Functional Critic" before it's ever shown as final, not a diffusion model guessing a mesh. Outbound LLM calls are standardized through a single gateway (OpenRouter) rather than direct provider clients, which keeps routing, cost review, and fallbacks easier to reason about. Full-stack ownership: product direction, the React/TypeScript/Three.js workspace, Supabase-backed auth/storage/billing, and the async generation pipeline (jobs, retries, webhooks, fallback handling). 717 of the production repo's 723 commits are mine.
-
-<div align="center">
-<sub>real generation results, not stock renders</sub>
-<table>
-<tr>
-<td align="center" width="33%"><video src="https://github.com/mukndd/mukndd/raw/master/assets/originull/ring.mp4" width="100%" controls muted loop playsinline></video><br/><sub>ring</sub></td>
-<td align="center" width="33%"><video src="https://github.com/mukndd/mukndd/raw/master/assets/originull/shoe.mp4" width="100%" controls muted loop playsinline></video><br/><sub>shoe</sub></td>
-<td align="center" width="33%"><video src="https://github.com/mukndd/mukndd/raw/master/assets/originull/serum.mp4" width="100%" controls muted loop playsinline></video><br/><sub>serum bottle</sub></td>
-</tr>
-</table>
-</div>
 
 ---
 
@@ -62,17 +43,12 @@ I build across software, AI, hardware, and interactive systems: whatever a given
 A 2D fighting game where one controller isn't hand-tuned: its wiring comes from the real **FlyWire fruit-fly connectome**, reduced to a fixed, hash-verified 1,536-neuron / 170,489-edge subgraph. Only the artificial sensory encoder and motor readout are trained (via Cross-Entropy Method); the biological graph never learns. First full training run: **0% → 100%** held-out win rate, reported alongside its own honestly-flagged caveats about brittle convergence.
 `Python` `FastAPI` `WebSockets` `NumPy/SciPy` `React` `Three.js`
 
-<img src="https://github.com/mukndd/mukndd/raw/master/assets/flyweight/v11-watch-wide.png" width="100%" alt="Flyweight watch mode: live fight and connectome activity panel" />
-<img src="https://github.com/mukndd/mukndd/raw/master/assets/flyweight/v11-brain-close.png" width="100%" alt="close-up render of the trained 1,536-neuron subgraph" />
-
 </td>
 <td width="50%" valign="top">
 
 **🌍 [Findin](https://findin.world)**
 A browser game combining geography with deep time: read the evidence, guess **where** an animal lived and **when**, with real paleogeographic coastlines for extinct species instead of pretending ancient life belongs on today's map. Built the full content pipeline (GBIF, Paleobiology Database, GPlates-derived reconstructions) with quality gates; 60 species manually verified for launch.
 `Next.js` `TypeScript` `Supabase` `PostHog`
-
-<img src="https://github.com/mukndd/mukndd/raw/master/assets/findin/daily-gameplay.png" width="100%" alt="Findin Daily gameplay: evidence notes, a world map, and the geological time bar" />
 
 </td>
 </tr>
@@ -82,7 +58,6 @@ A browser game combining geography with deep time: read the evidence, guess **wh
 **✨ [Asterisms](https://asterisms.space)**
 A daily constellation-learning game on a *real* astronomy catalogue: 88 IAU constellations, 74 Western asterisms, 9,036 real cataloged stars, projected with real gnomonic RA/Dec math, not decorative particle stars. Gameplay content is static/generated; Neon Postgres handles only puzzle scheduling and leaderboards, so a DB outage degrades the leaderboard, never the game. Sole builder: data pipeline, gameplay, frontend.
 `Next.js` `Neon` `Drizzle` `PostHog` · [case study](https://github.com/mukndd/asterisms-case-study)
-<br/><sub>live at asterisms.space, screenshot pending</sub>
 
 </td>
 <td width="50%" valign="top">
@@ -100,7 +75,6 @@ A full-stack campus placement platform built for Dayananda Sagar University: stu
 **✋ [Gesture-Based System Equalizer](https://github.com/mukndd/gesture-based-eq)**
 A webcam, your hand, and a 10-band system-wide audio EQ: no mouse, no sliders. Finger-count selects the band, a pinch adjusts it with exponential smoothing to kill jitter, an L-shape gesture locks it, a two-hand gesture resets. Drives real system audio through Equalizer APO.
 `Python` `OpenCV` `MediaPipe` `PyQt5`
-<br/><sub>real screenshot and benchmark numbers pending, source is public above</sub>
 
 </td>
 <td width="50%" valign="top">
@@ -199,6 +173,6 @@ A hardware-verified back catalogue (Raspberry Pi + ESP32 ADB remote, OpenCV face
 
 <img alt="a random dev quote" src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight" />
 
-*building whatever catches my fancy, then seeing what happens.* · reach me at **mukundg1101@gmail.com**
+*building whatever catches my fancy.* · reach me at **mukundg1101@gmail.com**
 
 </div>
