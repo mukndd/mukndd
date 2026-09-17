@@ -4,7 +4,7 @@
 
 ### Co-founder & Product Lead @ [Originull](https://originull.com) · AI/Automation Engineer · Bengaluru, India
 
-[![Typing SVG](https://readme-typing-svg.demolab.com/?font=Fira+Code&size=20&pause=1200&color=A78BFA&center=true&vCenter=true&width=650&lines=Co-founder+%40+Originull%3A+AI-native+3D+generation;Training+a+fighting-game+AI+on+a+real+fly+connectome;Real+star+catalogues.+Real+deep+time.+Real+data.;LLM+routing%2C+critics%2C+and+systems+that+don't+lie+about+themselves)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com/?font=Fira+Code&size=20&pause=1200&color=A78BFA&center=true&vCenter=true&width=560&lines=Co-founder+%40+Originull%3A+AI-native+3D+tools;Training+game+AI+on+a+real+fly+connectome;Real+stars.+Real+deep+time.+Real+data.;An+automated+critic+before+anything+ships)](https://git.io/typing-svg)
 
 [![Portfolio](https://img.shields.io/badge/portfolio-mukndd.com-A78BFA?style=for-the-badge)](https://mukndd.com)
 [![Email](https://img.shields.io/badge/email-mukundg1101%40gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:mukundg1101@gmail.com)
@@ -140,14 +140,7 @@ A hardware-verified back catalogue (Raspberry Pi + ESP32 ADB remote, OpenCV face
 
 <div align="center">
 
-<img height="165" alt="Mukund's GitHub stats" src="https://github-readme-stats.vercel.app/api?username=mukndd&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" />
-<img height="165" alt="Mukund's top languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=mukndd&layout=compact&theme=tokyonight&hide_border=true" />
-
 <img alt="Mukund's GitHub streak" src="https://github-readme-streak-stats.herokuapp.com/?user=mukndd&theme=tokyonight&hide_border=true" />
-
-### trophy case
-
-<img alt="Mukund's GitHub trophies" src="https://github-profile-trophy.vercel.app/?username=mukndd&theme=tokyonight&no-frame=true&no-bg=true&row=1&column=6&margin-w=8" />
 
 ### contribution snake
 
