@@ -109,6 +109,4 @@ Full breakdown per project on the [portfolio](https://mukndd.com).
 
 <div align="center">
 
-*building whatever catches my fancy.* · reach me at **mukundg1101@gmail.com**
-
 </div>
