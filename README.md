@@ -25,18 +25,18 @@ I build products end to end: from ambiguous requirements and UX through frontend
 
 ---
 
-## live stats
+## who's using it
 
 <!-- STATS:START -->
 <p align="center">
-  <a href="https://originull.com"><img src="stats/cards/originull.svg" width="49%" alt="Originull: 737 commits authored, 36 edge functions, 237 test files" /></a>
-  <a href="https://github.com/mukndd/flyweight"><img src="stats/cards/flyweight.svg" width="49%" alt="Flyweight: 1,536 neurons, 170,489 edges, 100% held-out win rate" /></a>
+  <a href="https://originull.com"><img src="stats/cards/originull.svg" width="49%" alt="Originull: 83 visitors, 9 engaged, 9 countries" /></a>
+  <a href="https://findin.world"><img src="stats/cards/findin.svg" width="49%" alt="Findin: 312 visitors, 177 players, 27 countries" /></a>
 </p>
 <p align="center">
-  <a href="https://findin.world"><img src="stats/cards/findin.svg" width="49%" alt="Findin: 350 tests passing, 60 species verified, 101 commits authored" /></a>
-  <a href="https://asterisms.space"><img src="stats/cards/asterisms.svg" width="49%" alt="Asterisms: 9,042 real stars, 162 sky patterns, 347 tests passing" /></a>
+  <a href="https://asterisms.space"><img src="stats/cards/asterisms.svg" width="49%" alt="Asterisms: 94 visitors, 23 engaged, 9 countries" /></a>
+  <a href="https://github.com/mukndd/flyweight"><img src="stats/cards/flyweight.svg" width="49%" alt="Flyweight: 1,536 neurons, 170,489 edges, 100% held-out win rate" /></a>
 </p>
-<p align="center"><sub>Recomputed daily by a GitHub Action from each repo's default branch, data files and latest passing CI run. A number that can't be refreshed turns amber and keeps its last verified value. Sources and dates: <a href="stats/data.json">stats/data.json</a>.</sub></p>
+<p align="center"><sub>Real people, not repo stats: unique human visitors and players on the production sites, counted in PostHog with bots and my own test accounts excluded. A GitHub Action refreshes them when it can reach PostHog; otherwise a card shows a dated snapshot. Flyweight shows figures stated in its README. Details: <a href="stats/data.json">stats/data.json</a>.</sub></p>
 <!-- STATS:END -->
 
 ---

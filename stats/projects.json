@@ -1,25 +1,135 @@
 {
-  "author": "mukndd",
+  "posthog": {
+    "host": "https://us.posthog.com",
+    "projectId": 584349,
+    "excludeCohort": 529631,
+    "since": "2026-08-25"
+  },
   "projects": [
     {
       "id": "originull",
       "name": "Originull",
       "url": "https://originull.com",
+      "window": "all time",
       "stats": [
         {
-          "id": "commits",
-          "label": "commits authored",
-          "source": { "type": "commits", "author": "mukndd" }
+          "id": "visitors",
+          "label": "visitors",
+          "sub": "humans only",
+          "source": {
+            "type": "posthog",
+            "measure": "people",
+            "hosts": ["originull.com", "app.originull.com"],
+            "events": ["$pageview", "landing_viewed"]
+          }
         },
         {
-          "id": "edge-functions",
-          "label": "edge functions",
-          "source": { "type": "tree-count", "match": "^supabase/functions/[^/_][^/]*/index\\.ts$" }
+          "id": "engaged",
+          "label": "engaged",
+          "sub": "opened the editor",
+          "source": {
+            "type": "posthog",
+            "measure": "people",
+            "hosts": ["originull.com", "app.originull.com"],
+            "events": ["workspace_opened", "open_editor_clicked", "guest_editor_started", "ai_composer_opened"]
+          }
         },
         {
-          "id": "test-files",
-          "label": "test files",
-          "source": { "type": "tree-count", "match": "\\.(test|spec)\\.(ts|tsx|js|mjs)$", "exclude": "(^|/)(node_modules|archive|backup)[^/]*/" }
+          "id": "countries",
+          "label": "countries",
+          "sub": "visitor locations",
+          "source": {
+            "type": "posthog",
+            "measure": "countries",
+            "hosts": ["originull.com", "app.originull.com"],
+            "events": ["$pageview", "landing_viewed"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "findin",
+      "name": "Findin",
+      "url": "https://findin.world",
+      "window": "all time",
+      "stats": [
+        {
+          "id": "visitors",
+          "label": "visitors",
+          "sub": "humans only",
+          "source": {
+            "type": "posthog",
+            "measure": "people",
+            "hosts": ["findin.world", "findin.up.railway.app"],
+            "events": ["page_view"]
+          }
+        },
+        {
+          "id": "players",
+          "label": "players",
+          "sub": "started a puzzle",
+          "source": {
+            "type": "posthog",
+            "measure": "people",
+            "hosts": ["findin.world", "findin.up.railway.app"],
+            "events": ["daily_game_started", "practice_puzzle_completed"]
+          }
+        },
+        {
+          "id": "countries",
+          "label": "countries",
+          "sub": "visitor locations",
+          "source": {
+            "type": "posthog",
+            "measure": "countries",
+            "hosts": ["findin.world", "findin.up.railway.app"],
+            "events": ["page_view"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "asterisms",
+      "name": "Asterisms",
+      "url": "https://asterisms.space",
+      "window": "all time",
+      "stats": [
+        {
+          "id": "visitors",
+          "label": "visitors",
+          "sub": "humans only",
+          "source": {
+            "type": "posthog",
+            "measure": "people",
+            "hosts": ["asterisms.space"],
+            "events": ["page_view"]
+          }
+        },
+        {
+          "id": "engaged",
+          "label": "engaged",
+          "sub": "played or explored",
+          "source": {
+            "type": "posthog",
+            "measure": "people",
+            "hosts": ["asterisms.space"],
+            "events": [
+              "game_started", "daily_started", "practice_started", "explore_opened", "seek_opened",
+              "guided_find_opened", "sky_search_used", "star_inspected", "event_calendar_opened",
+              "sky_object_selected", "journey_started"
+            ]
+          }
+        },
+        {
+          "id": "countries",
+          "label": "countries",
+          "sub": "visitor locations",
+          "source": {
+            "type": "posthog",
+            "measure": "countries",
+            "hosts": ["asterisms.space"],
+            "events": ["page_view"]
+          }
         }
       ]
     },
@@ -28,6 +138,7 @@
       "name": "Flyweight",
       "url": "https://github.com/mukndd/flyweight",
       "repo": "mukndd/flyweight",
+      "live": false,
       "stats": [
         {
           "id": "neurons",
@@ -47,51 +158,6 @@
           "sub": "9-episode suite",
           "suffix": "%",
           "source": { "type": "file-regex", "path": "README.md", "pattern": "reached (\\d+)% win rate on the 9-episode" }
-        }
-      ]
-    },
-    {
-      "id": "findin",
-      "name": "Findin",
-      "url": "https://findin.world",
-      "stats": [
-        {
-          "id": "tests",
-          "label": "tests passing",
-          "source": { "type": "ci", "event": "push", "pattern": "\\bTests\\s+(\\d+) passed" }
-        },
-        {
-          "id": "species-verified",
-          "label": "species verified",
-          "source": { "type": "json", "path": "scripts/content/manifests/launch-60.json", "pick": ["count"] }
-        },
-        {
-          "id": "commits",
-          "label": "commits authored",
-          "source": { "type": "commits", "author": "mukndd" }
-        }
-      ]
-    },
-    {
-      "id": "asterisms",
-      "name": "Asterisms",
-      "url": "https://asterisms.space",
-      "stats": [
-        {
-          "id": "stars",
-          "label": "real stars",
-          "source": { "type": "json", "path": "src/data/generated/report.json", "pick": ["uniqueStarCount"] }
-        },
-        {
-          "id": "patterns",
-          "label": "sky patterns",
-          "sub": "constellations + asterisms",
-          "source": { "type": "json", "path": "src/data/generated/report.json", "pick": ["constellationCount", "asterismCount"] }
-        },
-        {
-          "id": "tests",
-          "label": "tests passing",
-          "source": { "type": "ci", "event": "push", "pattern": "\\bTests\\s+(\\d+) passed" }
         }
       ]
     }

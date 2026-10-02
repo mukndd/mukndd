@@ -4,29 +4,94 @@
     "originull": {
       "name": "Originull",
       "url": "https://originull.com",
-      "pushedAt": "2026-09-23",
+      "window": "all time",
+      "pushedAt": null,
       "stats": {
-        "commits": {
-          "label": "commits authored",
-          "source": "commits",
-          "value": 737,
-          "status": "live",
-          "asOf": "2026-10-02",
-          "detail": {
-            "total": 820
-          }
-        },
-        "edge-functions": {
-          "label": "edge functions",
-          "source": "tree-count",
-          "value": 36,
+        "visitors": {
+          "label": "visitors",
+          "sub": "humans only",
+          "source": "posthog",
+          "value": 83,
           "status": "live",
           "asOf": "2026-10-02"
         },
-        "test-files": {
-          "label": "test files",
-          "source": "tree-count",
-          "value": 237,
+        "engaged": {
+          "label": "engaged",
+          "sub": "opened the editor",
+          "source": "posthog",
+          "value": 9,
+          "status": "live",
+          "asOf": "2026-10-02"
+        },
+        "countries": {
+          "label": "countries",
+          "sub": "visitor locations",
+          "source": "posthog",
+          "value": 9,
+          "status": "live",
+          "asOf": "2026-10-02"
+        }
+      }
+    },
+    "findin": {
+      "name": "Findin",
+      "url": "https://findin.world",
+      "window": "all time",
+      "pushedAt": null,
+      "stats": {
+        "visitors": {
+          "label": "visitors",
+          "sub": "humans only",
+          "source": "posthog",
+          "value": 312,
+          "status": "live",
+          "asOf": "2026-10-02"
+        },
+        "players": {
+          "label": "players",
+          "sub": "started a puzzle",
+          "source": "posthog",
+          "value": 177,
+          "status": "live",
+          "asOf": "2026-10-02"
+        },
+        "countries": {
+          "label": "countries",
+          "sub": "visitor locations",
+          "source": "posthog",
+          "value": 27,
+          "status": "live",
+          "asOf": "2026-10-02"
+        }
+      }
+    },
+    "asterisms": {
+      "name": "Asterisms",
+      "url": "https://asterisms.space",
+      "window": "all time",
+      "pushedAt": null,
+      "stats": {
+        "visitors": {
+          "label": "visitors",
+          "sub": "humans only",
+          "source": "posthog",
+          "value": 94,
+          "status": "live",
+          "asOf": "2026-10-02"
+        },
+        "engaged": {
+          "label": "engaged",
+          "sub": "played or explored",
+          "source": "posthog",
+          "value": 23,
+          "status": "live",
+          "asOf": "2026-10-02"
+        },
+        "countries": {
+          "label": "countries",
+          "sub": "visitor locations",
+          "source": "posthog",
+          "value": 9,
           "status": "live",
           "asOf": "2026-10-02"
         }
@@ -35,6 +100,7 @@
     "flyweight": {
       "name": "Flyweight",
       "url": "https://github.com/mukndd/flyweight",
+      "live": false,
       "pushedAt": "2026-09-16",
       "stats": {
         "neurons": {
@@ -61,72 +127,6 @@
           "value": 100,
           "status": "live",
           "asOf": "2026-10-02"
-        }
-      }
-    },
-    "findin": {
-      "name": "Findin",
-      "url": "https://findin.world",
-      "pushedAt": "2026-09-29",
-      "stats": {
-        "tests": {
-          "label": "tests passing",
-          "source": "ci",
-          "value": 350,
-          "status": "live",
-          "asOf": "2026-10-02",
-          "detail": {
-            "runDate": "2026-09-29"
-          }
-        },
-        "species-verified": {
-          "label": "species verified",
-          "source": "json",
-          "value": 60,
-          "status": "live",
-          "asOf": "2026-10-02"
-        },
-        "commits": {
-          "label": "commits authored",
-          "source": "commits",
-          "value": 101,
-          "status": "live",
-          "asOf": "2026-10-02",
-          "detail": {
-            "total": 102
-          }
-        }
-      }
-    },
-    "asterisms": {
-      "name": "Asterisms",
-      "url": "https://asterisms.space",
-      "pushedAt": "2026-10-01",
-      "stats": {
-        "stars": {
-          "label": "real stars",
-          "source": "json",
-          "value": 9042,
-          "status": "live",
-          "asOf": "2026-10-02"
-        },
-        "patterns": {
-          "label": "sky patterns",
-          "sub": "constellations + asterisms",
-          "source": "json",
-          "value": 162,
-          "status": "live",
-          "asOf": "2026-10-02"
-        },
-        "tests": {
-          "label": "tests passing",
-          "source": "ci",
-          "value": 347,
-          "status": "live",
-          "asOf": "2026-10-02",
-          "detail": {
-            "runDate": "2026-10-01"
-          }
         }
       }
     }

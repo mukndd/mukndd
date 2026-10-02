@@ -22,14 +22,13 @@ jobs:
         with:
           node-version: 22
 
-      # STATS_TOKEN: read-only fine-grained PAT (Contents, Actions, Metadata) on the
-      # private project repos. Without it the public repo still refreshes and the
-      # private cards turn amber and keep their last verified values.
-      # STATS_REPOS: JSON map of project id -> "owner/repo", kept out of this public repo.
+      # POSTHOG_API_KEY: a read-only personal API key (query:read) for the PostHog
+      # project. Without it the audience cards keep their last value and turn into
+      # a dated "snapshot" after 2 days; Flyweight still refreshes from its README.
       - name: refresh stats
         env:
-          GH_TOKEN: ${{ secrets.STATS_TOKEN || secrets.GITHUB_TOKEN }}
-          STATS_REPOS: ${{ secrets.STATS_REPOS }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          POSTHOG_API_KEY: ${{ secrets.POSTHOG_API_KEY }}
         run: node scripts/update-stats.mjs
 
       - name: commit changes
