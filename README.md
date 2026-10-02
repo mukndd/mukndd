@@ -25,9 +25,25 @@ I build products end to end: from ambiguous requirements and UX through frontend
 
 ---
 
+## live stats
+
+<!-- STATS:START -->
+<p align="center">
+  <a href="https://originull.com"><img src="stats/cards/originull.svg" width="49%" alt="Originull: 737 commits authored, 36 edge functions, 237 test files" /></a>
+  <a href="https://github.com/mukndd/flyweight"><img src="stats/cards/flyweight.svg" width="49%" alt="Flyweight: 1,536 neurons, 170,489 edges, 100% held-out win rate" /></a>
+</p>
+<p align="center">
+  <a href="https://findin.world"><img src="stats/cards/findin.svg" width="49%" alt="Findin: 350 tests passing, 60 species verified, 101 commits authored" /></a>
+  <a href="https://asterisms.space"><img src="stats/cards/asterisms.svg" width="49%" alt="Asterisms: 9,042 real stars, 162 sky patterns, 347 tests passing" /></a>
+</p>
+<p align="center"><sub>Recomputed daily by a GitHub Action from each repo's default branch, data files and latest passing CI run. A number that can't be refreshed turns amber and keeps its last verified value. Sources and dates: <a href="stats/data.json">stats/data.json</a>.</sub></p>
+<!-- STATS:END -->
+
+---
+
 ## what i'm building right now
 
-**[Originull](https://originull.com)**: a browser workspace that turns product images, prompts, and existing 3D assets into customizable, web-ready 3D. The generation step is an LLM writing *parametric geometry code*, checked by an automated "Functional Critic" before it's ever shown as final, not a diffusion model guessing a mesh. Outbound LLM calls are standardized through a single gateway (OpenRouter) rather than direct provider clients, which keeps routing, cost review, and fallbacks easier to reason about. Full-stack ownership: product direction, the React/TypeScript/Three.js workspace, Supabase-backed auth/storage/billing, and the async generation pipeline (jobs, retries, webhooks, fallback handling). 717 of the production repo's 723 commits are mine.
+**[Originull](https://originull.com)**: a browser workspace that turns product images, prompts, and existing 3D assets into customizable, web-ready 3D. The generation step is an LLM writing *parametric geometry code*, checked by an automated "Functional Critic" before it's ever shown as final, not a diffusion model guessing a mesh. Outbound LLM calls are standardized through a single gateway (OpenRouter) rather than direct provider clients, which keeps routing, cost review, and fallbacks easier to reason about. Full-stack ownership: product direction, the React/TypeScript/Three.js workspace, Supabase-backed auth/storage/billing, and the async generation pipeline (jobs, retries, webhooks, fallback handling). Live commit, test and edge-function counts for the production repo are in the stats above.
 
 <p align="center">
   <img src="media/originull-polar-bear-generated.png" width="49%" alt="Originull workspace showing a generated polar bear creative mesh" />
@@ -54,8 +70,8 @@ A 2D fighting game where one controller isn't hand-tuned: its wiring comes from 
 <td width="33%" valign="top">
 
 **🌍 [Findin](https://findin.world)**
-A browser game combining geography with deep time: read the evidence, guess **where** an animal lived and **when**, with real paleogeographic coastlines for extinct species instead of pretending ancient life belongs on today's map. Built the full content pipeline (GBIF, Paleobiology Database, GPlates-derived reconstructions) with quality gates; 60 species manually verified for launch.
-`Next.js` `TypeScript` `Supabase` `PostHog`
+A browser game combining geography with deep time: read the evidence, guess **where** an animal lived and **when**, with real paleogeographic coastlines for extinct species instead of pretending ancient life belongs on today's map. Built the full content pipeline (GBIF, Paleobiology Database, GPlates-derived reconstructions) with quality gates and a manually verified launch set of species.
+`Next.js` `TypeScript` `Supabase` `PostHog` · [case study](https://github.com/mukndd/findin-case-study)
 
 <br/>
 <img src="media/findin-antique-world-map.png" width="100%" alt="Findin world-map visual for guessing where extinct species lived" />
@@ -65,7 +81,7 @@ A browser game combining geography with deep time: read the evidence, guess **wh
 <td width="33%" valign="top">
 
 **✨ [Asterisms](https://asterisms.space)**
-A daily constellation-learning game on a *real* astronomy catalogue: 88 IAU constellations, 74 Western asterisms, 9,036 real cataloged stars, projected with real gnomonic RA/Dec math, not decorative particle stars. Neon Postgres handles only puzzle scheduling and leaderboards, so a DB outage degrades the leaderboard, never the game. Sole builder: data pipeline, gameplay, frontend.
+A constellation-learning game that grew into a real-sky explorer. Daily and Practice puzzles run on a *real* astronomy catalogue (88 IAU constellations, 74 Western asterisms), projected with real gnomonic RA/Dec math, not decorative particle stars. The same engine now drives Tonight (location-aware stargazing), Seek (any sky from 1900 to now) and Guided Find. Neon Postgres handles only puzzle scheduling and leaderboards, so a DB outage degrades the leaderboard, never the game. Sole builder: data pipeline, gameplay, sky engine, frontend.
 `Next.js` `Neon` `Drizzle` `PostHog` · [case study](https://github.com/mukndd/asterisms-case-study)
 
 <br/>

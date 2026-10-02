@@ -1,0 +1,99 @@
+{
+  "author": "mukndd",
+  "projects": [
+    {
+      "id": "originull",
+      "name": "Originull",
+      "url": "https://originull.com",
+      "stats": [
+        {
+          "id": "commits",
+          "label": "commits authored",
+          "source": { "type": "commits", "author": "mukndd" }
+        },
+        {
+          "id": "edge-functions",
+          "label": "edge functions",
+          "source": { "type": "tree-count", "match": "^supabase/functions/[^/_][^/]*/index\\.ts$" }
+        },
+        {
+          "id": "test-files",
+          "label": "test files",
+          "source": { "type": "tree-count", "match": "\\.(test|spec)\\.(ts|tsx|js|mjs)$", "exclude": "(^|/)(node_modules|archive|backup)[^/]*/" }
+        }
+      ]
+    },
+    {
+      "id": "flyweight",
+      "name": "Flyweight",
+      "url": "https://github.com/mukndd/flyweight",
+      "repo": "mukndd/flyweight",
+      "stats": [
+        {
+          "id": "neurons",
+          "label": "neurons",
+          "sub": "FlyWire subgraph",
+          "source": { "type": "file-regex", "path": "README.md", "pattern": "([\\d,]+)-neuron\\s*/\\s*[\\d,]+-edge" }
+        },
+        {
+          "id": "edges",
+          "label": "edges",
+          "sub": "hash-verified",
+          "source": { "type": "file-regex", "path": "README.md", "pattern": "[\\d,]+-neuron\\s*/\\s*([\\d,]+)-edge" }
+        },
+        {
+          "id": "win-rate",
+          "label": "held-out win rate",
+          "sub": "9-episode suite",
+          "suffix": "%",
+          "source": { "type": "file-regex", "path": "README.md", "pattern": "reached (\\d+)% win rate on the 9-episode" }
+        }
+      ]
+    },
+    {
+      "id": "findin",
+      "name": "Findin",
+      "url": "https://findin.world",
+      "stats": [
+        {
+          "id": "tests",
+          "label": "tests passing",
+          "source": { "type": "ci", "event": "push", "pattern": "\\bTests\\s+(\\d+) passed" }
+        },
+        {
+          "id": "species-verified",
+          "label": "species verified",
+          "source": { "type": "json", "path": "scripts/content/manifests/launch-60.json", "pick": ["count"] }
+        },
+        {
+          "id": "commits",
+          "label": "commits authored",
+          "source": { "type": "commits", "author": "mukndd" }
+        }
+      ]
+    },
+    {
+      "id": "asterisms",
+      "name": "Asterisms",
+      "url": "https://asterisms.space",
+      "stats": [
+        {
+          "id": "stars",
+          "label": "real stars",
+          "source": { "type": "json", "path": "src/data/generated/report.json", "pick": ["uniqueStarCount"] }
+        },
+        {
+          "id": "patterns",
+          "label": "sky patterns",
+          "sub": "constellations + asterisms",
+          "source": { "type": "json", "path": "src/data/generated/report.json", "pick": ["constellationCount", "asterismCount"] }
+        },
+        {
+          "id": "tests",
+          "label": "tests passing",
+          "source": { "type": "ci", "event": "push", "pattern": "\\bTests\\s+(\\d+) passed" }
+        }
+      ]
+    }
+  ]
+}
