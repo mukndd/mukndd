@@ -10,7 +10,7 @@
           "label": "commits authored",
           "source": "commits",
           "value": 737,
-          "status": "live",
+          "status": "stale",
           "asOf": "2026-10-02",
           "detail": {
             "total": 820
@@ -20,14 +20,14 @@
           "label": "edge functions",
           "source": "tree-count",
           "value": 36,
-          "status": "live",
+          "status": "stale",
           "asOf": "2026-10-02"
         },
         "test-files": {
           "label": "test files",
           "source": "tree-count",
           "value": 237,
-          "status": "live",
+          "status": "stale",
           "asOf": "2026-10-02"
         }
       }
@@ -73,7 +73,7 @@
           "label": "tests passing",
           "source": "ci",
           "value": 350,
-          "status": "live",
+          "status": "stale",
           "asOf": "2026-10-02",
           "detail": {
             "runDate": "2026-09-29"
@@ -83,14 +83,14 @@
           "label": "species verified",
           "source": "json",
           "value": 60,
-          "status": "live",
+          "status": "stale",
           "asOf": "2026-10-02"
         },
         "commits": {
           "label": "commits authored",
           "source": "commits",
           "value": 101,
-          "status": "live",
+          "status": "stale",
           "asOf": "2026-10-02",
           "detail": {
             "total": 102
@@ -107,7 +107,7 @@
           "label": "real stars",
           "source": "json",
           "value": 9042,
-          "status": "live",
+          "status": "stale",
           "asOf": "2026-10-02"
         },
         "patterns": {
@@ -115,14 +115,14 @@
           "sub": "constellations + asterisms",
           "source": "json",
           "value": 162,
-          "status": "live",
+          "status": "stale",
           "asOf": "2026-10-02"
         },
         "tests": {
           "label": "tests passing",
           "source": "ci",
           "value": 347,
-          "status": "live",
+          "status": "stale",
           "asOf": "2026-10-02",
           "detail": {
             "runDate": "2026-10-01"
