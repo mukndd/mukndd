@@ -8,8 +8,9 @@
 // branch), then writes stats/data.json, one SVG card per project in
 // stats/cards/, and the block between the STATS markers in README.md.
 //
-// A stat that cannot be refreshed keeps its last known value and is marked
-// "stale" instead of disappearing or being guessed. Private repo names never
+// A stat that cannot be refreshed keeps its last verified value and date. It is
+// marked "stale" once that date is more than STALE_AFTER_DAYS old, so a card never
+// claims a freshness it didn't just verify. Private repo names never
 // enter this public repo: they come from the STATS_REPOS env var (a JSON map of
 // project id -> "owner/repo") or the gitignored stats/repos.local.json.
 // Nothing below logs a repo name, because Actions logs on a public repo are public.
@@ -32,6 +33,9 @@ const MARK_END = "<!-- STATS:END -->";
 
 const NOW = new Date();
 const TODAY = NOW.toISOString().slice(0, 10);
+const STALE_AFTER_DAYS = 2;
+const ageDays = (iso) => Math.floor((Date.parse(`${TODAY}T00:00:00Z`) - Date.parse(`${iso}T00:00:00Z`)) / 86_400_000);
+const statusFor = (asOf) => (ageDays(asOf) > STALE_AFTER_DAYS ? "stale" : "live");
 
 // ---------------------------------------------------------------- auth + http
 
@@ -201,11 +205,11 @@ async function collect() {
       if (resolved) {
         entry.stats[stat.id] = { ...base, value: resolved.value, status: "live", asOf: TODAY, ...(resolved.detail && { detail: resolved.detail }) };
       } else if (last) {
-        entry.stats[stat.id] = { ...base, value: last.value, status: "stale", asOf: last.asOf, ...(last.detail && { detail: last.detail }) };
+        entry.stats[stat.id] = { ...base, value: last.value, status: statusFor(last.asOf), asOf: last.asOf, ...(last.detail && { detail: last.detail }) };
       } else {
         throw new Error(`${project.id}.${stat.id}: no live value and nothing to fall back to`);
       }
-      console.log(`${project.id}.${stat.id}: ${entry.stats[stat.id].value} (${entry.stats[stat.id].status})`);
+      console.log(`${project.id}.${stat.id}: ${entry.stats[stat.id].value} (${resolved ? "refreshed" : `kept from ${entry.stats[stat.id].asOf}`}, ${entry.stats[stat.id].status})`);
     }
     out.projects[project.id] = entry;
   }
@@ -231,8 +235,8 @@ function renderCard(project) {
   const stale = stats.length - live;
   const dot = stale ? "#D29922" : "#3FB950";
   const status = stale ? `${stale} stale` : "live";
-  const oldestStale = stats.filter((s) => s.status !== "live").map((s) => s.asOf).sort()[0];
-  const stamp = oldestStale ? `last live ${fmtDate(oldestStale)}` : `checked ${fmtDate(TODAY)}`;
+  const oldest = stats.map((s) => s.asOf).sort()[0];
+  const stamp = stale ? `last live ${fmtDate(oldest)}` : `checked ${fmtDate(oldest)}`;
   const footer = [`${status}`, project.pushedAt && `last push ${fmtDate(project.pushedAt)}`].filter(Boolean).join(" · ");
 
   // One value size per card so the row reads as a set; fit it to the longest value.
