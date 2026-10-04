@@ -11,25 +11,25 @@
           "label": "visitors",
           "sub": "humans only",
           "source": "posthog",
-          "value": 83,
-          "status": "snapshot",
-          "asOf": "2026-10-02"
+          "value": 87,
+          "status": "live",
+          "asOf": "2026-10-04"
         },
         "engaged": {
           "label": "engaged",
           "sub": "opened the editor",
           "source": "posthog",
           "value": 9,
-          "status": "snapshot",
-          "asOf": "2026-10-02"
+          "status": "live",
+          "asOf": "2026-10-04"
         },
         "countries": {
           "label": "countries",
           "sub": "visitor locations",
           "source": "posthog",
           "value": 9,
-          "status": "snapshot",
-          "asOf": "2026-10-02"
+          "status": "live",
+          "asOf": "2026-10-04"
         }
       }
     },
@@ -43,25 +43,25 @@
           "label": "visitors",
           "sub": "humans only",
           "source": "posthog",
-          "value": 312,
-          "status": "snapshot",
-          "asOf": "2026-10-02"
+          "value": 318,
+          "status": "live",
+          "asOf": "2026-10-04"
         },
         "players": {
           "label": "players",
           "sub": "started a puzzle",
           "source": "posthog",
-          "value": 177,
-          "status": "snapshot",
-          "asOf": "2026-10-02"
+          "value": 178,
+          "status": "live",
+          "asOf": "2026-10-04"
         },
         "countries": {
           "label": "countries",
           "sub": "visitor locations",
           "source": "posthog",
-          "value": 27,
-          "status": "snapshot",
-          "asOf": "2026-10-02"
+          "value": 28,
+          "status": "live",
+          "asOf": "2026-10-04"
         }
       }
     },
@@ -75,25 +75,25 @@
           "label": "visitors",
           "sub": "humans only",
           "source": "posthog",
-          "value": 94,
-          "status": "snapshot",
-          "asOf": "2026-10-02"
+          "value": 120,
+          "status": "live",
+          "asOf": "2026-10-04"
         },
         "engaged": {
           "label": "engaged",
           "sub": "played or explored",
           "source": "posthog",
-          "value": 23,
-          "status": "snapshot",
-          "asOf": "2026-10-02"
+          "value": 40,
+          "status": "live",
+          "asOf": "2026-10-04"
         },
         "countries": {
           "label": "countries",
           "sub": "visitor locations",
           "source": "posthog",
-          "value": 9,
-          "status": "snapshot",
-          "asOf": "2026-10-02"
+          "value": 10,
+          "status": "live",
+          "asOf": "2026-10-04"
         }
       }
     },
