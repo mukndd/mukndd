@@ -15,10 +15,10 @@
 //   file-regex  a figure stated in a public repo file (Flyweight's README).
 //               Needs only GH_TOKEN / GITHUB_TOKEN, or `gh auth token` locally.
 //
-// A stat that cannot be refreshed keeps its last value and date. A card says
-// "live" only if every stat on it was refreshed within STALE_AFTER_DAYS;
-// otherwise it says "snapshot" with the date, so it never claims a freshness
-// it didn't just verify. Projects with "live": false never show that badge.
+// A stat that cannot be refreshed keeps its last value and date, and the run
+// exits non-zero. A card says "live" only if every stat on it was refreshed within
+// STALE_AFTER_DAYS; otherwise it says "snapshot" with the date, so it never claims
+// a freshness it didn't just verify. Projects with "live": false never show that badge.
 
 import { execFileSync } from "node:child_process";
 import { existsSync } from "node:fs";
@@ -35,7 +35,8 @@ const MARK_END = "<!-- STATS:END -->";
 
 const NOW = new Date();
 const TODAY = NOW.toISOString().slice(0, 10);
-const STALE_AFTER_DAYS = 2;
+const STALE_AFTER_DAYS = 1;
+let notRefreshed = 0;
 const ageDays = (iso) => Math.floor((Date.parse(`${TODAY}T00:00:00Z`) - Date.parse(`${iso}T00:00:00Z`)) / 86_400_000);
 const statusFor = (asOf) => (ageDays(asOf) > STALE_AFTER_DAYS ? "snapshot" : "live");
 
@@ -157,6 +158,7 @@ async function collect(config) {
       try {
         resolved = await RESOLVERS[stat.source.type]({ config: config.posthog, project, source: stat.source });
       } catch (err) {
+        notRefreshed++;
         console.warn(`${project.id}.${stat.id}: not refreshed (${err.message})`);
       }
       const base = { label: stat.label, ...(stat.sub && { sub: stat.sub }), ...(stat.suffix && { suffix: stat.suffix }), source: stat.source.type };
@@ -272,3 +274,10 @@ const end = readme.indexOf(MARK_END);
 if (start === -1 || end === -1 || end < start) throw new Error("README.md is missing the STATS markers");
 await writeIfChanged(README, readme.slice(0, start) + renderReadmeBlock(data) + readme.slice(end + MARK_END.length));
 console.log("done");
+
+// Files are written first so the kept values still get committed, but a stat that
+// could not refresh must not pass silently: it fails the run so GitHub emails it.
+if (notRefreshed) {
+  console.error(`${notRefreshed} stat(s) were not refreshed`);
+  process.exitCode = 1;
+}

@@ -23,15 +23,19 @@ jobs:
           node-version: 22
 
       # POSTHOG_API_KEY: a read-only personal API key (query:read) for the PostHog
-      # project. Without it the audience cards keep their last value and turn into
-      # a dated "snapshot" after 2 days; Flyweight still refreshes from its README.
+      # project. Without it the audience cards keep their last value, turn into a
+      # dated "snapshot" after a day, and this step fails; Flyweight still refreshes
+      # from its README.
       - name: refresh stats
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           POSTHOG_API_KEY: ${{ secrets.POSTHOG_API_KEY }}
         run: node scripts/update-stats.mjs
 
+      # always(): keep committing kept values and fresh Flyweight data even when
+      # the refresh step failed, so the run is red but the cards stay consistent.
       - name: commit changes
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

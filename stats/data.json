@@ -12,7 +12,7 @@
           "sub": "humans only",
           "source": "posthog",
           "value": 83,
-          "status": "live",
+          "status": "snapshot",
           "asOf": "2026-10-02"
         },
         "engaged": {
@@ -20,7 +20,7 @@
           "sub": "opened the editor",
           "source": "posthog",
           "value": 9,
-          "status": "live",
+          "status": "snapshot",
           "asOf": "2026-10-02"
         },
         "countries": {
@@ -28,7 +28,7 @@
           "sub": "visitor locations",
           "source": "posthog",
           "value": 9,
-          "status": "live",
+          "status": "snapshot",
           "asOf": "2026-10-02"
         }
       }
@@ -44,7 +44,7 @@
           "sub": "humans only",
           "source": "posthog",
           "value": 312,
-          "status": "live",
+          "status": "snapshot",
           "asOf": "2026-10-02"
         },
         "players": {
@@ -52,7 +52,7 @@
           "sub": "started a puzzle",
           "source": "posthog",
           "value": 177,
-          "status": "live",
+          "status": "snapshot",
           "asOf": "2026-10-02"
         },
         "countries": {
@@ -60,7 +60,7 @@
           "sub": "visitor locations",
           "source": "posthog",
           "value": 27,
-          "status": "live",
+          "status": "snapshot",
           "asOf": "2026-10-02"
         }
       }
@@ -76,7 +76,7 @@
           "sub": "humans only",
           "source": "posthog",
           "value": 94,
-          "status": "live",
+          "status": "snapshot",
           "asOf": "2026-10-02"
         },
         "engaged": {
@@ -84,7 +84,7 @@
           "sub": "played or explored",
           "source": "posthog",
           "value": 23,
-          "status": "live",
+          "status": "snapshot",
           "asOf": "2026-10-02"
         },
         "countries": {
@@ -92,7 +92,7 @@
           "sub": "visitor locations",
           "source": "posthog",
           "value": 9,
-          "status": "live",
+          "status": "snapshot",
           "asOf": "2026-10-02"
         }
       }
