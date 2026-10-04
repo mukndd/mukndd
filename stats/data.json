@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-03",
+  "generatedAt": "2026-10-04",
   "projects": {
     "originull": {
       "name": "Originull",
@@ -109,7 +109,7 @@
           "source": "file-regex",
           "value": 1536,
           "status": "live",
-          "asOf": "2026-10-03"
+          "asOf": "2026-10-04"
         },
         "edges": {
           "label": "edges",
@@ -117,7 +117,7 @@
           "source": "file-regex",
           "value": 170489,
           "status": "live",
-          "asOf": "2026-10-03"
+          "asOf": "2026-10-04"
         },
         "win-rate": {
           "label": "held-out win rate",
@@ -126,7 +126,7 @@
           "source": "file-regex",
           "value": 100,
           "status": "live",
-          "asOf": "2026-10-03"
+          "asOf": "2026-10-04"
         }
       }
     }
