@@ -43,7 +43,7 @@
           "label": "visitors",
           "sub": "humans only",
           "source": "posthog",
-          "value": 318,
+          "value": 320,
           "status": "live",
           "asOf": "2026-10-04"
         },
@@ -51,7 +51,7 @@
           "label": "players",
           "sub": "started a puzzle",
           "source": "posthog",
-          "value": 178,
+          "value": 179,
           "status": "live",
           "asOf": "2026-10-04"
         },
