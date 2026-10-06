@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="400" height="168" viewBox="0 0 400 168" role="img" aria-label="Findin: 322 visitors, 180 players, 28 countries" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">
-<title>Findin: 322 visitors, 180 players, 28 countries</title>
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="168" viewBox="0 0 400 168" role="img" aria-label="Findin: 339 visitors, 190 players, 28 countries" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">
+<title>Findin: 339 visitors, 190 players, 28 countries</title>
 <rect x="0.5" y="0.5" width="399" height="167" rx="14" fill="#0D1117" stroke="#30363D"/>
 <rect x="24" y="0" width="40" height="3" rx="1.5" fill="#A78BFA"/>
 <text x="24" y="38" font-size="16" font-weight="600" fill="#E6EDF3">Findin</text>
 <text x="376" y="38" font-size="11" fill="#8B949E" text-anchor="end">all time</text>
 <line x1="24" y1="52" x2="376" y2="52" stroke="#21262D"/>
-<text x="24" y="92" font-size="32" font-weight="600" fill="#E6EDF3">322</text><text x="24" y="113" font-size="12.5" fill="#8B949E">visitors</text><text x="24" y="128" font-size="11" fill="#6E7681">humans only</text><text x="141.33333333333331" y="92" font-size="32" font-weight="600" fill="#E6EDF3">180</text><text x="141.33333333333331" y="113" font-size="12.5" fill="#8B949E">players</text><text x="141.33333333333331" y="128" font-size="11" fill="#6E7681">started a puzzle</text><text x="258.66666666666663" y="92" font-size="32" font-weight="600" fill="#E6EDF3">28</text><text x="258.66666666666663" y="113" font-size="12.5" fill="#8B949E">countries</text><text x="258.66666666666663" y="128" font-size="11" fill="#6E7681">visitor locations</text>
+<text x="24" y="92" font-size="32" font-weight="600" fill="#E6EDF3">339</text><text x="24" y="113" font-size="12.5" fill="#8B949E">visitors</text><text x="24" y="128" font-size="11" fill="#6E7681">humans only</text><text x="141.33333333333331" y="92" font-size="32" font-weight="600" fill="#E6EDF3">190</text><text x="141.33333333333331" y="113" font-size="12.5" fill="#8B949E">players</text><text x="141.33333333333331" y="128" font-size="11" fill="#6E7681">started a puzzle</text><text x="258.66666666666663" y="92" font-size="32" font-weight="600" fill="#E6EDF3">28</text><text x="258.66666666666663" y="113" font-size="12.5" fill="#8B949E">countries</text><text x="258.66666666666663" y="128" font-size="11" fill="#6E7681">visitor locations</text>
 <circle cx="29" cy="150" r="3.5" fill="#3FB950"/><text x="38" y="154" font-size="11" fill="#8B949E">live · updated Oct 6</text>
 </svg>
