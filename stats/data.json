@@ -11,7 +11,7 @@
           "label": "visitors",
           "sub": "humans only",
           "source": "posthog",
-          "value": 99,
+          "value": 101,
           "status": "live",
           "asOf": "2026-10-09"
         },
@@ -43,7 +43,7 @@
           "label": "visitors",
           "sub": "humans only",
           "source": "posthog",
-          "value": 345,
+          "value": 346,
           "status": "live",
           "asOf": "2026-10-09"
         },
@@ -51,7 +51,7 @@
           "label": "players",
           "sub": "started a puzzle",
           "source": "posthog",
-          "value": 191,
+          "value": 192,
           "status": "live",
           "asOf": "2026-10-09"
         },
@@ -75,7 +75,7 @@
           "label": "visitors",
           "sub": "humans only",
           "source": "posthog",
-          "value": 127,
+          "value": 128,
           "status": "live",
           "asOf": "2026-10-09"
         },
@@ -83,7 +83,7 @@
           "label": "engaged",
           "sub": "played or explored",
           "source": "posthog",
-          "value": 43,
+          "value": 44,
           "status": "live",
           "asOf": "2026-10-09"
         },
@@ -91,7 +91,7 @@
           "label": "countries",
           "sub": "visitor locations",
           "source": "posthog",
-          "value": 11,
+          "value": 12,
           "status": "live",
           "asOf": "2026-10-09"
         }
