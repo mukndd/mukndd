@@ -11,7 +11,7 @@
           "label": "visitors",
           "sub": "humans only",
           "source": "posthog",
-          "value": 98,
+          "value": 99,
           "status": "live",
           "asOf": "2026-10-09"
         },
@@ -27,7 +27,7 @@
           "label": "countries",
           "sub": "visitor locations",
           "source": "posthog",
-          "value": 10,
+          "value": 11,
           "status": "live",
           "asOf": "2026-10-09"
         }
@@ -75,7 +75,7 @@
           "label": "visitors",
           "sub": "humans only",
           "source": "posthog",
-          "value": 126,
+          "value": 127,
           "status": "live",
           "asOf": "2026-10-09"
         },
@@ -83,7 +83,7 @@
           "label": "engaged",
           "sub": "played or explored",
           "source": "posthog",
-          "value": 42,
+          "value": 43,
           "status": "live",
           "asOf": "2026-10-09"
         },
