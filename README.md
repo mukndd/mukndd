@@ -29,8 +29,8 @@ I build products end to end: from ambiguous requirements and UX through frontend
 
 <!-- STATS:START -->
 <p align="center">
-  <a href="https://originull.com"><img src="stats/cards/originull.svg" width="49%" alt="Originull: 101 visitors, 10 engaged, 11 countries" /></a>
-  <a href="https://findin.world"><img src="stats/cards/findin.svg" width="49%" alt="Findin: 346 visitors, 192 players, 28 countries" /></a>
+  <a href="https://originull.com"><img src="stats/cards/originull.svg" width="49%" alt="Originull: 103 visitors, 10 engaged, 11 countries" /></a>
+  <a href="https://findin.world"><img src="stats/cards/findin.svg" width="49%" alt="Findin: 349 visitors, 193 players, 28 countries" /></a>
 </p>
 <p align="center">
   <a href="https://asterisms.space"><img src="stats/cards/asterisms.svg" width="49%" alt="Asterisms: 128 visitors, 44 engaged, 12 countries" /></a>
