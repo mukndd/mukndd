@@ -11,7 +11,7 @@
           "label": "visitors",
           "sub": "humans only",
           "source": "posthog",
-          "value": 104,
+          "value": 105,
           "status": "live",
           "asOf": "2026-10-11"
         },
@@ -19,7 +19,7 @@
           "label": "engaged",
           "sub": "opened the editor",
           "source": "posthog",
-          "value": 10,
+          "value": 11,
           "status": "live",
           "asOf": "2026-10-11"
         },
@@ -43,7 +43,7 @@
           "label": "visitors",
           "sub": "humans only",
           "source": "posthog",
-          "value": 350,
+          "value": 351,
           "status": "live",
           "asOf": "2026-10-11"
         },
@@ -75,7 +75,7 @@
           "label": "visitors",
           "sub": "humans only",
           "source": "posthog",
-          "value": 131,
+          "value": 136,
           "status": "live",
           "asOf": "2026-10-11"
         },
@@ -83,7 +83,7 @@
           "label": "engaged",
           "sub": "played or explored",
           "source": "posthog",
-          "value": 47,
+          "value": 50,
           "status": "live",
           "asOf": "2026-10-11"
         },
@@ -91,7 +91,7 @@
           "label": "countries",
           "sub": "visitor locations",
           "source": "posthog",
-          "value": 12,
+          "value": 13,
           "status": "live",
           "asOf": "2026-10-11"
         }
