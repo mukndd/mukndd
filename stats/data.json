@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-11",
+  "generatedAt": "2026-10-12",
   "projects": {
     "originull": {
       "name": "Originull",
@@ -13,7 +13,7 @@
           "source": "posthog",
           "value": 106,
           "status": "live",
-          "asOf": "2026-10-11"
+          "asOf": "2026-10-12"
         },
         "engaged": {
           "label": "engaged",
@@ -21,7 +21,7 @@
           "source": "posthog",
           "value": 11,
           "status": "live",
-          "asOf": "2026-10-11"
+          "asOf": "2026-10-12"
         },
         "countries": {
           "label": "countries",
@@ -29,7 +29,7 @@
           "source": "posthog",
           "value": 11,
           "status": "live",
-          "asOf": "2026-10-11"
+          "asOf": "2026-10-12"
         }
       }
     },
@@ -43,17 +43,17 @@
           "label": "visitors",
           "sub": "humans only",
           "source": "posthog",
-          "value": 363,
+          "value": 364,
           "status": "live",
-          "asOf": "2026-10-11"
+          "asOf": "2026-10-12"
         },
         "players": {
           "label": "players",
           "sub": "started a puzzle",
           "source": "posthog",
-          "value": 202,
+          "value": 203,
           "status": "live",
-          "asOf": "2026-10-11"
+          "asOf": "2026-10-12"
         },
         "countries": {
           "label": "countries",
@@ -61,7 +61,7 @@
           "source": "posthog",
           "value": 28,
           "status": "live",
-          "asOf": "2026-10-11"
+          "asOf": "2026-10-12"
         }
       }
     },
@@ -75,9 +75,9 @@
           "label": "visitors",
           "sub": "humans only",
           "source": "posthog",
-          "value": 139,
+          "value": 140,
           "status": "live",
-          "asOf": "2026-10-11"
+          "asOf": "2026-10-12"
         },
         "engaged": {
           "label": "engaged",
@@ -85,15 +85,15 @@
           "source": "posthog",
           "value": 50,
           "status": "live",
-          "asOf": "2026-10-11"
+          "asOf": "2026-10-12"
         },
         "countries": {
           "label": "countries",
           "sub": "visitor locations",
           "source": "posthog",
-          "value": 13,
+          "value": 14,
           "status": "live",
-          "asOf": "2026-10-11"
+          "asOf": "2026-10-12"
         }
       }
     },
@@ -109,7 +109,7 @@
           "source": "file-regex",
           "value": 1536,
           "status": "live",
-          "asOf": "2026-10-11"
+          "asOf": "2026-10-12"
         },
         "edges": {
           "label": "edges",
@@ -117,7 +117,7 @@
           "source": "file-regex",
           "value": 170489,
           "status": "live",
-          "asOf": "2026-10-11"
+          "asOf": "2026-10-12"
         },
         "win-rate": {
           "label": "held-out win rate",
@@ -126,7 +126,7 @@
           "source": "file-regex",
           "value": 100,
           "status": "live",
-          "asOf": "2026-10-11"
+          "asOf": "2026-10-12"
         }
       }
     }
