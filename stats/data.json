@@ -11,7 +11,7 @@
           "label": "visitors",
           "sub": "humans only",
           "source": "posthog",
-          "value": 113,
+          "value": 114,
           "status": "live",
           "asOf": "2026-10-16"
         },
@@ -75,7 +75,7 @@
           "label": "visitors",
           "sub": "humans only",
           "source": "posthog",
-          "value": 150,
+          "value": 151,
           "status": "live",
           "asOf": "2026-10-16"
         },
