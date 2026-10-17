@@ -11,7 +11,7 @@
           "label": "visitors",
           "sub": "humans only",
           "source": "posthog",
-          "value": 115,
+          "value": 116,
           "status": "live",
           "asOf": "2026-10-17"
         },
@@ -43,7 +43,7 @@
           "label": "visitors",
           "sub": "humans only",
           "source": "posthog",
-          "value": 373,
+          "value": 374,
           "status": "live",
           "asOf": "2026-10-17"
         },
@@ -75,7 +75,7 @@
           "label": "visitors",
           "sub": "humans only",
           "source": "posthog",
-          "value": 151,
+          "value": 152,
           "status": "live",
           "asOf": "2026-10-17"
         },
@@ -91,7 +91,7 @@
           "label": "countries",
           "sub": "visitor locations",
           "source": "posthog",
-          "value": 16,
+          "value": 17,
           "status": "live",
           "asOf": "2026-10-17"
         }
