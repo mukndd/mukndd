@@ -11,7 +11,7 @@
           "label": "visitors",
           "sub": "humans only",
           "source": "posthog",
-          "value": 117,
+          "value": 119,
           "status": "live",
           "asOf": "2026-10-18"
         },
