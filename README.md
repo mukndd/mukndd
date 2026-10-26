@@ -30,10 +30,10 @@ I build products end to end: from ambiguous requirements and UX through frontend
 <!-- STATS:START -->
 <p align="center">
   <a href="https://originull.com"><img src="stats/cards/originull.svg" width="49%" alt="Originull: 121 visitors, 11 engaged, 12 countries" /></a>
-  <a href="https://findin.world"><img src="stats/cards/findin.svg" width="49%" alt="Findin: 389 visitors, 210 players, 28 countries" /></a>
+  <a href="https://findin.world"><img src="stats/cards/findin.svg" width="49%" alt="Findin: 390 visitors, 210 players, 28 countries" /></a>
 </p>
 <p align="center">
-  <a href="https://asterisms.space"><img src="stats/cards/asterisms.svg" width="49%" alt="Asterisms: 163 visitors, 58 engaged, 21 countries" /></a>
+  <a href="https://asterisms.space"><img src="stats/cards/asterisms.svg" width="49%" alt="Asterisms: 166 visitors, 59 engaged, 21 countries" /></a>
   <a href="https://github.com/mukndd/flyweight"><img src="stats/cards/flyweight.svg" width="49%" alt="Flyweight: 1,536 neurons, 170,489 edges, 100% held-out win rate" /></a>
 </p>
 <p align="center"><sub>Real people, not repo stats: unique human visitors and players on the production sites, counted in PostHog with bots and my own test accounts excluded. A GitHub Action refreshes them when it can reach PostHog; otherwise a card shows a dated snapshot. Flyweight shows figures stated in its README. Details: <a href="stats/data.json">stats/data.json</a>.</sub></p>
