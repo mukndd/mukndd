@@ -43,7 +43,7 @@
           "label": "visitors",
           "sub": "humans only",
           "source": "posthog",
-          "value": 394,
+          "value": 395,
           "status": "live",
           "asOf": "2026-10-29"
         },
@@ -75,7 +75,7 @@
           "label": "visitors",
           "sub": "humans only",
           "source": "posthog",
-          "value": 172,
+          "value": 174,
           "status": "live",
           "asOf": "2026-10-29"
         },
@@ -83,7 +83,7 @@
           "label": "engaged",
           "sub": "played or explored",
           "source": "posthog",
-          "value": 60,
+          "value": 61,
           "status": "live",
           "asOf": "2026-10-29"
         },
