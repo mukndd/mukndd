@@ -30,7 +30,7 @@ I build products end to end: from ambiguous requirements and UX through frontend
 <!-- STATS:START -->
 <p align="center">
   <a href="https://originull.com"><img src="stats/cards/originull.svg" width="49%" alt="Originull: 121 visitors, 11 engaged, 12 countries" /></a>
-  <a href="https://findin.world"><img src="stats/cards/findin.svg" width="49%" alt="Findin: 399 visitors, 212 players, 28 countries" /></a>
+  <a href="https://findin.world"><img src="stats/cards/findin.svg" width="49%" alt="Findin: 400 visitors, 213 players, 28 countries" /></a>
 </p>
 <p align="center">
   <a href="https://asterisms.space"><img src="stats/cards/asterisms.svg" width="49%" alt="Asterisms: 178 visitors, 64 engaged, 24 countries" /></a>
