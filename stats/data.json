@@ -83,7 +83,7 @@
           "label": "engaged",
           "sub": "played or explored",
           "source": "posthog",
-          "value": 65,
+          "value": 66,
           "status": "live",
           "asOf": "2026-11-01"
         },
