@@ -4,7 +4,6 @@
 
 ### Founding Engineer / Full-Stack Engineer · Bengaluru, India
 
-[![Typing SVG](https://readme-typing-svg.demolab.com/?font=Fira+Code&size=20&pause=1200&color=A78BFA&center=true&vCenter=true&width=560&lines=Co-founder+of+Originull%3A+AI-native+3D+tools;Training+game+AI+on+a+real+fly+connectome;Real+stars.+Real+deep+time.+Real+data.;An+automated+critic+before+anything+ships)](https://git.io/typing-svg)
 
 [![Portfolio](https://img.shields.io/badge/portfolio-mukndd.com-A78BFA?style=for-the-badge)](https://mukndd.com)
 [![Email](https://img.shields.io/badge/email-mukundg1101%40gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:mukundg1101@gmail.com)
@@ -18,8 +17,6 @@
 
 I build products end to end: from ambiguous requirements and UX through frontend, backend, AI workflows, auth/security, billing, observability, and production deployment. Most projects here start the same way: a question I couldn't leave alone that turned into something real enough to run, break, and keep pushing on.
 
-- 🚀 Co-founder of **[Originull](https://originull.com)**: an AI platform that turns prompts/images into checkable, editable, versioned 3D. AI is one part of the work; the larger signal is full product ownership
-- 🧠 Currently obsessed with whether a *real biological wiring diagram* (not a hand-designed network) can drive believable game AI. See **Flyweight** below
 - 🎓 CS undergrad, Dayananda Sagar University (2026) · Network School, Singapore & Malaysia
 - 📎 Every number on my [portfolio](https://mukndd.com) ships with a source and a verified flag: nothing renders without both. Same standard applies here
 
@@ -29,26 +26,11 @@ I build products end to end: from ambiguous requirements and UX through frontend
 
 <!-- STATS:START -->
 <p align="center">
-  <a href="https://originull.com"><img src="stats/cards/originull.svg" width="49%" alt="Originull: 121 visitors, 11 engaged, 12 countries" /></a>
   <a href="https://findin.world"><img src="stats/cards/findin.svg" width="49%" alt="Findin: 531 visitors, 289 players, 40 countries" /></a>
-</p>
-<p align="center">
   <a href="https://asterisms.space"><img src="stats/cards/asterisms.svg" width="49%" alt="Asterisms: 196 visitors, 71 engaged, 28 countries" /></a>
-  <a href="https://github.com/mukndd/flyweight"><img src="stats/cards/flyweight.svg" width="49%" alt="Flyweight: 1,536 neurons, 170,489 edges, 100% held-out win rate" /></a>
 </p>
-<p align="center"><sub>Real people, not repo stats: unique human visitors and players on the production sites, counted in PostHog with bots and my own test accounts excluded. A GitHub Action refreshes them when it can reach PostHog; otherwise a card shows a dated snapshot. Flyweight shows figures stated in its README. Details: <a href="stats/data.json">stats/data.json</a>.</sub></p>
+<p align="center"><sub>Real people, not repo stats: unique human visitors and players on the production sites, counted in PostHog with bots and my own test accounts excluded. A GitHub Action refreshes them when it can reach PostHog; otherwise a card shows a dated snapshot. Details: <a href="stats/data.json">stats/data.json</a>.</sub></p>
 <!-- STATS:END -->
-
----
-
-## what i'm building right now
-
-**[Originull](https://originull.com)**: a browser workspace that turns product images, prompts, and existing 3D assets into customizable, web-ready 3D. The generation step is an LLM writing *parametric geometry code*, checked by an automated "Functional Critic" before it's ever shown as final, not a diffusion model guessing a mesh. Outbound LLM calls are standardized through a single gateway (OpenRouter) rather than direct provider clients, which keeps routing, cost review, and fallbacks easier to reason about. Full-stack ownership: product direction, the React/TypeScript/Three.js workspace, Supabase-backed auth/storage/billing, and the async generation pipeline (jobs, retries, webhooks, fallback handling). Live commit, test and edge-function counts for the production repo are in the stats above.
-
-<p align="center">
-  <img src="media/originull-polar-bear-generated.png" width="49%" alt="Originull workspace showing a generated polar bear creative mesh" />
-  <img src="media/originull-polar-bear-material.png" width="49%" alt="Originull workspace showing material editing on a polar bear mesh" />
-</p>
 
 ---
 
@@ -58,13 +40,10 @@ I build products end to end: from ambiguous requirements and UX through frontend
 <tr>
 <td width="33%" valign="top">
 
-**🧬 [Flyweight](https://github.com/mukndd/flyweight)**
-A 2D fighting game where one controller isn't hand-tuned: its wiring comes from the real **FlyWire fruit-fly connectome**, reduced to a fixed, hash-verified 1,536-neuron / 170,489-edge subgraph. Only the artificial sensory encoder and motor readout are trained (via Cross-Entropy Method); the biological graph never learns. First full training run: **0% → 100%** held-out win rate, reported alongside its own honestly-flagged caveats about brittle convergence.
-`Python` `FastAPI` `WebSockets` `NumPy/SciPy` `React` `Three.js`
+**[Portfolio](https://mukndd.com)**
+My projects, resume, and a small interactive island.
 
-<br/>
-<img src="media/flyweight-game-controls.png" width="100%" alt="Flyweight arcade fight screen and controller UI" />
-<img src="media/flyweight-connectome.png" width="100%" alt="FlyWire connectome visualization used as biological inspiration for Flyweight" />
+[Visit mukndd.com](https://mukndd.com)
 
 </td>
 <td width="33%" valign="top">
