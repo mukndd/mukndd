@@ -17,7 +17,7 @@
 
 I build products end to end: from ambiguous requirements and UX through frontend, backend, AI workflows, auth/security, billing, observability, and production deployment. Most projects here start the same way: a question I couldn't leave alone that turned into something real enough to run, break, and keep pushing on.
 
-- 🎓 CS undergrad, Dayananda Sagar University (2026) · Network School, Singapore & Malaysia
+- 🎓 B.Tech CS, Dayananda Sagar University, Class of 2026 · Network School, Singapore & Malaysia
 - 📎 Every number on my [portfolio](https://mukndd.com) ships with a source and a verified flag: nothing renders without both. Same standard applies here
 
 ---
@@ -38,7 +38,7 @@ I build products end to end: from ambiguous requirements and UX through frontend
 
 <table>
 <tr>
-<td width="33%" valign="top">
+<td width="50%" valign="top">
 
 **[Portfolio](https://mukndd.com)**
 My projects, resume, and a small interactive island.
@@ -46,7 +46,7 @@ My projects, resume, and a small interactive island.
 [Visit mukndd.com](https://mukndd.com)
 
 </td>
-<td width="33%" valign="top">
+<td width="50%" valign="top">
 
 **🌍 [Findin](https://findin.world)**
 A browser game combining geography with deep time: read the evidence, guess **where** an animal lived and **when**, with real paleogeographic coastlines for extinct species instead of pretending ancient life belongs on today's map. Built the full content pipeline (GBIF, Paleobiology Database, GPlates-derived reconstructions) with quality gates and a manually verified launch set of species.
@@ -57,7 +57,9 @@ A browser game combining geography with deep time: read the evidence, guess **wh
 <img src="media/findin-geologic-timescale.png" width="100%" alt="Findin deep-time visual showing geological periods" />
 
 </td>
-<td width="33%" valign="top">
+</tr>
+<tr>
+<td width="50%" valign="top">
 
 **✨ [Asterisms](https://asterisms.space)**
 A constellation-learning game that grew into a real-sky explorer. Daily and Practice puzzles run on a *real* astronomy catalogue (88 IAU constellations, 74 Western asterisms), projected with real gnomonic RA/Dec math, not decorative particle stars. The same engine now drives Tonight (location-aware stargazing), Seek (any sky from 1900 to now) and Guided Find. Neon Postgres handles only puzzle scheduling and leaderboards, so a DB outage degrades the leaderboard, never the game. Sole builder: data pipeline, gameplay, sky engine, frontend.
@@ -66,6 +68,13 @@ A constellation-learning game that grew into a real-sky explorer. Daily and Prac
 <br/>
 <img src="media/asterisms-constellation-map.png" width="100%" alt="Asterisms constellation map with real star positions" />
 <img src="media/asterisms-star-atlas.png" width="100%" alt="Asterisms star-atlas visual with constellations and zodiac drawings" />
+
+</td>
+<td width="50%" valign="top">
+
+**🎨 [Chromelo](https://chromelo.art)**
+Makes sound visible. Upload any audio, a song, a voice note, plain wind, and get artwork that stays accurate to how it sounds, with visual effects you can stack and layer.
+`Next.js` · [Visit chromelo.art](https://chromelo.art)
 
 </td>
 </tr>
