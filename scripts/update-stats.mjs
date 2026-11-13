@@ -241,7 +241,7 @@ function renderReadmeBlock(data) {
   const ids = Object.keys(data.projects);
   const rows = [];
   for (let i = 0; i < ids.length; i += 2) rows.push(`<p align="center">\n${ids.slice(i, i + 2).map(cell).join("\n")}\n</p>`);
-  const caption = `<p align="center"><sub>Real people, not repo stats: unique human visitors and players on the production sites, counted in PostHog with bots and my own test accounts excluded. A GitHub Action refreshes them when it can reach PostHog; otherwise a card shows a dated snapshot. Flyweight shows figures stated in its README. Details: <a href="stats/data.json">stats/data.json</a>.</sub></p>`;
+  const caption = `<p align="center"><sub>Real people, not repo stats: unique human visitors and players on the production sites, counted in PostHog with bots and my own test accounts excluded. A GitHub Action refreshes them when it can reach PostHog; otherwise a card shows a dated snapshot. Details: <a href="stats/data.json">stats/data.json</a>.</sub></p>`;
   return `${MARK_START}\n${rows.join("\n")}\n${caption}\n${MARK_END}`;
 }
 
