@@ -36,9 +36,9 @@ I build products end to end: from ambiguous requirements and UX through frontend
 
 ## selected projects
 
-**[Portfolio](https://mukndd.com)**: My projects, resume, and a small interactive island. [Visit mukndd.com](https://mukndd.com)
+**[Portfolio](https://mukndd.com)**: Explore my work through Calia, a walkable pixel-art island, or go straight to the resume. Built for wandering or a quick skim. [Visit mukndd.com](https://mukndd.com)
 
-**🎨 [Chromelo](https://chromelo.art)**: Makes sound visible. Upload any audio, a song, a voice note, plain wind, and get artwork that stays accurate to how it sounds, with visual effects you can stack and layer. `Next.js` · [Visit chromelo.art](https://chromelo.art)
+**🎨 [Chromelo](https://chromelo.art)**: Turn a song, voice note or recording into artwork shaped by its sound. Stack visual effects and explore how different recordings look. Audio stays on your device. `Next.js` · [Visit chromelo.art](https://chromelo.art)
 
 **🌍 [Findin](https://findin.world)**: A browser game combining geography with deep time: read the evidence, guess **where** an animal lived and **when**, with real paleogeographic coastlines for extinct species instead of pretending ancient life belongs on today's map. Built the full content pipeline (GBIF, Paleobiology Database, GPlates-derived reconstructions) with quality gates and a manually verified launch set of species. `Next.js` `TypeScript` `Supabase` `PostHog` · [case study](https://github.com/mukndd/findin-case-study)
 
