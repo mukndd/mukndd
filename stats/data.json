@@ -1,38 +1,6 @@
 {
   "generatedAt": "2026-11-13",
   "projects": {
-    "originull": {
-      "name": "Originull",
-      "url": "https://originull.com",
-      "window": "all time",
-      "pushedAt": null,
-      "stats": {
-        "visitors": {
-          "label": "visitors",
-          "sub": "humans only",
-          "source": "posthog",
-          "value": 121,
-          "status": "live",
-          "asOf": "2026-11-13"
-        },
-        "engaged": {
-          "label": "engaged",
-          "sub": "opened the editor",
-          "source": "posthog",
-          "value": 11,
-          "status": "live",
-          "asOf": "2026-11-13"
-        },
-        "countries": {
-          "label": "countries",
-          "sub": "visitor locations",
-          "source": "posthog",
-          "value": 12,
-          "status": "live",
-          "asOf": "2026-11-13"
-        }
-      }
-    },
     "findin": {
       "name": "Findin",
       "url": "https://findin.world",
@@ -43,7 +11,7 @@
           "label": "visitors",
           "sub": "humans only",
           "source": "posthog",
-          "value": 531,
+          "value": 541,
           "status": "live",
           "asOf": "2026-11-13"
         },
@@ -51,7 +19,7 @@
           "label": "players",
           "sub": "started a puzzle",
           "source": "posthog",
-          "value": 289,
+          "value": 296,
           "status": "live",
           "asOf": "2026-11-13"
         },
@@ -92,39 +60,6 @@
           "sub": "visitor locations",
           "source": "posthog",
           "value": 28,
-          "status": "live",
-          "asOf": "2026-11-13"
-        }
-      }
-    },
-    "flyweight": {
-      "name": "Flyweight",
-      "url": "https://github.com/mukndd/flyweight",
-      "live": false,
-      "pushedAt": "2026-10-20",
-      "stats": {
-        "neurons": {
-          "label": "neurons",
-          "sub": "FlyWire subgraph",
-          "source": "file-regex",
-          "value": 1536,
-          "status": "live",
-          "asOf": "2026-11-13"
-        },
-        "edges": {
-          "label": "edges",
-          "sub": "hash-verified",
-          "source": "file-regex",
-          "value": 170489,
-          "status": "live",
-          "asOf": "2026-11-13"
-        },
-        "win-rate": {
-          "label": "held-out win rate",
-          "sub": "9-episode suite",
-          "suffix": "%",
-          "source": "file-regex",
-          "value": 100,
           "status": "live",
           "asOf": "2026-11-13"
         }

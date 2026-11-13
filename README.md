@@ -26,7 +26,7 @@ I build products end to end: from ambiguous requirements and UX through frontend
 
 <!-- STATS:START -->
 <p align="center">
-  <a href="https://findin.world"><img src="stats/cards/findin.svg" width="49%" alt="Findin: 531 visitors, 289 players, 40 countries" /></a>
+  <a href="https://findin.world"><img src="stats/cards/findin.svg" width="49%" alt="Findin: 541 visitors, 296 players, 40 countries" /></a>
   <a href="https://asterisms.space"><img src="stats/cards/asterisms.svg" width="49%" alt="Asterisms: 196 visitors, 71 engaged, 28 countries" /></a>
 </p>
 <p align="center"><sub>Real people, not repo stats: unique human visitors and players on the production sites, counted in PostHog with bots and my own test accounts excluded. A GitHub Action refreshes them when it can reach PostHog; otherwise a card shows a dated snapshot. Details: <a href="stats/data.json">stats/data.json</a>.</sub></p>
