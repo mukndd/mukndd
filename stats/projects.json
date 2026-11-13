@@ -7,47 +7,6 @@
   },
   "projects": [
     {
-      "id": "originull",
-      "name": "Originull",
-      "url": "https://originull.com",
-      "window": "all time",
-      "stats": [
-        {
-          "id": "visitors",
-          "label": "visitors",
-          "sub": "humans only",
-          "source": {
-            "type": "posthog",
-            "measure": "people",
-            "hosts": ["originull.com", "app.originull.com"],
-            "events": ["$pageview", "landing_viewed"]
-          }
-        },
-        {
-          "id": "engaged",
-          "label": "engaged",
-          "sub": "opened the editor",
-          "source": {
-            "type": "posthog",
-            "measure": "people",
-            "hosts": ["originull.com", "app.originull.com"],
-            "events": ["workspace_opened", "open_editor_clicked", "guest_editor_started", "ai_composer_opened"]
-          }
-        },
-        {
-          "id": "countries",
-          "label": "countries",
-          "sub": "visitor locations",
-          "source": {
-            "type": "posthog",
-            "measure": "countries",
-            "hosts": ["originull.com", "app.originull.com"],
-            "events": ["$pageview", "landing_viewed"]
-          }
-        }
-      ]
-    },
-    {
       "id": "findin",
       "name": "Findin",
       "url": "https://findin.world",
@@ -60,8 +19,13 @@
           "source": {
             "type": "posthog",
             "measure": "people",
-            "hosts": ["findin.world", "findin.up.railway.app"],
-            "events": ["page_view"]
+            "hosts": [
+              "findin.world",
+              "findin.up.railway.app"
+            ],
+            "events": [
+              "page_view"
+            ]
           }
         },
         {
@@ -71,8 +35,14 @@
           "source": {
             "type": "posthog",
             "measure": "people",
-            "hosts": ["findin.world", "findin.up.railway.app"],
-            "events": ["daily_game_started", "practice_puzzle_completed"]
+            "hosts": [
+              "findin.world",
+              "findin.up.railway.app"
+            ],
+            "events": [
+              "daily_game_started",
+              "practice_puzzle_completed"
+            ]
           }
         },
         {
@@ -82,8 +52,13 @@
           "source": {
             "type": "posthog",
             "measure": "countries",
-            "hosts": ["findin.world", "findin.up.railway.app"],
-            "events": ["page_view"]
+            "hosts": [
+              "findin.world",
+              "findin.up.railway.app"
+            ],
+            "events": [
+              "page_view"
+            ]
           }
         }
       ]
@@ -101,8 +76,12 @@
           "source": {
             "type": "posthog",
             "measure": "people",
-            "hosts": ["asterisms.space"],
-            "events": ["page_view"]
+            "hosts": [
+              "asterisms.space"
+            ],
+            "events": [
+              "page_view"
+            ]
           }
         },
         {
@@ -112,11 +91,21 @@
           "source": {
             "type": "posthog",
             "measure": "people",
-            "hosts": ["asterisms.space"],
+            "hosts": [
+              "asterisms.space"
+            ],
             "events": [
-              "game_started", "daily_started", "practice_started", "explore_opened", "seek_opened",
-              "guided_find_opened", "sky_search_used", "star_inspected", "event_calendar_opened",
-              "sky_object_selected", "journey_started"
+              "game_started",
+              "daily_started",
+              "practice_started",
+              "explore_opened",
+              "seek_opened",
+              "guided_find_opened",
+              "sky_search_used",
+              "star_inspected",
+              "event_calendar_opened",
+              "sky_object_selected",
+              "journey_started"
             ]
           }
         },
@@ -127,37 +116,13 @@
           "source": {
             "type": "posthog",
             "measure": "countries",
-            "hosts": ["asterisms.space"],
-            "events": ["page_view"]
+            "hosts": [
+              "asterisms.space"
+            ],
+            "events": [
+              "page_view"
+            ]
           }
-        }
-      ]
-    },
-    {
-      "id": "flyweight",
-      "name": "Flyweight",
-      "url": "https://github.com/mukndd/flyweight",
-      "repo": "mukndd/flyweight",
-      "live": false,
-      "stats": [
-        {
-          "id": "neurons",
-          "label": "neurons",
-          "sub": "FlyWire subgraph",
-          "source": { "type": "file-regex", "path": "README.md", "pattern": "([\\d,]+)-neuron\\s*/\\s*[\\d,]+-edge" }
-        },
-        {
-          "id": "edges",
-          "label": "edges",
-          "sub": "hash-verified",
-          "source": { "type": "file-regex", "path": "README.md", "pattern": "[\\d,]+-neuron\\s*/\\s*([\\d,]+)-edge" }
-        },
-        {
-          "id": "win-rate",
-          "label": "held-out win rate",
-          "sub": "9-episode suite",
-          "suffix": "%",
-          "source": { "type": "file-regex", "path": "README.md", "pattern": "reached (\\d+)% win rate on the 9-episode" }
         }
       ]
     }
