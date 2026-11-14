@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-13",
+  "generatedAt": "2026-11-14",
   "projects": {
     "findin": {
       "name": "Findin",
@@ -13,7 +13,7 @@
           "source": "posthog",
           "value": 541,
           "status": "live",
-          "asOf": "2026-11-13"
+          "asOf": "2026-11-14"
         },
         "players": {
           "label": "players",
@@ -21,7 +21,7 @@
           "source": "posthog",
           "value": 296,
           "status": "live",
-          "asOf": "2026-11-13"
+          "asOf": "2026-11-14"
         },
         "countries": {
           "label": "countries",
@@ -29,7 +29,7 @@
           "source": "posthog",
           "value": 40,
           "status": "live",
-          "asOf": "2026-11-13"
+          "asOf": "2026-11-14"
         }
       }
     },
@@ -45,7 +45,7 @@
           "source": "posthog",
           "value": 196,
           "status": "live",
-          "asOf": "2026-11-13"
+          "asOf": "2026-11-14"
         },
         "engaged": {
           "label": "engaged",
@@ -53,7 +53,7 @@
           "source": "posthog",
           "value": 71,
           "status": "live",
-          "asOf": "2026-11-13"
+          "asOf": "2026-11-14"
         },
         "countries": {
           "label": "countries",
@@ -61,7 +61,7 @@
           "source": "posthog",
           "value": 28,
           "status": "live",
-          "asOf": "2026-11-13"
+          "asOf": "2026-11-14"
         }
       }
     }
