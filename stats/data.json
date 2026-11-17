@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-17T05:09:18.086Z",
+  "generatedAt": "2026-11-17T05:10:51.048Z",
   "projects": {
     "originull": {
       "name": "Originull",
@@ -48,7 +48,7 @@
           "asOf": "2026-11-17",
           "matchingEventRows": 2437,
           "latestIncludedEventAt": "2026-11-17T04:52:19.615000Z",
-          "queryRefreshedAt": "2026-11-17T05:09:18.341Z"
+          "queryRefreshedAt": "2026-11-17T05:10:51.485Z"
         },
         "this_week": {
           "label": "this week",
@@ -61,7 +61,7 @@
           "asOf": "2026-11-17",
           "matchingEventRows": 337,
           "latestIncludedEventAt": "2026-11-17T04:52:19.615000Z",
-          "queryRefreshedAt": "2026-11-17T05:09:18.420Z"
+          "queryRefreshedAt": "2026-11-17T05:10:51.605Z"
         },
         "players": {
           "label": "players",
@@ -74,7 +74,7 @@
           "asOf": "2026-11-17",
           "matchingEventRows": 1027,
           "latestIncludedEventAt": "2026-11-17T04:51:37.319000Z",
-          "queryRefreshedAt": "2026-11-17T05:09:18.510Z"
+          "queryRefreshedAt": "2026-11-17T05:10:51.723Z"
         },
         "countries": {
           "label": "countries",
@@ -87,11 +87,11 @@
           "asOf": "2026-11-17",
           "matchingEventRows": 2437,
           "latestIncludedEventAt": "2026-11-17T04:52:19.615000Z",
-          "queryRefreshedAt": "2026-11-17T05:09:18.586Z"
+          "queryRefreshedAt": "2026-11-17T05:10:51.927Z"
         }
       },
       "trackingStatus": "tracked",
-      "queryRefreshedAt": "2026-11-17T05:09:18.586Z",
+      "queryRefreshedAt": "2026-11-17T05:10:51.927Z",
       "latestIncludedEventAt": "2026-11-17T04:52:19.615000Z",
       "observedEventRows": 26162,
       "latestObservedEventAt": "2026-11-17T04:52:19.615000Z"
@@ -112,7 +112,7 @@
           "asOf": "2026-11-17",
           "matchingEventRows": 834,
           "latestIncludedEventAt": "2026-11-03T12:40:13.530000Z",
-          "queryRefreshedAt": "2026-11-17T05:09:18.664Z"
+          "queryRefreshedAt": "2026-11-17T05:10:52.041Z"
         },
         "this_week": {
           "label": "this week",
@@ -125,7 +125,7 @@
           "asOf": "2026-11-17",
           "matchingEventRows": 0,
           "latestIncludedEventAt": null,
-          "queryRefreshedAt": "2026-11-17T05:09:18.744Z"
+          "queryRefreshedAt": "2026-11-17T05:10:52.160Z"
         },
         "engaged": {
           "label": "engaged",
@@ -138,7 +138,7 @@
           "asOf": "2026-11-17",
           "matchingEventRows": 352,
           "latestIncludedEventAt": "2026-11-03T06:19:45.166000Z",
-          "queryRefreshedAt": "2026-11-17T05:09:18.827Z"
+          "queryRefreshedAt": "2026-11-17T05:10:52.269Z"
         },
         "countries": {
           "label": "countries",
@@ -151,11 +151,11 @@
           "asOf": "2026-11-17",
           "matchingEventRows": 834,
           "latestIncludedEventAt": "2026-11-03T12:40:13.530000Z",
-          "queryRefreshedAt": "2026-11-17T05:09:18.910Z"
+          "queryRefreshedAt": "2026-11-17T05:10:52.410Z"
         }
       },
       "trackingStatus": "tracked",
-      "queryRefreshedAt": "2026-11-17T05:09:18.910Z",
+      "queryRefreshedAt": "2026-11-17T05:10:52.410Z",
       "latestIncludedEventAt": "2026-11-03T12:40:13.530000Z",
       "observedEventRows": 2895,
       "latestObservedEventAt": "2026-11-03T12:40:13.530000Z"
@@ -209,7 +209,7 @@
           "asOf": "2026-11-17",
           "matchingEventRows": 126,
           "latestIncludedEventAt": null,
-          "queryRefreshedAt": "2026-11-17T05:09:19.052Z"
+          "queryRefreshedAt": "2026-11-17T05:10:52.702Z"
         },
         "this_week": {
           "label": "this week",
@@ -222,7 +222,7 @@
           "asOf": "2026-11-17",
           "matchingEventRows": 92,
           "latestIncludedEventAt": null,
-          "queryRefreshedAt": "2026-11-17T05:09:19.162Z"
+          "queryRefreshedAt": "2026-11-17T05:10:52.809Z"
         },
         "resume": {
           "label": "resume views",
@@ -235,7 +235,7 @@
           "asOf": "2026-11-17",
           "matchingEventRows": 51,
           "latestIncludedEventAt": null,
-          "queryRefreshedAt": "2026-11-17T05:09:19.242Z"
+          "queryRefreshedAt": "2026-11-17T05:10:52.921Z"
         },
         "countries": {
           "label": "countries",
@@ -248,11 +248,11 @@
           "asOf": "2026-11-17",
           "matchingEventRows": 126,
           "latestIncludedEventAt": null,
-          "queryRefreshedAt": "2026-11-17T05:09:19.321Z"
+          "queryRefreshedAt": "2026-11-17T05:10:53.035Z"
         }
       },
       "trackingStatus": "tracked",
-      "queryRefreshedAt": "2026-11-17T05:09:19.321Z",
+      "queryRefreshedAt": "2026-11-17T05:10:53.035Z",
       "latestIncludedEventAt": null,
       "observedEventRows": 208,
       "latestObservedEventAt": "2026-11-17T04:53:31.673000Z"
@@ -273,7 +273,7 @@
           "asOf": "2026-11-17",
           "matchingEventRows": 51,
           "latestIncludedEventAt": null,
-          "queryRefreshedAt": "2026-11-17T05:09:19.399Z"
+          "queryRefreshedAt": "2026-11-17T05:10:53.150Z"
         },
         "this_week": {
           "label": "this week",
@@ -286,7 +286,7 @@
           "asOf": "2026-11-17",
           "matchingEventRows": 32,
           "latestIncludedEventAt": null,
-          "queryRefreshedAt": "2026-11-17T05:09:19.507Z"
+          "queryRefreshedAt": "2026-11-17T05:10:53.268Z"
         },
         "countries": {
           "label": "countries",
@@ -299,11 +299,11 @@
           "asOf": "2026-11-17",
           "matchingEventRows": 51,
           "latestIncludedEventAt": null,
-          "queryRefreshedAt": "2026-11-17T05:09:19.585Z"
+          "queryRefreshedAt": "2026-11-17T05:10:53.379Z"
         }
       },
       "trackingStatus": "tracked",
-      "queryRefreshedAt": "2026-11-17T05:09:19.585Z",
+      "queryRefreshedAt": "2026-11-17T05:10:53.379Z",
       "latestIncludedEventAt": null,
       "observedEventRows": 51,
       "latestObservedEventAt": "2026-11-17T04:54:15.018000Z"
