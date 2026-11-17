@@ -116,6 +116,12 @@ function posthogSql(config, project, stat) {
     `  ${value} AS value,`,
     `  maxIf(timestamp, ${included}) AS latest_included_event_at,`,
     `  countIf(${matches}) AS matching_event_rows,`,
+    `  countIf(${included}) AS qualifying_event_rows,`,
+    `  countIf(${matches} AND isLikelyBot(properties.$raw_user_agent)) AS likely_bot_event_rows,`,
+    `  countIf(${matches} AND properties.$virt_is_bot = true) AS virtual_bot_event_rows,`,
+    `  countIf(${matches} AND (isNull(properties.$raw_user_agent) OR properties.$raw_user_agent = '')) AS missing_user_agent_event_rows,`,
+    `  countIf(${matches} AND person_id IN COHORT ${config.excludeCohort}) AS excluded_cohort_event_rows,`,
+    `  countIf(${matches} AND isNull(person_id)) AS missing_person_id_event_rows,`,
     "  count() AS selected_site_event_rows,",
     "  max(timestamp) AS latest_selected_site_event_at",
     "FROM events",
@@ -154,20 +160,63 @@ async function posthogQuery(config, query) {
 }
 
 async function resolvePosthog({ config, project, stat }) {
-  const [value, latestIncludedEventAt, matchingEventRows, selectedSiteEventRows, latestSelectedSiteEventAt] = await posthogQuery(config, posthogSql(config, project, stat));
+  const [
+    value,
+    latestIncludedEventAt,
+    matchingEventRows,
+    qualifyingEventRows,
+    likelyBotEventRows,
+    virtualBotEventRows,
+    missingUserAgentEventRows,
+    excludedCohortEventRows,
+    missingPersonIdEventRows,
+    selectedSiteEventRows,
+    latestSelectedSiteEventAt,
+  ] = await posthogQuery(config, posthogSql(config, project, stat));
   const queryRefreshedAt = new Date().toISOString();
   if (typeof value !== "number" || !Number.isFinite(value) || value < 0) throw new Error("invalid metric value");
-  if (typeof matchingEventRows !== "number" || typeof selectedSiteEventRows !== "number") throw new Error("missing query validation counts");
+  const validationCounts = [matchingEventRows, qualifyingEventRows, likelyBotEventRows, virtualBotEventRows, missingUserAgentEventRows, excludedCohortEventRows, missingPersonIdEventRows, selectedSiteEventRows];
+  if (validationCounts.some((count) => typeof count !== "number")) throw new Error("missing query validation counts");
   if (selectedSiteEventRows === 0) return { noEvents: true, value, matchingEventRows, selectedSiteEventRows, queryRefreshedAt };
   if (!isMissing(latestIncludedEventAt) && !Number.isFinite(Date.parse(latestIncludedEventAt))) throw new Error("invalid latest included event timestamp");
   if (!Number.isFinite(Date.parse(latestSelectedSiteEventAt))) throw new Error("invalid latest selected-site event timestamp");
-  // A zero value remains valid. matchingEventRows is kept for review/debugging;
-  // no matched metric events can mean a valid zero, while an empty site selector
-  // is the detectable schema/filter mismatch above.
+  const latestSelectedMs = Date.parse(latestSelectedSiteEventAt);
+  const staleWindow = stat.source.windowDays
+    && matchingEventRows === 0
+    && latestSelectedMs < Date.now() - stat.source.windowDays * 86_400_000;
+  let unavailableReason = null;
+  if (matchingEventRows > 0 && qualifyingEventRows === 0) {
+    if (virtualBotEventRows === matchingEventRows && missingUserAgentEventRows === matchingEventRows) {
+      unavailableReason = "Every matching event is marked as a virtual bot and has no raw user-agent.";
+    } else if (likelyBotEventRows === matchingEventRows) {
+      unavailableReason = "Every matching event is excluded by the likely-bot filter.";
+    } else if (excludedCohortEventRows === matchingEventRows) {
+      unavailableReason = "Every matching event belongs to the excluded test cohort.";
+    } else if (missingPersonIdEventRows === matchingEventRows) {
+      unavailableReason = "Every matching event is missing person_id.";
+    } else {
+      unavailableReason = "Matching events are present, but none pass the identity, test-cohort and bot filters.";
+    }
+  } else if (staleWindow) {
+    unavailableReason = `No matching events were observed in the rolling ${stat.source.windowDays}-day window, and the latest site event is outside that window.`;
+  }
+  const status = unavailableReason
+    ? "unavailable"
+    : latestIncludedEventAt && Date.now() - Date.parse(latestIncludedEventAt) > 7 * 86_400_000
+      ? "snapshot"
+      : "live";
   return {
-    value,
+    value: status === "unavailable" ? null : value,
+    status,
+    unavailableReason,
     latestIncludedEventAt: isMissing(latestIncludedEventAt) || Date.parse(latestIncludedEventAt) === 0 ? null : latestIncludedEventAt,
     matchingEventRows,
+    qualifyingEventRows,
+    likelyBotEventRows,
+    virtualBotEventRows,
+    missingUserAgentEventRows,
+    excludedCohortEventRows,
+    missingPersonIdEventRows,
     selectedSiteEventRows,
     latestSelectedSiteEventAt,
     queryRefreshedAt,
@@ -251,32 +300,38 @@ async function collect(config) {
         entry.stats[stat.id] = {
           ...base,
           value: resolved.value,
-          status: "live",
-          verified: true,
+          status: resolved.status,
+          verified: resolved.status !== "unavailable",
           asOf,
           matchingEventRows: resolved.matchingEventRows,
+          qualifyingEventRows: resolved.qualifyingEventRows,
+          likelyBotEventRows: resolved.likelyBotEventRows,
+          virtualBotEventRows: resolved.virtualBotEventRows,
+          missingUserAgentEventRows: resolved.missingUserAgentEventRows,
+          excludedCohortEventRows: resolved.excludedCohortEventRows,
+          missingPersonIdEventRows: resolved.missingPersonIdEventRows,
+          ...(resolved.unavailableReason ? { unavailableReason: resolved.unavailableReason } : {}),
           latestIncludedEventAt: resolved.latestIncludedEventAt,
+          latestObservedEventAt: resolved.latestSelectedSiteEventAt,
           queryRefreshedAt: resolved.queryRefreshedAt,
         };
         results.push({
           ok: true,
+          status: resolved.status,
           queryRefreshedAt: resolved.queryRefreshedAt,
           latest: resolved.latestIncludedEventAt,
           selectedSiteEventRows: resolved.selectedSiteEventRows,
           latestObserved: resolved.latestSelectedSiteEventAt,
         });
-      } else if (last && typeof last.value === "number" && last.asOf) {
+      } else if (last && (typeof last.value === "number" || last.status === "unavailable") && last.asOf) {
         entry.stats[stat.id] = {
+          ...last,
           ...base,
-          value: last.value,
-          status: statusFor(last.asOf),
+          status: last.status === "unavailable" || last.status === "snapshot" ? last.status : statusFor(last.asOf),
           verified: last.verified === true,
-          asOf: last.asOf,
-          matchingEventRows: last.matchingEventRows ?? null,
-          latestIncludedEventAt: last.latestIncludedEventAt ?? null,
           queryRefreshedAt: last.queryRefreshedAt ?? prior.queryRefreshedAt ?? null,
         };
-        results.push({ ok: false, queryRefreshedAt: last.queryRefreshedAt ?? prior.queryRefreshedAt ?? null, latest: last.latestIncludedEventAt ?? null });
+        results.push({ ok: false, status: entry.stats[stat.id].status, queryRefreshedAt: last.queryRefreshedAt ?? prior.queryRefreshedAt ?? null, latest: last.latestIncludedEventAt ?? null });
       } else {
         throw new Error(`${project.id}.${stat.id}: no value and no prior snapshot`);
       }
@@ -284,6 +339,13 @@ async function collect(config) {
     if (noSiteEvents) {
       out.projects[project.id] = entry;
       continue;
+    }
+    const refreshedStats = Object.values(entry.stats);
+    if (refreshedStats.length > 0 && refreshedStats.every((item) => item.status === "unavailable")) {
+      const reasons = [...new Set(refreshedStats.map((item) => item.unavailableReason).filter(Boolean))];
+      entry.dataQualityNote = reasons.length === 1
+        ? reasons[0]
+        : "Events were observed, but none produced a current qualifying identity or country total.";
     }
     entry.trackingStatus = "tracked";
     const allRefreshed = results.every((result) => result.ok);
@@ -327,7 +389,9 @@ async function collect(config) {
 }
 
 const esc = (value) => String(value).replace(/[&<>\"]/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;" })[char]);
-const display = (stat) => new Intl.NumberFormat("en-US").format(stat.value) + (stat.suffix ?? "");
+const display = (stat) => stat.status === "unavailable"
+  ? "Unavailable"
+  : new Intl.NumberFormat("en-US").format(stat.value) + (stat.suffix ?? "");
 
 function fmtIST(timestamp) {
   if (!timestamp) return "not available";
@@ -366,6 +430,8 @@ function cardContents(project, mobile = false) {
   const title = esc(project.name);
   const stamp = project.queryRefreshedAt ? fmtIST(project.queryRefreshedAt) : "not yet queried";
   const asOf = stats.find((stat) => stat.asOf)?.asOf;
+  const latestEventAt = project.latestIncludedEventAt ?? project.latestObservedEventAt;
+  const latestEventLabel = project.latestIncludedEventAt ? "Latest qualifying event" : "Latest observed event";
   const statusDot = stats.some((stat) => stat.status !== "live") ? "#8B949E" : "#3FB950";
   const out = [
     `<rect x="0.5" y="0.5" width="${width - 1}" height="${height - 1}" rx="14" fill="#0D1117" stroke="#30363D"/>`,
@@ -388,14 +454,16 @@ function cardContents(project, mobile = false) {
       const definition = stat.cardDefinition ?? stat.definition ?? stat.sub ?? "";
       const lineHeight = mobile ? 13 : 14;
       const maxChars = mobile ? 24 : 33;
-      out.push(`<text x="${x}" y="${top}" font-size="${mobile ? 30 : 33}" font-weight="650" fill="#E6EDF3">${esc(display(stat))}</text>`);
+      const valueFontSize = stat.status === "unavailable" ? (mobile ? 18 : 20) : (mobile ? 30 : 33);
+      out.push(`<text x="${x}" y="${top}" font-size="${valueFontSize}" font-weight="650" fill="#E6EDF3">${esc(display(stat))}</text>`);
       out.push(`<text x="${x}" y="${top + 22}" font-size="${mobile ? 13.5 : 15}" font-weight="600" fill="#C9D1D9">${esc(stat.label)}</text>`);
       out.push(svgTextLines(definition, x, top + 40, maxChars, lineHeight, mobile ? 11 : 12, "#8B949E"));
     });
     out.push(`<circle cx="28" cy="${mobile ? 337 : 255}" r="3.5" fill="${statusDot}"/>`);
     out.push(`<text x="38" y="${mobile ? 341 : 259}" font-size="${mobile ? 10.5 : 11.5}" fill="#8B949E">${esc(project.window ?? "Since 25 Aug 2026")}</text>`);
-    out.push(`<text x="24" y="${mobile ? 373 : 282}" font-size="${mobile ? 10.5 : 11}" fill="#C9D1D9">Tracked identities · bots and my test accounts excluded</text>`);
-    out.push(`<text x="24" y="${mobile ? 414 : 301}" font-size="${mobile ? 10 : 10.5}" fill="#8B949E">Query refreshed: ${esc(stamp)}</text>`);
+    out.push(`<text x="24" y="${mobile ? 373 : 274}" font-size="${mobile ? 10.5 : 11}" fill="#C9D1D9">Tracked identities; bots and my test accounts excluded</text>`);
+    out.push(`<text x="24" y="${mobile ? 393 : 288}" font-size="${mobile ? 10 : 9.5}" fill="#8B949E">${esc(latestEventLabel)}: ${esc(fmtIST(latestEventAt))}</text>`);
+    out.push(`<text x="24" y="${mobile ? 414 : 302}" font-size="${mobile ? 10 : 9.5}" fill="#8B949E">Query refreshed: ${esc(stamp)}</text>`);
   }
 
   if (!tracked) out.push(`<text x="24" y="${mobile ? 412 : 295}" font-size="${mobile ? 10 : 10.5}" fill="#6E7681">PostHog check refreshed · ${esc(stamp)}</text>`);
@@ -404,8 +472,9 @@ function cardContents(project, mobile = false) {
 
 function renderCardSvg(project) {
   const width = 580, height = 310;
+  const latestEventAt = project.latestIncludedEventAt ?? project.latestObservedEventAt;
   const alt = project.trackingStatus === "tracked"
-    ? `${project.name}: ${Object.values(project.stats).map((stat) => `${display(stat)} ${stat.label}; ${stat.definition}; metric as of ${stat.asOf} IST`).join(". ")}. ${project.window}. Tracked identities; bots and internal test accounts excluded. Query refreshed ${fmtIST(project.queryRefreshedAt)}.`
+    ? `${project.name}: ${Object.values(project.stats).map((stat) => `${display(stat)} ${stat.label}; ${stat.definition}; metric as of ${stat.asOf} IST`).join(". ")}. ${project.window}. ${project.dataQualityNote ?? ""} Latest event ${fmtIST(latestEventAt)}. Tracked identities; bots and internal test accounts excluded. Query refreshed ${fmtIST(project.queryRefreshedAt)}.`
     : `${project.name}: tracking not live yet. No visitor or country total reported. ${project.notTrackedReason ?? ""} ${project.window}. PostHog check refreshed ${fmtIST(project.queryRefreshedAt)}.`;
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(alt)}" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"><title>${esc(alt)}</title>${cardContents(project)}</svg>\n`;
 }
@@ -424,15 +493,16 @@ function renderBoard(projects, mobile = false) {
     const y = margin + Math.floor(index / columns) * (cardHeight + gap);
     return `<g transform="translate(${x} ${y})">${cardContents(project, mobile)}</g>`;
   }).join("");
-  const alt = projects.map((project) => project.name + (project.trackingStatus === "tracked" ? `: ${Object.values(project.stats).map((stat) => `${display(stat)} ${stat.label}; ${stat.definition}; metric as of ${stat.asOf} IST; latest included event ${fmtIST(stat.latestIncludedEventAt)}`).join(". ")}. Last complete query refresh ${fmtIST(project.queryRefreshedAt)}.` : ": not tracked yet, no visitor total reported")).join("; ");
+  const alt = projects.map((project) => project.name + (project.trackingStatus === "tracked" ? `: ${Object.values(project.stats).map((stat) => `${display(stat)} ${stat.label}; ${stat.definition}; metric as of ${stat.asOf} IST; latest included event ${fmtIST(stat.latestIncludedEventAt)}`).join(". ")}. ${project.dataQualityNote ?? ""} Latest event ${fmtIST(project.latestIncludedEventAt ?? project.latestObservedEventAt)}. Last complete query refresh ${fmtIST(project.queryRefreshedAt)}.` : ": not tracked yet, no visitor total reported")).join("; ");
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(alt)}" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"><title>${esc(alt)}</title>${groups}</svg>\n`;
 }
 
 function renderReadmeBlock(data, visibleProjects) {
   const sourceLinks = visibleProjects.map((project) => `<a href="${esc(project.url)}">${esc(project.name)}</a>`).join(" · ");
-  const caption = `Counts are unique tracked PostHog <code>person_id</code> values. The bot filter and my internal test cohort are excluded; events without a usable user agent do not qualify. All-time numbers cover events since 25 Aug 2026. “This week” is a rolling 7-day count of qualifying page views. Portfolio uses the PostHog <code>$pageview</code> event emitted by mukndd.com; resume views appear only because <code>resume_viewed</code> is present there. Asterisms engagement uses the verified game and sky-action event list. Metric dates and query times are shown in IST. These tracked identities are not a claim of personhood. Sources: PostHog and <a href="stats/data.json">stats/data.json</a>. ${sourceLinks}.`;
+  const qualityNotes = visibleProjects.filter((project) => project.dataQualityNote).map((project) => `${project.name}: ${project.dataQualityNote}`).join(" ");
+  const caption = `Counts are unique tracked PostHog <code>person_id</code> values. The bot filter and my internal test cohort are excluded; events without a usable user-agent do not qualify. When matching events exist but none pass those filters, the card reports “Unavailable” instead of zero. All-time numbers cover events since 25 Aug 2026. “This week” is a rolling 7-day count of qualifying page views. Portfolio uses the PostHog <code>$pageview</code> event emitted by mukndd.com; resume views appear only because <code>resume_viewed</code> is present there. Asterisms engagement uses the verified game and sky-action event list. Latest event and metric dates are shown in IST. ${qualityNotes ? `Data quality: ${qualityNotes}. ` : ""}Sources: PostHog and <a href="stats/data.json">stats/data.json</a>. ${sourceLinks}.`;
   const alt = visibleProjects.map((project) => project.trackingStatus === "tracked"
-    ? `${project.name}: ${Object.values(project.stats).map((stat) => `${display(stat)} ${stat.label}; ${stat.definition}; metric as of ${stat.asOf} IST`).join(". ")}. Query refreshed ${fmtIST(project.queryRefreshedAt)}`
+    ? `${project.name}: ${Object.values(project.stats).map((stat) => `${display(stat)} ${stat.label}; ${stat.definition}; metric as of ${stat.asOf} IST`).join(". ")}. ${project.dataQualityNote ?? ""} Latest event ${fmtIST(project.latestIncludedEventAt ?? project.latestObservedEventAt)}. Query refreshed ${fmtIST(project.queryRefreshedAt)}`
     : `${project.name}: Tracking not live yet; no visitor or country total reported`).join(". ");
   return `${MARK_START}\n<p align="center">\n  <picture>\n    <source media="(max-width: 600px)" srcset="stats/cards/mobile.svg" />\n    <img src="stats/cards/desktop.svg" width="100%" alt="${esc(alt)}" />\n  </picture>\n</p>\n<p><sub>${caption}</sub></p>\n${MARK_END}`;
 }
