@@ -175,47 +175,5 @@
         }
       ]
     }
-  ],
-  "dataOnlyProjects": [
-    {
-      "id": "flyweight",
-      "name": "Flyweight",
-      "url": "https://github.com/mukndd/flyweight",
-      "live": false,
-      "repo": "mukndd/flyweight",
-      "stats": [
-        {
-          "id": "neurons",
-          "label": "neurons",
-          "sub": "FlyWire subgraph",
-          "source": {
-            "type": "file-regex",
-            "path": "README.md",
-            "pattern": "([\\d,]+) neurons"
-          }
-        },
-        {
-          "id": "edges",
-          "label": "edges",
-          "sub": "hash-verified",
-          "source": {
-            "type": "file-regex",
-            "path": "README.md",
-            "pattern": "([\\d,]+) edges"
-          }
-        },
-        {
-          "id": "win-rate",
-          "label": "held-out win rate",
-          "sub": "9-episode suite",
-          "suffix": "%",
-          "source": {
-            "type": "file-regex",
-            "path": "README.md",
-            "pattern": "([\\d.]+)% win rate"
-          }
-        }
-      ]
-    }
   ]
 }
