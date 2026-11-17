@@ -47,7 +47,8 @@ async function repoMeta(repo) {
   return res.json();
 }
 
-async function resolveFileRegex({ project, source }) {
+async function resolveFileRegex({ project, stat }) {
+  const { source } = stat;
   const meta = await repoMeta(project.repo);
   const p = source.path.split("/").map(encodeURIComponent).join("/");
   const res = await fetch(`https://api.github.com/repos/${project.repo}/contents/${p}?ref=${encodeURIComponent(meta.default_branch)}`, {
