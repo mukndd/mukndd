@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-17T08:01:28.282Z",
+  "generatedAt": "2026-11-17T09:31:08.070Z",
   "projects": {
     "originull": {
       "name": "Originull",
@@ -46,36 +46,36 @@
           "status": "live",
           "verified": true,
           "asOf": "2026-11-17",
-          "matchingEventRows": 2437,
-          "qualifyingEventRows": 2423,
+          "matchingEventRows": 2439,
+          "qualifyingEventRows": 2425,
           "likelyBotEventRows": 14,
           "virtualBotEventRows": 14,
           "missingUserAgentEventRows": 0,
           "excludedCohortEventRows": 0,
           "missingPersonIdEventRows": 0,
-          "latestIncludedEventAt": "2026-11-17T04:52:19.615000Z",
-          "latestObservedEventAt": "2026-11-17T04:52:19.615000Z",
-          "queryRefreshedAt": "2026-11-17T08:01:36.235Z"
+          "latestIncludedEventAt": "2026-11-17T09:25:53.705000Z",
+          "latestObservedEventAt": "2026-11-17T09:25:56.322000Z",
+          "queryRefreshedAt": "2026-11-17T09:31:11.664Z"
         },
         "this_week": {
           "label": "this week",
           "definition": "Unique tracked person IDs with page_view events during the rolling 7 days.",
           "cardDefinition": "Rolling 7 days",
           "source": "posthog",
-          "value": 105,
+          "value": 99,
           "status": "live",
           "verified": true,
           "asOf": "2026-11-17",
-          "matchingEventRows": 335,
-          "qualifyingEventRows": 335,
+          "matchingEventRows": 324,
+          "qualifyingEventRows": 324,
           "likelyBotEventRows": 0,
           "virtualBotEventRows": 0,
           "missingUserAgentEventRows": 0,
           "excludedCohortEventRows": 0,
           "missingPersonIdEventRows": 0,
-          "latestIncludedEventAt": "2026-11-17T04:52:19.615000Z",
-          "latestObservedEventAt": "2026-11-17T04:52:19.615000Z",
-          "queryRefreshedAt": "2026-11-17T08:01:41.682Z"
+          "latestIncludedEventAt": "2026-11-17T09:25:53.705000Z",
+          "latestObservedEventAt": "2026-11-17T09:25:56.322000Z",
+          "queryRefreshedAt": "2026-11-17T09:31:13.594Z"
         },
         "players": {
           "label": "players",
@@ -86,16 +86,16 @@
           "status": "live",
           "verified": true,
           "asOf": "2026-11-17",
-          "matchingEventRows": 1027,
-          "qualifyingEventRows": 1025,
+          "matchingEventRows": 1028,
+          "qualifyingEventRows": 1026,
           "likelyBotEventRows": 2,
           "virtualBotEventRows": 2,
           "missingUserAgentEventRows": 0,
           "excludedCohortEventRows": 0,
           "missingPersonIdEventRows": 0,
-          "latestIncludedEventAt": "2026-11-17T04:51:37.319000Z",
-          "latestObservedEventAt": "2026-11-17T04:52:19.615000Z",
-          "queryRefreshedAt": "2026-11-17T08:01:46.611Z"
+          "latestIncludedEventAt": "2026-11-17T09:25:56.322000Z",
+          "latestObservedEventAt": "2026-11-17T09:25:56.322000Z",
+          "queryRefreshedAt": "2026-11-17T09:31:15.749Z"
         },
         "countries": {
           "label": "countries",
@@ -106,23 +106,23 @@
           "status": "live",
           "verified": true,
           "asOf": "2026-11-17",
-          "matchingEventRows": 2437,
-          "qualifyingEventRows": 2423,
+          "matchingEventRows": 2439,
+          "qualifyingEventRows": 2425,
           "likelyBotEventRows": 14,
           "virtualBotEventRows": 14,
           "missingUserAgentEventRows": 0,
           "excludedCohortEventRows": 0,
           "missingPersonIdEventRows": 0,
-          "latestIncludedEventAt": "2026-11-17T04:52:19.615000Z",
-          "latestObservedEventAt": "2026-11-17T04:52:19.615000Z",
-          "queryRefreshedAt": "2026-11-17T08:01:50.922Z"
+          "latestIncludedEventAt": "2026-11-17T09:25:53.705000Z",
+          "latestObservedEventAt": "2026-11-17T09:25:56.322000Z",
+          "queryRefreshedAt": "2026-11-17T09:31:18.148Z"
         }
       },
       "trackingStatus": "tracked",
-      "queryRefreshedAt": "2026-11-17T08:01:50.922Z",
-      "latestIncludedEventAt": "2026-11-17T04:52:19.615000Z",
-      "observedEventRows": 26162,
-      "latestObservedEventAt": "2026-11-17T04:52:19.615000Z"
+      "queryRefreshedAt": "2026-11-17T09:31:18.148Z",
+      "latestIncludedEventAt": "2026-11-17T09:25:56.322000Z",
+      "observedEventRows": 26168,
+      "latestObservedEventAt": "2026-11-17T09:25:56.322000Z"
     },
     "asterisms": {
       "name": "Asterisms",
@@ -138,16 +138,16 @@
           "status": "snapshot",
           "verified": true,
           "asOf": "2026-11-17",
-          "matchingEventRows": 834,
+          "matchingEventRows": 841,
           "qualifyingEventRows": 802,
-          "likelyBotEventRows": 32,
-          "virtualBotEventRows": 32,
-          "missingUserAgentEventRows": 0,
+          "likelyBotEventRows": 39,
+          "virtualBotEventRows": 39,
+          "missingUserAgentEventRows": 7,
           "excludedCohortEventRows": 0,
           "missingPersonIdEventRows": 0,
           "latestIncludedEventAt": "2026-11-03T12:40:13.530000Z",
-          "latestObservedEventAt": "2026-11-03T12:40:13.530000Z",
-          "queryRefreshedAt": "2026-11-17T08:01:54.372Z"
+          "latestObservedEventAt": "2026-11-17T09:30:33.400000Z",
+          "queryRefreshedAt": "2026-11-17T09:31:19.719Z"
         },
         "this_week": {
           "label": "this week",
@@ -158,17 +158,17 @@
           "status": "unavailable",
           "verified": false,
           "asOf": "2026-11-17",
-          "matchingEventRows": 0,
+          "matchingEventRows": 7,
           "qualifyingEventRows": 0,
-          "likelyBotEventRows": 0,
-          "virtualBotEventRows": 0,
-          "missingUserAgentEventRows": 0,
+          "likelyBotEventRows": 7,
+          "virtualBotEventRows": 7,
+          "missingUserAgentEventRows": 7,
           "excludedCohortEventRows": 0,
           "missingPersonIdEventRows": 0,
-          "unavailableReason": "No matching events were observed in the rolling 7-day window, and the latest site event is outside that window.",
+          "unavailableReason": "Every matching event is marked as a virtual bot and has no raw user-agent.",
           "latestIncludedEventAt": null,
-          "latestObservedEventAt": "2026-11-03T12:40:13.530000Z",
-          "queryRefreshedAt": "2026-11-17T08:01:57.469Z"
+          "latestObservedEventAt": "2026-11-17T09:30:33.400000Z",
+          "queryRefreshedAt": "2026-11-17T09:31:21.382Z"
         },
         "engaged": {
           "label": "engaged",
@@ -179,16 +179,16 @@
           "status": "snapshot",
           "verified": true,
           "asOf": "2026-11-17",
-          "matchingEventRows": 352,
+          "matchingEventRows": 353,
           "qualifyingEventRows": 352,
-          "likelyBotEventRows": 0,
-          "virtualBotEventRows": 0,
-          "missingUserAgentEventRows": 0,
+          "likelyBotEventRows": 1,
+          "virtualBotEventRows": 1,
+          "missingUserAgentEventRows": 1,
           "excludedCohortEventRows": 0,
           "missingPersonIdEventRows": 0,
           "latestIncludedEventAt": "2026-11-03T06:19:45.166000Z",
-          "latestObservedEventAt": "2026-11-03T12:40:13.530000Z",
-          "queryRefreshedAt": "2026-11-17T08:02:00.343Z"
+          "latestObservedEventAt": "2026-11-17T09:30:33.400000Z",
+          "queryRefreshedAt": "2026-11-17T09:31:22.869Z"
         },
         "countries": {
           "label": "countries",
@@ -199,23 +199,23 @@
           "status": "snapshot",
           "verified": true,
           "asOf": "2026-11-17",
-          "matchingEventRows": 834,
+          "matchingEventRows": 841,
           "qualifyingEventRows": 802,
-          "likelyBotEventRows": 32,
-          "virtualBotEventRows": 32,
-          "missingUserAgentEventRows": 0,
+          "likelyBotEventRows": 39,
+          "virtualBotEventRows": 39,
+          "missingUserAgentEventRows": 7,
           "excludedCohortEventRows": 0,
           "missingPersonIdEventRows": 0,
           "latestIncludedEventAt": "2026-11-03T12:40:13.530000Z",
-          "latestObservedEventAt": "2026-11-03T12:40:13.530000Z",
-          "queryRefreshedAt": "2026-11-17T08:02:03.503Z"
+          "latestObservedEventAt": "2026-11-17T09:30:33.400000Z",
+          "queryRefreshedAt": "2026-11-17T09:31:24.091Z"
         }
       },
       "trackingStatus": "tracked",
-      "queryRefreshedAt": "2026-11-17T08:02:03.503Z",
+      "queryRefreshedAt": "2026-11-17T09:31:24.091Z",
       "latestIncludedEventAt": "2026-11-03T12:40:13.530000Z",
-      "observedEventRows": 2895,
-      "latestObservedEventAt": "2026-11-03T12:40:13.530000Z"
+      "observedEventRows": 2904,
+      "latestObservedEventAt": "2026-11-17T09:30:33.400000Z"
     },
     "flyweight": {
       "name": "Flyweight",
@@ -274,7 +274,7 @@
           "unavailableReason": "Every matching event is marked as a virtual bot and has no raw user-agent.",
           "latestIncludedEventAt": null,
           "latestObservedEventAt": "2026-11-17T05:25:39.634000Z",
-          "queryRefreshedAt": "2026-11-17T08:02:06.538Z"
+          "queryRefreshedAt": "2026-11-17T09:31:25.334Z"
         },
         "this_week": {
           "label": "this week",
@@ -285,17 +285,17 @@
           "status": "unavailable",
           "verified": false,
           "asOf": "2026-11-17",
-          "matchingEventRows": 91,
+          "matchingEventRows": 90,
           "qualifyingEventRows": 0,
-          "likelyBotEventRows": 91,
-          "virtualBotEventRows": 91,
-          "missingUserAgentEventRows": 91,
+          "likelyBotEventRows": 90,
+          "virtualBotEventRows": 90,
+          "missingUserAgentEventRows": 90,
           "excludedCohortEventRows": 0,
           "missingPersonIdEventRows": 0,
           "unavailableReason": "Every matching event is marked as a virtual bot and has no raw user-agent.",
           "latestIncludedEventAt": null,
           "latestObservedEventAt": "2026-11-17T05:25:39.634000Z",
-          "queryRefreshedAt": "2026-11-17T08:02:10.191Z"
+          "queryRefreshedAt": "2026-11-17T09:31:26.940Z"
         },
         "resume": {
           "label": "resume views",
@@ -316,7 +316,7 @@
           "unavailableReason": "Every matching event is marked as a virtual bot and has no raw user-agent.",
           "latestIncludedEventAt": null,
           "latestObservedEventAt": "2026-11-17T05:25:39.634000Z",
-          "queryRefreshedAt": "2026-11-17T08:02:13.026Z"
+          "queryRefreshedAt": "2026-11-17T09:31:27.945Z"
         },
         "countries": {
           "label": "countries",
@@ -337,12 +337,12 @@
           "unavailableReason": "Every matching event is marked as a virtual bot and has no raw user-agent.",
           "latestIncludedEventAt": null,
           "latestObservedEventAt": "2026-11-17T05:25:39.634000Z",
-          "queryRefreshedAt": "2026-11-17T08:02:15.919Z"
+          "queryRefreshedAt": "2026-11-17T09:31:29.059Z"
         }
       },
       "dataQualityNote": "Every matching event is marked as a virtual bot and has no raw user-agent.",
       "trackingStatus": "tracked",
-      "queryRefreshedAt": "2026-11-17T08:02:15.919Z",
+      "queryRefreshedAt": "2026-11-17T09:31:29.059Z",
       "latestIncludedEventAt": null,
       "observedEventRows": 209,
       "latestObservedEventAt": "2026-11-17T05:25:39.634000Z"
@@ -371,7 +371,7 @@
           "unavailableReason": "Every matching event is marked as a virtual bot and has no raw user-agent.",
           "latestIncludedEventAt": null,
           "latestObservedEventAt": "2026-11-17T04:54:15.018000Z",
-          "queryRefreshedAt": "2026-11-17T08:02:19.789Z"
+          "queryRefreshedAt": "2026-11-17T09:31:30.430Z"
         },
         "this_week": {
           "label": "this week",
@@ -392,7 +392,7 @@
           "unavailableReason": "Every matching event is marked as a virtual bot and has no raw user-agent.",
           "latestIncludedEventAt": null,
           "latestObservedEventAt": "2026-11-17T04:54:15.018000Z",
-          "queryRefreshedAt": "2026-11-17T08:02:22.360Z"
+          "queryRefreshedAt": "2026-11-17T09:31:31.789Z"
         },
         "countries": {
           "label": "countries",
@@ -413,12 +413,12 @@
           "unavailableReason": "Every matching event is marked as a virtual bot and has no raw user-agent.",
           "latestIncludedEventAt": null,
           "latestObservedEventAt": "2026-11-17T04:54:15.018000Z",
-          "queryRefreshedAt": "2026-11-17T08:02:25.506Z"
+          "queryRefreshedAt": "2026-11-17T09:31:33.114Z"
         }
       },
       "dataQualityNote": "Every matching event is marked as a virtual bot and has no raw user-agent.",
       "trackingStatus": "tracked",
-      "queryRefreshedAt": "2026-11-17T08:02:25.506Z",
+      "queryRefreshedAt": "2026-11-17T09:31:33.114Z",
       "latestIncludedEventAt": null,
       "observedEventRows": 51,
       "latestObservedEventAt": "2026-11-17T04:54:15.018000Z"
