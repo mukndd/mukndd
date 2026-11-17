@@ -1,69 +1,314 @@
 {
-  "generatedAt": "2026-11-16",
+  "generatedAt": "2026-11-17T04:56:48.668283Z",
   "projects": {
-    "findin": {
-      "name": "Findin",
-      "url": "https://findin.world",
+    "originull": {
+      "name": "Originull",
+      "url": "https://originull.com",
       "window": "all time",
       "pushedAt": null,
       "stats": {
         "visitors": {
           "label": "visitors",
-          "sub": "humans only",
           "source": "posthog",
-          "value": 565,
+          "value": 121,
           "status": "live",
-          "asOf": "2026-11-16"
+          "asOf": "2026-11-13"
         },
-        "players": {
-          "label": "players",
-          "sub": "started a puzzle",
+        "engaged": {
+          "label": "engaged",
+          "sub": "opened the editor",
           "source": "posthog",
-          "value": 315,
+          "value": 11,
           "status": "live",
-          "asOf": "2026-11-16"
+          "asOf": "2026-11-13"
         },
         "countries": {
           "label": "countries",
           "sub": "visitor locations",
           "source": "posthog",
-          "value": 41,
+          "value": 12,
           "status": "live",
-          "asOf": "2026-11-16"
+          "asOf": "2026-11-13"
         }
       }
+    },
+    "findin": {
+      "name": "Findin",
+      "url": "https://findin.world",
+      "window": "Since 25 Aug 2026",
+      "trackingStatus": "tracked",
+      "queryRefreshedAt": "2026-11-17T04:56:48.668283Z",
+      "latestIncludedEventAt": "2026-11-17T04:52:19.615Z",
+      "stats": {
+        "visitors": {
+          "label": "visitors",
+          "definition": "Unique tracked person IDs with page_view events on Findin production hosts.",
+          "cardDefinition": "Tracked IDs",
+          "source": "posthog",
+          "value": 565,
+          "status": "live",
+          "verified": true,
+          "asOf": "2026-11-17",
+          "matchingEventRows": 2437,
+          "latestIncludedEventAt": "2026-11-17T04:52:19.615Z",
+          "queryRefreshedAt": "2026-11-17T04:56:48.668283Z"
+        },
+        "this_week": {
+          "label": "this week",
+          "definition": "Unique tracked person IDs with page_view events during the rolling 7 days.",
+          "cardDefinition": "Rolling 7 days",
+          "source": "posthog",
+          "value": 105,
+          "status": "live",
+          "verified": true,
+          "asOf": "2026-11-17",
+          "matchingEventRows": 337,
+          "latestIncludedEventAt": "2026-11-17T04:52:19.615Z",
+          "queryRefreshedAt": "2026-11-17T04:56:48.668283Z"
+        },
+        "players": {
+          "label": "players",
+          "definition": "Unique tracked person IDs with a daily start or practice completion event.",
+          "cardDefinition": "Puzzle identities",
+          "source": "posthog",
+          "value": 315,
+          "status": "live",
+          "verified": true,
+          "asOf": "2026-11-17",
+          "matchingEventRows": 1027,
+          "latestIncludedEventAt": "2026-11-17T04:51:37.319Z",
+          "queryRefreshedAt": "2026-11-17T04:56:48.668283Z"
+        },
+        "countries": {
+          "label": "countries",
+          "definition": "Unique GeoIP country codes on qualifying page_view events.",
+          "cardDefinition": "GeoIP locations",
+          "source": "posthog",
+          "value": 41,
+          "status": "live",
+          "verified": true,
+          "asOf": "2026-11-17",
+          "matchingEventRows": 2437,
+          "latestIncludedEventAt": "2026-11-17T04:52:19.615Z",
+          "queryRefreshedAt": "2026-11-17T04:56:48.668283Z"
+        }
+      },
+      "observedEventRows": 26162,
+      "latestObservedEventAt": "2026-11-17T04:52:19.615Z"
     },
     "asterisms": {
       "name": "Asterisms",
       "url": "https://asterisms.space",
-      "window": "all time",
-      "pushedAt": null,
+      "window": "Since 25 Aug 2026",
+      "trackingStatus": "tracked",
+      "queryRefreshedAt": "2026-11-17T04:56:48.668283Z",
+      "latestIncludedEventAt": "2026-11-03T12:40:13.530Z",
       "stats": {
         "visitors": {
           "label": "visitors",
-          "sub": "humans only",
+          "definition": "Unique tracked person IDs with page_view events on asterisms.space.",
+          "cardDefinition": "Tracked IDs",
           "source": "posthog",
           "value": 196,
           "status": "live",
-          "asOf": "2026-11-16"
+          "verified": true,
+          "asOf": "2026-11-17",
+          "matchingEventRows": 834,
+          "latestIncludedEventAt": "2026-11-03T12:40:13.530Z",
+          "queryRefreshedAt": "2026-11-17T04:56:48.668283Z"
+        },
+        "this_week": {
+          "label": "this week",
+          "definition": "Unique tracked person IDs with page_view events during the rolling 7 days.",
+          "cardDefinition": "Rolling 7 days",
+          "source": "posthog",
+          "value": 0,
+          "status": "live",
+          "verified": true,
+          "asOf": "2026-11-17",
+          "matchingEventRows": 0,
+          "latestIncludedEventAt": null,
+          "queryRefreshedAt": "2026-11-17T04:56:48.668283Z"
         },
         "engaged": {
           "label": "engaged",
-          "sub": "played or explored",
+          "definition": "Unique tracked person IDs with one of the verified Asterisms game or sky actions.",
+          "cardDefinition": "Game and sky actions",
           "source": "posthog",
           "value": 71,
           "status": "live",
-          "asOf": "2026-11-16"
+          "verified": true,
+          "asOf": "2026-11-17",
+          "matchingEventRows": 352,
+          "latestIncludedEventAt": "2026-11-03T06:19:45.166Z",
+          "queryRefreshedAt": "2026-11-17T04:56:48.668283Z"
         },
         "countries": {
           "label": "countries",
-          "sub": "visitor locations",
+          "definition": "Unique GeoIP country codes on qualifying page_view events.",
+          "cardDefinition": "GeoIP locations",
           "source": "posthog",
           "value": 28,
           "status": "live",
-          "asOf": "2026-11-16"
+          "verified": true,
+          "asOf": "2026-11-17",
+          "matchingEventRows": 834,
+          "latestIncludedEventAt": "2026-11-03T12:40:13.530Z",
+          "queryRefreshedAt": "2026-11-17T04:56:48.668283Z"
+        }
+      },
+      "observedEventRows": 2895,
+      "latestObservedEventAt": "2026-11-03T12:40:13.530Z"
+    },
+    "flyweight": {
+      "name": "Flyweight",
+      "url": "https://github.com/mukndd/flyweight",
+      "live": false,
+      "pushedAt": "2026-10-20",
+      "stats": {
+        "neurons": {
+          "label": "neurons",
+          "sub": "FlyWire subgraph",
+          "source": "file-regex",
+          "value": 1536,
+          "status": "live",
+          "asOf": "2026-11-13"
+        },
+        "edges": {
+          "label": "edges",
+          "sub": "hash-verified",
+          "source": "file-regex",
+          "value": 170489,
+          "status": "live",
+          "asOf": "2026-11-13"
+        },
+        "win-rate": {
+          "label": "held-out win rate",
+          "sub": "9-episode suite",
+          "suffix": "%",
+          "source": "file-regex",
+          "value": 100,
+          "status": "live",
+          "asOf": "2026-11-13"
         }
       }
+    },
+    "portfolio": {
+      "name": "Portfolio",
+      "url": "https://mukndd.com",
+      "window": "Since 25 Aug 2026",
+      "trackingStatus": "tracked",
+      "notTrackedReason": "All observed events have the virtual-bot flag set and user-agent metadata is missing. Identifiable test traffic is excluded where present, but the remaining traffic cannot be separated from automation/test traffic, so no visitor total is reported.",
+      "queryRefreshedAt": "2026-11-17T04:56:48.668283Z",
+      "latestObservedEventAt": "2026-11-17T04:53:31.673Z",
+      "stats": {
+        "visitors": {
+          "label": "visitors",
+          "definition": "Unique tracked person IDs with PostHog $pageview events on mukndd.com.",
+          "cardDefinition": "Tracked IDs",
+          "source": "posthog",
+          "value": 0,
+          "status": "live",
+          "verified": true,
+          "asOf": "2026-11-17",
+          "matchingEventRows": 126,
+          "latestIncludedEventAt": null,
+          "queryRefreshedAt": "2026-11-17T04:56:48.668283Z"
+        },
+        "this_week": {
+          "label": "this week",
+          "definition": "Unique tracked person IDs with $pageview events during the rolling 7 days.",
+          "cardDefinition": "Rolling 7 days",
+          "source": "posthog",
+          "value": 0,
+          "status": "live",
+          "verified": true,
+          "asOf": "2026-11-17",
+          "matchingEventRows": 94,
+          "latestIncludedEventAt": null,
+          "queryRefreshedAt": "2026-11-17T04:56:48.668283Z"
+        },
+        "resume": {
+          "label": "resume views",
+          "definition": "Unique tracked person IDs with the verified resume_viewed event on mukndd.com.",
+          "cardDefinition": "resume_viewed event",
+          "source": "posthog",
+          "value": 0,
+          "status": "live",
+          "verified": true,
+          "asOf": "2026-11-17",
+          "matchingEventRows": 51,
+          "latestIncludedEventAt": null,
+          "queryRefreshedAt": "2026-11-17T04:56:48.668283Z"
+        },
+        "countries": {
+          "label": "countries",
+          "definition": "Unique GeoIP country codes on qualifying $pageview events.",
+          "cardDefinition": "GeoIP locations",
+          "source": "posthog",
+          "value": 0,
+          "status": "live",
+          "verified": true,
+          "asOf": "2026-11-17",
+          "matchingEventRows": 126,
+          "latestIncludedEventAt": null,
+          "queryRefreshedAt": "2026-11-17T04:56:48.668283Z"
+        }
+      },
+      "observedEventRows": 208,
+      "latestIncludedEventAt": null
+    },
+    "chromelo": {
+      "name": "Chromelo",
+      "url": "https://chromelo.art",
+      "window": "Since 25 Aug 2026",
+      "trackingStatus": "tracked",
+      "notTrackedReason": "All observed events have the virtual-bot flag set and user-agent metadata is missing. Identifiable test traffic is excluded where present, but the remaining traffic cannot be separated from automation/test traffic, so no visitor total is reported.",
+      "queryRefreshedAt": "2026-11-17T04:56:48.668283Z",
+      "latestObservedEventAt": "2026-11-17T04:54:15.018Z",
+      "stats": {
+        "visitors": {
+          "label": "visitors",
+          "definition": "Unique tracked person IDs with page_view events on chromelo.art production hosts.",
+          "cardDefinition": "Tracked IDs",
+          "source": "posthog",
+          "value": 0,
+          "status": "live",
+          "verified": true,
+          "asOf": "2026-11-17",
+          "matchingEventRows": 51,
+          "latestIncludedEventAt": null,
+          "queryRefreshedAt": "2026-11-17T04:56:48.668283Z"
+        },
+        "this_week": {
+          "label": "this week",
+          "definition": "Unique tracked person IDs with page_view events during the rolling 7 days.",
+          "cardDefinition": "Rolling 7 days",
+          "source": "posthog",
+          "value": 0,
+          "status": "live",
+          "verified": true,
+          "asOf": "2026-11-17",
+          "matchingEventRows": 32,
+          "latestIncludedEventAt": null,
+          "queryRefreshedAt": "2026-11-17T04:56:48.668283Z"
+        },
+        "countries": {
+          "label": "countries",
+          "definition": "Unique GeoIP country codes on qualifying page_view events.",
+          "cardDefinition": "GeoIP locations",
+          "source": "posthog",
+          "value": 0,
+          "status": "live",
+          "verified": true,
+          "asOf": "2026-11-17",
+          "matchingEventRows": 51,
+          "latestIncludedEventAt": null,
+          "queryRefreshedAt": "2026-11-17T04:56:48.668283Z"
+        }
+      },
+      "observedEventRows": 51,
+      "latestIncludedEventAt": null
     }
   }
 }

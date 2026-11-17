@@ -10,55 +10,43 @@
       "id": "findin",
       "name": "Findin",
       "url": "https://findin.world",
-      "window": "all time",
+      "window": "Since 25 Aug 2026",
+      "selector": { "hosts": ["findin.world", "findin.up.railway.app"] },
       "stats": [
         {
           "id": "visitors",
           "label": "visitors",
-          "sub": "humans only",
-          "source": {
-            "type": "posthog",
-            "measure": "people",
-            "hosts": [
-              "findin.world",
-              "findin.up.railway.app"
-            ],
-            "events": [
-              "page_view"
-            ]
-          }
+          "cardDefinition": "Tracked IDs",
+          "definition": "Unique tracked person IDs with page_view events on Findin production hosts.",
+          "source": { "type": "posthog", "measure": "people", "events": ["page_view"] }
+        },
+        {
+          "id": "this_week",
+          "label": "this week",
+          "cardDefinition": "Rolling 7 days",
+          "definition": "Unique tracked person IDs with page_view events during the rolling 7 days.",
+          "source": { "type": "posthog", "measure": "people", "events": ["page_view"], "windowDays": 7 }
         },
         {
           "id": "players",
           "label": "players",
-          "sub": "started a puzzle",
+          "cardDefinition": "Puzzle identities",
+          "definition": "Unique tracked person IDs with a daily start or practice completion event.",
           "source": {
             "type": "posthog",
             "measure": "people",
-            "hosts": [
-              "findin.world",
-              "findin.up.railway.app"
-            ],
-            "events": [
-              "daily_game_started",
-              "practice_puzzle_completed"
-            ]
+            "events": ["daily_game_started", "practice_puzzle_completed"]
           }
         },
         {
           "id": "countries",
           "label": "countries",
-          "sub": "visitor locations",
+          "cardDefinition": "GeoIP locations",
+          "definition": "Unique GeoIP country codes on qualifying page_view events.",
           "source": {
             "type": "posthog",
             "measure": "countries",
-            "hosts": [
-              "findin.world",
-              "findin.up.railway.app"
-            ],
-            "events": [
-              "page_view"
-            ]
+            "events": ["page_view"]
           }
         }
       ]
@@ -67,33 +55,31 @@
       "id": "asterisms",
       "name": "Asterisms",
       "url": "https://asterisms.space",
-      "window": "all time",
+      "window": "Since 25 Aug 2026",
+      "selector": { "hosts": ["asterisms.space"] },
       "stats": [
         {
           "id": "visitors",
           "label": "visitors",
-          "sub": "humans only",
-          "source": {
-            "type": "posthog",
-            "measure": "people",
-            "hosts": [
-              "asterisms.space"
-            ],
-            "events": [
-              "page_view"
-            ]
-          }
+          "cardDefinition": "Tracked IDs",
+          "definition": "Unique tracked person IDs with page_view events on asterisms.space.",
+          "source": { "type": "posthog", "measure": "people", "events": ["page_view"] }
+        },
+        {
+          "id": "this_week",
+          "label": "this week",
+          "cardDefinition": "Rolling 7 days",
+          "definition": "Unique tracked person IDs with page_view events during the rolling 7 days.",
+          "source": { "type": "posthog", "measure": "people", "events": ["page_view"], "windowDays": 7 }
         },
         {
           "id": "engaged",
           "label": "engaged",
-          "sub": "played or explored",
+          "cardDefinition": "Game and sky actions",
+          "definition": "Unique tracked person IDs with one of the verified Asterisms game or sky actions.",
           "source": {
             "type": "posthog",
             "measure": "people",
-            "hosts": [
-              "asterisms.space"
-            ],
             "events": [
               "game_started",
               "daily_started",
@@ -112,16 +98,121 @@
         {
           "id": "countries",
           "label": "countries",
-          "sub": "visitor locations",
+          "cardDefinition": "GeoIP locations",
+          "definition": "Unique GeoIP country codes on qualifying page_view events.",
           "source": {
             "type": "posthog",
             "measure": "countries",
-            "hosts": [
-              "asterisms.space"
-            ],
-            "events": [
-              "page_view"
-            ]
+            "events": ["page_view"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "portfolio",
+      "name": "Portfolio",
+      "url": "https://mukndd.com",
+      "window": "Since 25 Aug 2026",
+      "selector": { "hosts": ["mukndd.com"] },
+      "stats": [
+        {
+          "id": "visitors",
+          "label": "visitors",
+          "cardDefinition": "Tracked IDs",
+          "definition": "Unique tracked person IDs with PostHog $pageview events on mukndd.com.",
+          "source": { "type": "posthog", "measure": "people", "events": ["$pageview"] }
+        },
+        {
+          "id": "this_week",
+          "label": "this week",
+          "cardDefinition": "Rolling 7 days",
+          "definition": "Unique tracked person IDs with $pageview events during the rolling 7 days.",
+          "source": { "type": "posthog", "measure": "people", "events": ["$pageview"], "windowDays": 7 }
+        },
+        {
+          "id": "resume",
+          "label": "resume views",
+          "cardDefinition": "resume_viewed event",
+          "definition": "Unique tracked person IDs with the verified resume_viewed event on mukndd.com.",
+          "source": { "type": "posthog", "measure": "people", "events": ["resume_viewed"] }
+        },
+        {
+          "id": "countries",
+          "label": "countries",
+          "cardDefinition": "GeoIP locations",
+          "definition": "Unique GeoIP country codes on qualifying $pageview events.",
+          "source": { "type": "posthog", "measure": "countries", "events": ["$pageview"] }
+        }
+      ]
+    },
+    {
+      "id": "chromelo",
+      "name": "Chromelo",
+      "url": "https://chromelo.art",
+      "window": "Since 25 Aug 2026",
+      "selector": { "hosts": ["chromelo.art", "www.chromelo.art"] },
+      "stats": [
+        {
+          "id": "visitors",
+          "label": "visitors",
+          "cardDefinition": "Tracked IDs",
+          "definition": "Unique tracked person IDs with page_view events on chromelo.art production hosts.",
+          "source": { "type": "posthog", "measure": "people", "events": ["page_view"] }
+        },
+        {
+          "id": "this_week",
+          "label": "this week",
+          "cardDefinition": "Rolling 7 days",
+          "definition": "Unique tracked person IDs with page_view events during the rolling 7 days.",
+          "source": { "type": "posthog", "measure": "people", "events": ["page_view"], "windowDays": 7 }
+        },
+        {
+          "id": "countries",
+          "label": "countries",
+          "cardDefinition": "GeoIP locations",
+          "definition": "Unique GeoIP country codes on qualifying page_view events.",
+          "source": { "type": "posthog", "measure": "countries", "events": ["page_view"] }
+        }
+      ]
+    }
+  ],
+  "dataOnlyProjects": [
+    {
+      "id": "flyweight",
+      "name": "Flyweight",
+      "url": "https://github.com/mukndd/flyweight",
+      "live": false,
+      "repo": "mukndd/flyweight",
+      "stats": [
+        {
+          "id": "neurons",
+          "label": "neurons",
+          "sub": "FlyWire subgraph",
+          "source": {
+            "type": "file-regex",
+            "path": "README.md",
+            "pattern": "([\\d,]+) neurons"
+          }
+        },
+        {
+          "id": "edges",
+          "label": "edges",
+          "sub": "hash-verified",
+          "source": {
+            "type": "file-regex",
+            "path": "README.md",
+            "pattern": "([\\d,]+) edges"
+          }
+        },
+        {
+          "id": "win-rate",
+          "label": "held-out win rate",
+          "sub": "9-episode suite",
+          "suffix": "%",
+          "source": {
+            "type": "file-regex",
+            "path": "README.md",
+            "pattern": "([\\d.]+)% win rate"
           }
         }
       ]
