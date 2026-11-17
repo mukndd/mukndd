@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-17T04:56:48.668283Z",
+  "generatedAt": "2026-11-17T05:07:17.016Z",
   "projects": {
     "originull": {
       "name": "Originull",
@@ -36,9 +36,6 @@
       "name": "Findin",
       "url": "https://findin.world",
       "window": "Since 25 Aug 2026",
-      "trackingStatus": "tracked",
-      "queryRefreshedAt": "2026-11-17T04:56:48.668283Z",
-      "latestIncludedEventAt": "2026-11-17T04:52:19.615Z",
       "stats": {
         "visitors": {
           "label": "visitors",
@@ -50,8 +47,8 @@
           "verified": true,
           "asOf": "2026-11-17",
           "matchingEventRows": 2437,
-          "latestIncludedEventAt": "2026-11-17T04:52:19.615Z",
-          "queryRefreshedAt": "2026-11-17T04:56:48.668283Z"
+          "latestIncludedEventAt": "2026-11-17T04:52:19.615000Z",
+          "queryRefreshedAt": "2026-11-17T05:07:19.568Z"
         },
         "this_week": {
           "label": "this week",
@@ -63,8 +60,8 @@
           "verified": true,
           "asOf": "2026-11-17",
           "matchingEventRows": 337,
-          "latestIncludedEventAt": "2026-11-17T04:52:19.615Z",
-          "queryRefreshedAt": "2026-11-17T04:56:48.668283Z"
+          "latestIncludedEventAt": "2026-11-17T04:52:19.615000Z",
+          "queryRefreshedAt": "2026-11-17T05:07:21.256Z"
         },
         "players": {
           "label": "players",
@@ -76,8 +73,8 @@
           "verified": true,
           "asOf": "2026-11-17",
           "matchingEventRows": 1027,
-          "latestIncludedEventAt": "2026-11-17T04:51:37.319Z",
-          "queryRefreshedAt": "2026-11-17T04:56:48.668283Z"
+          "latestIncludedEventAt": "2026-11-17T04:51:37.319000Z",
+          "queryRefreshedAt": "2026-11-17T05:07:23.529Z"
         },
         "countries": {
           "label": "countries",
@@ -89,20 +86,20 @@
           "verified": true,
           "asOf": "2026-11-17",
           "matchingEventRows": 2437,
-          "latestIncludedEventAt": "2026-11-17T04:52:19.615Z",
-          "queryRefreshedAt": "2026-11-17T04:56:48.668283Z"
+          "latestIncludedEventAt": "2026-11-17T04:52:19.615000Z",
+          "queryRefreshedAt": "2026-11-17T05:07:25.520Z"
         }
       },
+      "trackingStatus": "tracked",
+      "queryRefreshedAt": "2026-11-17T05:07:25.520Z",
+      "latestIncludedEventAt": "2026-11-17T04:52:19.615000Z",
       "observedEventRows": 26162,
-      "latestObservedEventAt": "2026-11-17T04:52:19.615Z"
+      "latestObservedEventAt": "2026-11-17T04:52:19.615000Z"
     },
     "asterisms": {
       "name": "Asterisms",
       "url": "https://asterisms.space",
       "window": "Since 25 Aug 2026",
-      "trackingStatus": "tracked",
-      "queryRefreshedAt": "2026-11-17T04:56:48.668283Z",
-      "latestIncludedEventAt": "2026-11-03T12:40:13.530Z",
       "stats": {
         "visitors": {
           "label": "visitors",
@@ -114,8 +111,8 @@
           "verified": true,
           "asOf": "2026-11-17",
           "matchingEventRows": 834,
-          "latestIncludedEventAt": "2026-11-03T12:40:13.530Z",
-          "queryRefreshedAt": "2026-11-17T04:56:48.668283Z"
+          "latestIncludedEventAt": "2026-11-03T12:40:13.530000Z",
+          "queryRefreshedAt": "2026-11-17T05:07:27.545Z"
         },
         "this_week": {
           "label": "this week",
@@ -128,7 +125,7 @@
           "asOf": "2026-11-17",
           "matchingEventRows": 0,
           "latestIncludedEventAt": null,
-          "queryRefreshedAt": "2026-11-17T04:56:48.668283Z"
+          "queryRefreshedAt": "2026-11-17T05:07:28.848Z"
         },
         "engaged": {
           "label": "engaged",
@@ -140,8 +137,8 @@
           "verified": true,
           "asOf": "2026-11-17",
           "matchingEventRows": 352,
-          "latestIncludedEventAt": "2026-11-03T06:19:45.166Z",
-          "queryRefreshedAt": "2026-11-17T04:56:48.668283Z"
+          "latestIncludedEventAt": "2026-11-03T06:19:45.166000Z",
+          "queryRefreshedAt": "2026-11-17T05:07:29.721Z"
         },
         "countries": {
           "label": "countries",
@@ -153,12 +150,15 @@
           "verified": true,
           "asOf": "2026-11-17",
           "matchingEventRows": 834,
-          "latestIncludedEventAt": "2026-11-03T12:40:13.530Z",
-          "queryRefreshedAt": "2026-11-17T04:56:48.668283Z"
+          "latestIncludedEventAt": "2026-11-03T12:40:13.530000Z",
+          "queryRefreshedAt": "2026-11-17T05:07:30.786Z"
         }
       },
+      "trackingStatus": "tracked",
+      "queryRefreshedAt": "2026-11-17T05:07:30.786Z",
+      "latestIncludedEventAt": "2026-11-03T12:40:13.530000Z",
       "observedEventRows": 2895,
-      "latestObservedEventAt": "2026-11-03T12:40:13.530Z"
+      "latestObservedEventAt": "2026-11-03T12:40:13.530000Z"
     },
     "flyweight": {
       "name": "Flyweight",
@@ -171,7 +171,7 @@
           "sub": "FlyWire subgraph",
           "source": "file-regex",
           "value": 1536,
-          "status": "live",
+          "status": "snapshot",
           "asOf": "2026-11-13"
         },
         "edges": {
@@ -179,7 +179,7 @@
           "sub": "hash-verified",
           "source": "file-regex",
           "value": 170489,
-          "status": "live",
+          "status": "snapshot",
           "asOf": "2026-11-13"
         },
         "win-rate": {
@@ -188,7 +188,7 @@
           "suffix": "%",
           "source": "file-regex",
           "value": 100,
-          "status": "live",
+          "status": "snapshot",
           "asOf": "2026-11-13"
         }
       }
@@ -197,10 +197,6 @@
       "name": "Portfolio",
       "url": "https://mukndd.com",
       "window": "Since 25 Aug 2026",
-      "trackingStatus": "tracked",
-      "notTrackedReason": "All observed events have the virtual-bot flag set and user-agent metadata is missing. Identifiable test traffic is excluded where present, but the remaining traffic cannot be separated from automation/test traffic, so no visitor total is reported.",
-      "queryRefreshedAt": "2026-11-17T04:56:48.668283Z",
-      "latestObservedEventAt": "2026-11-17T04:53:31.673Z",
       "stats": {
         "visitors": {
           "label": "visitors",
@@ -213,7 +209,7 @@
           "asOf": "2026-11-17",
           "matchingEventRows": 126,
           "latestIncludedEventAt": null,
-          "queryRefreshedAt": "2026-11-17T04:56:48.668283Z"
+          "queryRefreshedAt": "2026-11-17T05:07:31.852Z"
         },
         "this_week": {
           "label": "this week",
@@ -224,9 +220,9 @@
           "status": "live",
           "verified": true,
           "asOf": "2026-11-17",
-          "matchingEventRows": 94,
+          "matchingEventRows": 92,
           "latestIncludedEventAt": null,
-          "queryRefreshedAt": "2026-11-17T04:56:48.668283Z"
+          "queryRefreshedAt": "2026-11-17T05:07:32.694Z"
         },
         "resume": {
           "label": "resume views",
@@ -239,7 +235,7 @@
           "asOf": "2026-11-17",
           "matchingEventRows": 51,
           "latestIncludedEventAt": null,
-          "queryRefreshedAt": "2026-11-17T04:56:48.668283Z"
+          "queryRefreshedAt": "2026-11-17T05:07:33.681Z"
         },
         "countries": {
           "label": "countries",
@@ -252,20 +248,19 @@
           "asOf": "2026-11-17",
           "matchingEventRows": 126,
           "latestIncludedEventAt": null,
-          "queryRefreshedAt": "2026-11-17T04:56:48.668283Z"
+          "queryRefreshedAt": "2026-11-17T05:07:34.550Z"
         }
       },
+      "trackingStatus": "tracked",
+      "queryRefreshedAt": "2026-11-17T05:07:34.550Z",
+      "latestIncludedEventAt": null,
       "observedEventRows": 208,
-      "latestIncludedEventAt": null
+      "latestObservedEventAt": "2026-11-17T04:53:31.673000Z"
     },
     "chromelo": {
       "name": "Chromelo",
       "url": "https://chromelo.art",
       "window": "Since 25 Aug 2026",
-      "trackingStatus": "tracked",
-      "notTrackedReason": "All observed events have the virtual-bot flag set and user-agent metadata is missing. Identifiable test traffic is excluded where present, but the remaining traffic cannot be separated from automation/test traffic, so no visitor total is reported.",
-      "queryRefreshedAt": "2026-11-17T04:56:48.668283Z",
-      "latestObservedEventAt": "2026-11-17T04:54:15.018Z",
       "stats": {
         "visitors": {
           "label": "visitors",
@@ -278,7 +273,7 @@
           "asOf": "2026-11-17",
           "matchingEventRows": 51,
           "latestIncludedEventAt": null,
-          "queryRefreshedAt": "2026-11-17T04:56:48.668283Z"
+          "queryRefreshedAt": "2026-11-17T05:07:35.346Z"
         },
         "this_week": {
           "label": "this week",
@@ -291,7 +286,7 @@
           "asOf": "2026-11-17",
           "matchingEventRows": 32,
           "latestIncludedEventAt": null,
-          "queryRefreshedAt": "2026-11-17T04:56:48.668283Z"
+          "queryRefreshedAt": "2026-11-17T05:07:36.190Z"
         },
         "countries": {
           "label": "countries",
@@ -304,11 +299,14 @@
           "asOf": "2026-11-17",
           "matchingEventRows": 51,
           "latestIncludedEventAt": null,
-          "queryRefreshedAt": "2026-11-17T04:56:48.668283Z"
+          "queryRefreshedAt": "2026-11-17T05:07:36.874Z"
         }
       },
+      "trackingStatus": "tracked",
+      "queryRefreshedAt": "2026-11-17T05:07:36.874Z",
+      "latestIncludedEventAt": null,
       "observedEventRows": 51,
-      "latestIncludedEventAt": null
+      "latestObservedEventAt": "2026-11-17T04:54:15.018000Z"
     }
   }
 }
