@@ -83,7 +83,7 @@ test("zero-count projects use a short status line and the board stays one center
   });
   const readme = rendered.read("README.md");
   const board = rendered.read("stats/cards/desktop.svg");
-  assert.match(readme, /<p align="center">\s*<img src="stats\/cards\/desktop\.svg" width="390"/);
+  assert.match(readme, /<p align="center">\s*<img src="stats\/cards\/desktop\.svg" width="390" style="width:390px;max-width:none"/);
   assert.doesNotMatch(readme, /<picture>|stats\/cards\/mobile\.svg|Through |Checked /);
   const statsBlock = readme.slice(readme.indexOf("<!-- STATS:START -->"), readme.indexOf("<!-- STATS:END -->"));
   assert.doesNotMatch(statsBlock, /\bhumans?\b|real people/i);

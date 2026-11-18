@@ -461,7 +461,7 @@ function formatUpdateDate(timestamp) {
 function renderReadmeBlock(data, visibleProjects) {
   const latestRefresh = data.generatedAt ?? visibleProjects.map((project) => project.queryRefreshedAt).filter(Boolean).sort().at(-1);
   const alt = visibleProjects.map(cardAlt).join(". ");
-  return `${MARK_START}\n<p align="center">\n  <img src="stats/cards/desktop.svg" width="390" alt="${esc(alt)}" />\n</p>\n<p align="center"><sub>Updated ${esc(formatUpdateDate(latestRefresh))}</sub></p>\n${MARK_END}`;
+  return `${MARK_START}\n<p align="center">\n  <img src="stats/cards/desktop.svg" width="390" style="width:390px;max-width:none" alt="${esc(alt)}" />\n</p>\n<p align="center"><sub>Updated ${esc(formatUpdateDate(latestRefresh))}</sub></p>\n${MARK_END}`;
 }
 
 async function writeIfChanged(file, content) {
