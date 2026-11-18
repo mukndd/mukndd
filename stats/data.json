@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T12:47:13.441Z",
+  "generatedAt": "2026-11-18T12:57:30.405Z",
   "projects": {
     "originull": {
       "name": "Originull",
@@ -55,7 +55,7 @@
           "missingPersonIdEventRows": 0,
           "latestIncludedEventAt": "2026-11-18T12:09:59.458000Z",
           "latestObservedEventAt": "2026-11-18T12:10:07.342000Z",
-          "queryRefreshedAt": "2026-11-18T12:47:17.203Z"
+          "queryRefreshedAt": "2026-11-18T12:57:32.315Z"
         },
         "this_week": {
           "label": "this week",
@@ -75,7 +75,7 @@
           "missingPersonIdEventRows": 0,
           "latestIncludedEventAt": "2026-11-18T12:09:59.458000Z",
           "latestObservedEventAt": "2026-11-18T12:10:07.342000Z",
-          "queryRefreshedAt": "2026-11-18T12:47:19.808Z"
+          "queryRefreshedAt": "2026-11-18T12:57:33.481Z"
         },
         "players": {
           "label": "players",
@@ -95,7 +95,7 @@
           "missingPersonIdEventRows": 0,
           "latestIncludedEventAt": "2026-11-18T12:08:06.904000Z",
           "latestObservedEventAt": "2026-11-18T12:10:07.342000Z",
-          "queryRefreshedAt": "2026-11-18T12:47:23.274Z"
+          "queryRefreshedAt": "2026-11-18T12:57:34.481Z"
         },
         "countries": {
           "label": "countries",
@@ -115,11 +115,11 @@
           "missingPersonIdEventRows": 0,
           "latestIncludedEventAt": "2026-11-18T12:09:59.458000Z",
           "latestObservedEventAt": "2026-11-18T12:10:07.342000Z",
-          "queryRefreshedAt": "2026-11-18T12:47:26.490Z"
+          "queryRefreshedAt": "2026-11-18T12:57:35.526Z"
         }
       },
       "trackingStatus": "tracked",
-      "queryRefreshedAt": "2026-11-18T12:47:26.490Z",
+      "queryRefreshedAt": "2026-11-18T12:57:35.526Z",
       "latestIncludedEventAt": "2026-11-18T12:09:59.458000Z",
       "observedEventRows": 26585,
       "latestObservedEventAt": "2026-11-18T12:10:07.342000Z"
@@ -134,40 +134,40 @@
           "definition": "Unique tracked person IDs with page_view events on asterisms.space.",
           "cardDefinition": "Tracked IDs",
           "source": "posthog",
-          "value": 200,
+          "value": 201,
           "status": "live",
           "verified": true,
           "asOf": "2026-11-18",
-          "matchingEventRows": 869,
-          "qualifyingEventRows": 837,
-          "likelyBotEventRows": 67,
-          "virtualBotEventRows": 67,
-          "missingUserAgentEventRows": 35,
+          "matchingEventRows": 870,
+          "qualifyingEventRows": 838,
+          "likelyBotEventRows": 68,
+          "virtualBotEventRows": 68,
+          "missingUserAgentEventRows": 36,
           "excludedCohortEventRows": 0,
           "missingPersonIdEventRows": 0,
-          "latestIncludedEventAt": "2026-11-18T12:46:57.843000Z",
-          "latestObservedEventAt": "2026-11-18T12:46:57.843000Z",
-          "queryRefreshedAt": "2026-11-18T12:47:28.503Z"
+          "latestIncludedEventAt": "2026-11-18T12:52:32.599000Z",
+          "latestObservedEventAt": "2026-11-18T12:52:32.599000Z",
+          "queryRefreshedAt": "2026-11-18T12:57:36.641Z"
         },
         "this_week": {
           "label": "this week",
           "definition": "Unique tracked person IDs with page_view events during the rolling 7 days.",
           "cardDefinition": "Rolling 7 days",
           "source": "posthog",
-          "value": 5,
+          "value": 6,
           "status": "live",
           "verified": true,
           "asOf": "2026-11-18",
-          "matchingEventRows": 35,
-          "qualifyingEventRows": 35,
-          "likelyBotEventRows": 35,
-          "virtualBotEventRows": 35,
-          "missingUserAgentEventRows": 35,
+          "matchingEventRows": 36,
+          "qualifyingEventRows": 36,
+          "likelyBotEventRows": 36,
+          "virtualBotEventRows": 36,
+          "missingUserAgentEventRows": 36,
           "excludedCohortEventRows": 0,
           "missingPersonIdEventRows": 0,
-          "latestIncludedEventAt": "2026-11-18T12:46:57.843000Z",
-          "latestObservedEventAt": "2026-11-18T12:46:57.843000Z",
-          "queryRefreshedAt": "2026-11-18T12:47:30.707Z"
+          "latestIncludedEventAt": "2026-11-18T12:52:32.599000Z",
+          "latestObservedEventAt": "2026-11-18T12:52:32.599000Z",
+          "queryRefreshedAt": "2026-11-18T12:57:37.622Z"
         },
         "engaged": {
           "label": "engaged",
@@ -186,8 +186,8 @@
           "excludedCohortEventRows": 0,
           "missingPersonIdEventRows": 0,
           "latestIncludedEventAt": "2026-11-18T12:46:49.438000Z",
-          "latestObservedEventAt": "2026-11-18T12:46:57.843000Z",
-          "queryRefreshedAt": "2026-11-18T12:47:32.560Z"
+          "latestObservedEventAt": "2026-11-18T12:52:32.599000Z",
+          "queryRefreshedAt": "2026-11-18T12:57:40.095Z"
         },
         "countries": {
           "label": "countries",
@@ -198,23 +198,23 @@
           "status": "live",
           "verified": true,
           "asOf": "2026-11-18",
-          "matchingEventRows": 869,
-          "qualifyingEventRows": 837,
-          "likelyBotEventRows": 67,
-          "virtualBotEventRows": 67,
-          "missingUserAgentEventRows": 35,
+          "matchingEventRows": 870,
+          "qualifyingEventRows": 838,
+          "likelyBotEventRows": 68,
+          "virtualBotEventRows": 68,
+          "missingUserAgentEventRows": 36,
           "excludedCohortEventRows": 0,
           "missingPersonIdEventRows": 0,
-          "latestIncludedEventAt": "2026-11-18T12:46:57.843000Z",
-          "latestObservedEventAt": "2026-11-18T12:46:57.843000Z",
-          "queryRefreshedAt": "2026-11-18T12:47:35.013Z"
+          "latestIncludedEventAt": "2026-11-18T12:52:32.599000Z",
+          "latestObservedEventAt": "2026-11-18T12:52:32.599000Z",
+          "queryRefreshedAt": "2026-11-18T12:57:41.258Z"
         }
       },
       "trackingStatus": "tracked",
-      "queryRefreshedAt": "2026-11-18T12:47:35.013Z",
-      "latestIncludedEventAt": "2026-11-18T12:46:57.843000Z",
-      "observedEventRows": 2944,
-      "latestObservedEventAt": "2026-11-18T12:46:57.843000Z"
+      "queryRefreshedAt": "2026-11-18T12:57:41.258Z",
+      "latestIncludedEventAt": "2026-11-18T12:52:32.599000Z",
+      "observedEventRows": 2945,
+      "latestObservedEventAt": "2026-11-18T12:52:32.599000Z"
     },
     "flyweight": {
       "name": "Flyweight",
@@ -272,7 +272,7 @@
           "missingPersonIdEventRows": 0,
           "latestIncludedEventAt": "2026-11-18T06:16:10.638000Z",
           "latestObservedEventAt": "2026-11-18T06:16:10.638000Z",
-          "queryRefreshedAt": "2026-11-18T12:47:37.068Z"
+          "queryRefreshedAt": "2026-11-18T12:57:42.277Z"
         },
         "this_week": {
           "label": "this week",
@@ -292,7 +292,7 @@
           "missingPersonIdEventRows": 0,
           "latestIncludedEventAt": "2026-11-18T06:16:10.638000Z",
           "latestObservedEventAt": "2026-11-18T06:16:10.638000Z",
-          "queryRefreshedAt": "2026-11-18T12:47:38.434Z"
+          "queryRefreshedAt": "2026-11-18T12:57:44.062Z"
         },
         "resume": {
           "label": "resume views",
@@ -312,7 +312,7 @@
           "missingPersonIdEventRows": 0,
           "latestIncludedEventAt": "2026-11-18T04:52:02.032000Z",
           "latestObservedEventAt": "2026-11-18T06:16:10.638000Z",
-          "queryRefreshedAt": "2026-11-18T12:47:39.764Z"
+          "queryRefreshedAt": "2026-11-18T12:57:46.821Z"
         },
         "countries": {
           "label": "countries",
@@ -332,11 +332,11 @@
           "missingPersonIdEventRows": 0,
           "latestIncludedEventAt": "2026-11-18T06:16:10.638000Z",
           "latestObservedEventAt": "2026-11-18T06:16:10.638000Z",
-          "queryRefreshedAt": "2026-11-18T12:47:41.322Z"
+          "queryRefreshedAt": "2026-11-18T12:57:49.169Z"
         }
       },
       "trackingStatus": "tracked",
-      "queryRefreshedAt": "2026-11-18T12:47:41.322Z",
+      "queryRefreshedAt": "2026-11-18T12:57:49.169Z",
       "latestIncludedEventAt": "2026-11-18T06:16:10.638000Z",
       "observedEventRows": 223,
       "latestObservedEventAt": "2026-11-18T06:16:10.638000Z"
@@ -364,7 +364,7 @@
           "missingPersonIdEventRows": 0,
           "latestIncludedEventAt": "2026-11-18T04:52:52.114000Z",
           "latestObservedEventAt": "2026-11-18T04:52:52.114000Z",
-          "queryRefreshedAt": "2026-11-18T12:47:43.153Z"
+          "queryRefreshedAt": "2026-11-18T12:57:50.513Z"
         },
         "this_week": {
           "label": "this week",
@@ -384,7 +384,7 @@
           "missingPersonIdEventRows": 0,
           "latestIncludedEventAt": "2026-11-18T04:52:52.114000Z",
           "latestObservedEventAt": "2026-11-18T04:52:52.114000Z",
-          "queryRefreshedAt": "2026-11-18T12:47:44.559Z"
+          "queryRefreshedAt": "2026-11-18T12:57:52.117Z"
         },
         "countries": {
           "label": "countries",
@@ -404,11 +404,11 @@
           "missingPersonIdEventRows": 0,
           "latestIncludedEventAt": "2026-11-18T04:52:52.114000Z",
           "latestObservedEventAt": "2026-11-18T04:52:52.114000Z",
-          "queryRefreshedAt": "2026-11-18T12:47:46.171Z"
+          "queryRefreshedAt": "2026-11-18T12:57:53.453Z"
         }
       },
       "trackingStatus": "tracked",
-      "queryRefreshedAt": "2026-11-18T12:47:46.171Z",
+      "queryRefreshedAt": "2026-11-18T12:57:53.453Z",
       "latestIncludedEventAt": "2026-11-18T04:52:52.114000Z",
       "observedEventRows": 54,
       "latestObservedEventAt": "2026-11-18T04:52:52.114000Z"
