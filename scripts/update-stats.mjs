@@ -390,8 +390,14 @@ async function collect(config) {
 
 const esc = (value) => String(value).replace(/[&<>\"]/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;" })[char]);
 const display = (stat) => stat.status === "unavailable"
-  ? "Unavailable"
+  ? "—"
   : new Intl.NumberFormat("en-US").format(stat.value) + (stat.suffix ?? "");
+
+function cardHeight(project, mobile = false) {
+  const hasCount = Object.values(project.stats ?? {}).some((stat) => stat.status !== "unavailable");
+  if (project.trackingStatus !== "tracked") return mobile ? 184 : 174;
+  return hasCount ? (mobile ? 220 : 218) : (mobile ? 184 : 174);
+}
 
 function fmtIST(timestamp) {
   if (!timestamp) return "not available";
@@ -401,109 +407,93 @@ function fmtIST(timestamp) {
   return `${formatted} IST`;
 }
 
-function fmtAsOf(date) {
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(date ?? "")) return "unknown";
-  return new Intl.DateTimeFormat("en-GB", { timeZone: "UTC", day: "2-digit", month: "short", year: "numeric" }).format(new Date(`${date}T00:00:00Z`));
-}
-
-function wrapText(text, maxChars) {
-  const lines = [];
-  let line = "";
-  for (const word of String(text ?? "").split(/\s+/)) {
-    const next = line ? `${line} ${word}` : word;
-    if (line && next.length > maxChars) { lines.push(line); line = word; }
-    else line = next;
-  }
-  if (line) lines.push(line);
-  return lines;
-}
-
-function svgTextLines(text, x, y, maxChars, lineHeight, fontSize, color, anchor = "start") {
-  return `<text x="${x}" y="${y}" text-anchor="${anchor}" font-size="${fontSize}" fill="${color}">${wrapText(text, maxChars).map((line, index) => `<tspan x="${x}" dy="${index ? lineHeight : 0}">${esc(line)}</tspan>`).join("")}</text>`;
+function fmtCompactDate(timestamp) {
+  if (!timestamp) return null;
+  return new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Kolkata", day: "2-digit", month: "short" }).format(new Date(timestamp));
 }
 
 function cardContents(project, mobile = false) {
   const width = mobile ? 390 : 580;
-  const height = mobile ? 440 : 310;
+  const height = cardHeight(project, mobile);
   const stats = Object.values(project.stats ?? {});
   const tracked = project.trackingStatus === "tracked" && stats.length > 0;
+  const availableStats = stats.filter((stat) => stat.status !== "unavailable");
   const title = esc(project.name);
-  const stamp = project.queryRefreshedAt ? fmtIST(project.queryRefreshedAt) : "not yet queried";
-  const asOf = stats.find((stat) => stat.asOf)?.asOf;
-  const latestEventAt = project.latestIncludedEventAt ?? project.latestObservedEventAt;
-  const latestEventLabel = project.latestIncludedEventAt ? "Latest qualifying event" : "Latest observed event";
-  const statusDot = stats.some((stat) => stat.status !== "live") ? "#8B949E" : "#3FB950";
+  const latestIncluded = fmtCompactDate(project.latestIncludedEventAt);
+  const checked = fmtCompactDate(project.queryRefreshedAt);
+  const freshness = latestIncluded ? `Through ${latestIncluded}` : checked ? `Checked ${checked}` : "Not checked";
+  const statusDot = project.trackingStatus !== "tracked" || stats.some((stat) => stat.status !== "live") ? "#8B949E" : "#3FB950";
   const out = [
     `<rect x="0.5" y="0.5" width="${width - 1}" height="${height - 1}" rx="14" fill="#0D1117" stroke="#30363D"/>`,
-    `<rect x="24" y="0" width="40" height="3" rx="1.5" fill="#A78BFA"/>`,
+    `<rect x="24" y="0" width="40" height="3" rx="1.5" fill="${statusDot}"/>`,
     `<text x="24" y="36" font-size="${mobile ? 18 : 20}" font-weight="600" fill="#E6EDF3">${title}</text>`,
-    ...(asOf ? [`<text x="${width - 24}" y="35" text-anchor="end" font-size="${mobile ? 10.5 : 11.5}" fill="#8B949E">As of ${esc(fmtAsOf(asOf))} IST</text>`] : []),
+    `<circle cx="${width - 112}" cy="31" r="3" fill="${statusDot}"/>`,
+    `<text x="${width - 102}" y="35" text-anchor="start" font-size="${mobile ? 10.5 : 11.5}" fill="#9AA7B5">${esc(freshness)}</text>`,
     `<line x1="24" y1="52" x2="${width - 24}" y2="52" stroke="#30363D"/>`,
   ];
 
   if (!tracked) {
-    out.push(`<text x="${width / 2}" y="${mobile ? 144 : 145}" text-anchor="middle" font-size="${mobile ? 23 : 26}" font-weight="600" fill="#E6EDF3">Tracking not live yet</text>`);
-    out.push(svgTextLines(project.notTrackedReason ?? "No matching PostHog events have been observed yet.", width / 2, mobile ? 177 : 178, mobile ? 40 : 62, 17, mobile ? 12.5 : 14, "#8B949E", "middle"));
-    out.push(`<text x="24" y="${mobile ? 360 : 245}" font-size="11" fill="#8B949E">No visitor or country total reported</text>`);
+    out.push(`<rect x="24" y="70" width="${width - 48}" height="${height - 92}" rx="10" fill="#10151C" stroke="#222B36"/>`);
+    out.push(`<text x="${width / 2}" y="${mobile ? 121 : 116}" text-anchor="middle" font-size="${mobile ? 18 : 19}" font-weight="600" fill="#E6EDF3">Tracking not live yet</text>`);
+    out.push(`<text x="${width / 2}" y="${mobile ? 146 : 142}" text-anchor="middle" font-size="${mobile ? 11.5 : 12.5}" fill="#8B949E">No production events observed</text>`);
+  } else if (availableStats.length === 0) {
+    out.push(`<rect x="24" y="70" width="${width - 48}" height="${height - 92}" rx="10" fill="#10151C" stroke="#222B36"/>`);
+    out.push(`<text x="${width / 2}" y="${mobile ? 119 : 115}" text-anchor="middle" font-size="${mobile ? 17 : 19}" font-weight="600" fill="#E6EDF3">No qualifying counts yet</text>`);
+    out.push(`<text x="${width / 2}" y="${mobile ? 144 : 141}" text-anchor="middle" font-size="${mobile ? 11.5 : 12.5}" fill="#8B949E">Recent events are filtered as bots</text>`);
   } else {
-    const positions = mobile
-      ? [[30, 91], [202, 91], [30, 211], [202, 211]]
-      : [[26, 94], [306, 94], [26, 174], [306, 174]];
+    const gap = mobile ? 10 : 12;
+    const tileWidth = (width - 48 - gap) / 2;
+    const tileHeight = mobile ? 62 : 63;
+    const xPositions = [24, 24 + tileWidth + gap];
+    const yPositions = [66, 66 + tileHeight + 10];
     stats.slice(0, 4).forEach((stat, index) => {
-      const [x, top] = positions[index];
-      const definition = stat.cardDefinition ?? stat.definition ?? stat.sub ?? "";
-      const lineHeight = mobile ? 13 : 14;
-      const maxChars = mobile ? 24 : 33;
-      const valueFontSize = stat.status === "unavailable" ? (mobile ? 18 : 20) : (mobile ? 30 : 33);
-      out.push(`<text x="${x}" y="${top}" font-size="${valueFontSize}" font-weight="650" fill="#E6EDF3">${esc(display(stat))}</text>`);
-      out.push(`<text x="${x}" y="${top + 22}" font-size="${mobile ? 13.5 : 15}" font-weight="600" fill="#C9D1D9">${esc(stat.label)}</text>`);
-      out.push(svgTextLines(definition, x, top + 40, maxChars, lineHeight, mobile ? 11 : 12, "#8B949E"));
+      const x = xPositions[index % 2];
+      const y = yPositions[Math.floor(index / 2)];
+      const unavailable = stat.status === "unavailable";
+      out.push(`<rect x="${x}" y="${y}" width="${tileWidth}" height="${tileHeight}" rx="9" fill="#10151C" stroke="#222B36"/>`);
+      out.push(`<text x="${x + 14}" y="${y + 31}" font-size="${mobile ? 27 : 29}" font-weight="650" fill="${unavailable ? "#8B949E" : "#F0F6FC"}">${esc(display(stat))}</text>`);
+      out.push(`<text x="${x + 14}" y="${y + 51}" font-size="${mobile ? 12.5 : 13}" font-weight="550" fill="#9AA7B5">${esc(stat.label)}</text>`);
     });
-    out.push(`<circle cx="28" cy="${mobile ? 337 : 255}" r="3.5" fill="${statusDot}"/>`);
-    out.push(`<text x="38" y="${mobile ? 341 : 259}" font-size="${mobile ? 10.5 : 11.5}" fill="#8B949E">${esc(project.window ?? "Since 25 Aug 2026")}</text>`);
-    out.push(`<text x="24" y="${mobile ? 373 : 274}" font-size="${mobile ? 10.5 : 11}" fill="#C9D1D9">Tracked identities; bots and my test accounts excluded</text>`);
-    out.push(`<text x="24" y="${mobile ? 393 : 288}" font-size="${mobile ? 10 : 9.5}" fill="#8B949E">${esc(latestEventLabel)}: ${esc(fmtIST(latestEventAt))}</text>`);
-    out.push(`<text x="24" y="${mobile ? 414 : 302}" font-size="${mobile ? 10 : 9.5}" fill="#8B949E">Query refreshed: ${esc(stamp)}</text>`);
   }
 
-  if (!tracked) out.push(`<text x="24" y="${mobile ? 412 : 295}" font-size="${mobile ? 10 : 10.5}" fill="#6E7681">PostHog check refreshed · ${esc(stamp)}</text>`);
   return `<g>${out.join("")}</g>`;
 }
 
 function renderCardSvg(project) {
-  const width = 580, height = 310;
-  const latestEventAt = project.latestIncludedEventAt ?? project.latestObservedEventAt;
+  const width = 580, height = cardHeight(project);
+  const latestEventAt = project.latestIncludedEventAt ?? null;
   const alt = project.trackingStatus === "tracked"
-    ? `${project.name}: ${Object.values(project.stats).map((stat) => `${display(stat)} ${stat.label}; ${stat.definition}; metric as of ${stat.asOf} IST`).join(". ")}. ${project.window}. ${project.dataQualityNote ?? ""} Latest event ${fmtIST(latestEventAt)}. Tracked identities; bots and internal test accounts excluded. Query refreshed ${fmtIST(project.queryRefreshedAt)}.`
-    : `${project.name}: tracking not live yet. No visitor or country total reported. ${project.notTrackedReason ?? ""} ${project.window}. PostHog check refreshed ${fmtIST(project.queryRefreshedAt)}.`;
+    ? `${project.name}: ${Object.values(project.stats).map((stat) => `${stat.status === "unavailable" ? "unavailable" : display(stat)} ${stat.label}`).join(". ")}. ${project.dataQualityNote ?? "Tracked identities, with bots and internal test accounts excluded."} ${latestEventAt ? `Latest qualifying activity ${fmtIST(latestEventAt)}.` : `Checked ${fmtIST(project.queryRefreshedAt)}.`}`
+    : `${project.name}: tracking not live yet. No production events observed. Checked ${fmtIST(project.queryRefreshedAt)}.`;
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(alt)}" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"><title>${esc(alt)}</title>${cardContents(project)}</svg>\n`;
 }
 
 function renderBoard(projects, mobile = false) {
   const width = mobile ? 390 : 1200;
   const cardWidth = mobile ? 390 : 580;
-  const cardHeight = mobile ? 440 : 310;
-  const gap = mobile ? 16 : 20;
+  const gap = mobile ? 12 : 16;
   const margin = mobile ? 0 : 10;
   const columns = mobile ? 1 : 2;
   const rows = Math.ceil(projects.length / columns);
-  const height = margin * 2 + rows * cardHeight + (rows - 1) * gap;
+  const rowHeights = Array.from({ length: rows }, (_, row) => Math.max(...projects.slice(row * columns, (row + 1) * columns).map((project) => cardHeight(project, mobile))));
+  const rowOffsets = rowHeights.map((_, row) => margin + rowHeights.slice(0, row).reduce((sum, value) => sum + value + gap, 0));
+  const height = margin * 2 + rowHeights.reduce((sum, value) => sum + value, 0) + (rows - 1) * gap;
   const groups = projects.map((project, index) => {
     const x = margin + (index % columns) * (cardWidth + gap);
-    const y = margin + Math.floor(index / columns) * (cardHeight + gap);
+    const y = rowOffsets[Math.floor(index / columns)];
     return `<g transform="translate(${x} ${y})">${cardContents(project, mobile)}</g>`;
   }).join("");
-  const alt = projects.map((project) => project.name + (project.trackingStatus === "tracked" ? `: ${Object.values(project.stats).map((stat) => `${display(stat)} ${stat.label}; ${stat.definition}; metric as of ${stat.asOf} IST; latest included event ${fmtIST(stat.latestIncludedEventAt)}`).join(". ")}. ${project.dataQualityNote ?? ""} Latest event ${fmtIST(project.latestIncludedEventAt ?? project.latestObservedEventAt)}. Last complete query refresh ${fmtIST(project.queryRefreshedAt)}.` : ": not tracked yet, no visitor total reported")).join("; ");
+  const alt = projects.map((project) => project.trackingStatus === "tracked"
+    ? `${project.name}: ${Object.values(project.stats).map((stat) => `${stat.status === "unavailable" ? "unavailable" : display(stat)} ${stat.label}`).join(". ")}. ${project.latestIncludedEventAt ? `Latest qualifying activity ${fmtIST(project.latestIncludedEventAt)}.` : `Checked ${fmtIST(project.queryRefreshedAt)}.`}`
+    : `${project.name}: tracking not live yet. Checked ${fmtIST(project.queryRefreshedAt)}.`).join("; ");
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(alt)}" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"><title>${esc(alt)}</title>${groups}</svg>\n`;
 }
 
 function renderReadmeBlock(data, visibleProjects) {
-  const sourceLinks = visibleProjects.map((project) => `<a href="${esc(project.url)}">${esc(project.name)}</a>`).join(" · ");
-  const qualityNotes = visibleProjects.filter((project) => project.dataQualityNote).map((project) => `${project.name}: ${project.dataQualityNote}`).join(" ");
-  const caption = `Counts are unique tracked PostHog <code>person_id</code> values. The bot filter and my internal test cohort are excluded; events without a usable user-agent do not qualify. When matching events exist but none pass those filters, the card reports “Unavailable” instead of zero. All-time numbers cover events since 25 Aug 2026. “This week” is a rolling 7-day count of qualifying page views. Portfolio uses the PostHog <code>$pageview</code> event emitted by mukndd.com; resume views appear only because <code>resume_viewed</code> is present there. Asterisms engagement uses the verified game and sky-action event list. Latest event and metric dates are shown in IST. ${qualityNotes ? `Data quality: ${qualityNotes}. ` : ""}Sources: PostHog and <a href="stats/data.json">stats/data.json</a>. ${sourceLinks}.`;
+  const caption = `Tracked identities; bots and my test accounts excluded · “this week” = rolling 7 days · counts since 25 Aug 2026 · — = unavailable · <a href="stats/data.json">data</a>`;
   const alt = visibleProjects.map((project) => project.trackingStatus === "tracked"
-    ? `${project.name}: ${Object.values(project.stats).map((stat) => `${display(stat)} ${stat.label}; ${stat.definition}; metric as of ${stat.asOf} IST`).join(". ")}. ${project.dataQualityNote ?? ""} Latest event ${fmtIST(project.latestIncludedEventAt ?? project.latestObservedEventAt)}. Query refreshed ${fmtIST(project.queryRefreshedAt)}`
-    : `${project.name}: Tracking not live yet; no visitor or country total reported`).join(". ");
+    ? `${project.name}: ${Object.values(project.stats).map((stat) => `${stat.status === "unavailable" ? "unavailable" : display(stat)} ${stat.label}`).join(". ")}. ${project.latestIncludedEventAt ? `Latest qualifying activity ${fmtIST(project.latestIncludedEventAt)}.` : `Checked ${fmtIST(project.queryRefreshedAt)}.`}`
+    : `${project.name}: tracking not live yet; no production events observed`).join(". ");
   return `${MARK_START}\n<p align="center">\n  <picture>\n    <source media="(max-width: 600px)" srcset="stats/cards/mobile.svg" />\n    <img src="stats/cards/desktop.svg" width="100%" alt="${esc(alt)}" />\n  </picture>\n</p>\n<p><sub>${caption}</sub></p>\n${MARK_END}`;
 }
 
