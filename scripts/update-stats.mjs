@@ -97,12 +97,12 @@ function includedPersonCondition(config) {
   if (!Number.isInteger(config.excludeCohort) || config.excludeCohort < 1) throw new Error("excludeCohort must be a positive integer");
   return [
     `person_id NOT IN COHORT ${config.excludeCohort}`,
-    "NOT isLikelyBot(properties.$raw_user_agent)",
+    "(isNull(properties.$raw_user_agent) OR properties.$raw_user_agent = '' OR NOT isLikelyBot(properties.$raw_user_agent))",
   ].join(" AND ");
 }
 
 // Count tracked PostHog identities after the internal cohort and PostHog's
-// user-agent bot filter. Rows without a usable user agent do not qualify.
+// user-agent bot filter. A missing user agent is unknown, not evidence of a bot.
 function posthogSql(config, project, stat) {
   const matches = eventCondition(stat);
   const included = `(${matches} AND ${includedPersonCondition(config)})`;
@@ -393,66 +393,35 @@ const display = (stat) => stat.status === "unavailable"
   ? "—"
   : new Intl.NumberFormat("en-US").format(stat.value) + (stat.suffix ?? "");
 
-function cardHeight(project, mobile = false) {
-  const hasCount = Object.values(project.stats ?? {}).some((stat) => stat.status !== "unavailable");
-  if (project.trackingStatus !== "tracked") return mobile ? 184 : 174;
-  return hasCount ? (mobile ? 220 : 218) : (mobile ? 184 : 174);
-}
+const CARD_WIDTH = 390;
+const CARD_HEIGHT = 210;
+const BOARD_GAP = 12;
 
-function fmtIST(timestamp) {
-  if (!timestamp) return "not available";
-  const formatted = new Intl.DateTimeFormat("en-GB", {
-    timeZone: "Asia/Kolkata", day: "2-digit", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit", hourCycle: "h23",
-  }).format(new Date(timestamp));
-  return `${formatted} IST`;
-}
-
-function fmtCompactDate(timestamp) {
-  if (!timestamp) return null;
-  return new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Kolkata", day: "2-digit", month: "short" }).format(new Date(timestamp));
-}
-
-function cardContents(project, mobile = false) {
-  const width = mobile ? 390 : 580;
-  const height = cardHeight(project, mobile);
-  const stats = Object.values(project.stats ?? {});
-  const tracked = project.trackingStatus === "tracked" && stats.length > 0;
-  const availableStats = stats.filter((stat) => stat.status !== "unavailable");
+function cardContents(project) {
+  const width = CARD_WIDTH;
+  const height = CARD_HEIGHT;
+  const availableStats = Object.entries(project.stats ?? {})
+    .filter(([, stat]) => stat.status !== "unavailable" && typeof stat.value === "number" && Number.isFinite(stat.value))
+    .map(([id, stat]) => ({ ...stat, id }));
+  const hasQualifyingCounts = availableStats.some((stat) => stat.value > 0);
   const title = esc(project.name);
-  const latestIncluded = fmtCompactDate(project.latestIncludedEventAt);
-  const checked = fmtCompactDate(project.queryRefreshedAt);
-  const freshness = latestIncluded ? `Through ${latestIncluded}` : checked ? `Checked ${checked}` : "Not checked";
-  const statusDot = project.trackingStatus !== "tracked" || stats.some((stat) => stat.status !== "live") ? "#8B949E" : "#3FB950";
   const out = [
     `<rect x="0.5" y="0.5" width="${width - 1}" height="${height - 1}" rx="14" fill="#0D1117" stroke="#30363D"/>`,
-    `<rect x="24" y="0" width="40" height="3" rx="1.5" fill="${statusDot}"/>`,
-    `<text x="24" y="36" font-size="${mobile ? 18 : 20}" font-weight="600" fill="#E6EDF3">${title}</text>`,
-    `<circle cx="${width - 112}" cy="31" r="3" fill="${statusDot}"/>`,
-    `<text x="${width - 102}" y="35" text-anchor="start" font-size="${mobile ? 10.5 : 11.5}" fill="#9AA7B5">${esc(freshness)}</text>`,
+    `<rect x="24" y="0" width="40" height="3" rx="1.5" fill="#A78BFA"/>`,
+    `<text x="24" y="36" font-size="18" font-weight="600" fill="#E6EDF3">${title}</text>`,
     `<line x1="24" y1="52" x2="${width - 24}" y2="52" stroke="#30363D"/>`,
   ];
 
-  if (!tracked) {
-    out.push(`<rect x="24" y="70" width="${width - 48}" height="${height - 92}" rx="10" fill="#10151C" stroke="#222B36"/>`);
-    out.push(`<text x="${width / 2}" y="${mobile ? 121 : 116}" text-anchor="middle" font-size="${mobile ? 18 : 19}" font-weight="600" fill="#E6EDF3">Tracking not live yet</text>`);
-    out.push(`<text x="${width / 2}" y="${mobile ? 146 : 142}" text-anchor="middle" font-size="${mobile ? 11.5 : 12.5}" fill="#8B949E">No production events observed</text>`);
-  } else if (availableStats.length === 0) {
-    out.push(`<rect x="24" y="70" width="${width - 48}" height="${height - 92}" rx="10" fill="#10151C" stroke="#222B36"/>`);
-    out.push(`<text x="${width / 2}" y="${mobile ? 119 : 115}" text-anchor="middle" font-size="${mobile ? 17 : 19}" font-weight="600" fill="#E6EDF3">No qualifying counts yet</text>`);
-    out.push(`<text x="${width / 2}" y="${mobile ? 144 : 141}" text-anchor="middle" font-size="${mobile ? 11.5 : 12.5}" fill="#8B949E">Recent events are filtered as bots</text>`);
+  if (!hasQualifyingCounts) {
+    out.push(`<text x="24" y="119" font-size="13" fill="#9AA7B5">No qualifying counts yet</text>`);
   } else {
-    const gap = mobile ? 10 : 12;
-    const tileWidth = (width - 48 - gap) / 2;
-    const tileHeight = mobile ? 62 : 63;
-    const xPositions = [24, 24 + tileWidth + gap];
-    const yPositions = [66, 66 + tileHeight + 10];
-    stats.slice(0, 4).forEach((stat, index) => {
-      const x = xPositions[index % 2];
-      const y = yPositions[Math.floor(index / 2)];
-      const unavailable = stat.status === "unavailable";
-      out.push(`<rect x="${x}" y="${y}" width="${tileWidth}" height="${tileHeight}" rx="9" fill="#10151C" stroke="#222B36"/>`);
-      out.push(`<text x="${x + 14}" y="${y + 31}" font-size="${mobile ? 27 : 29}" font-weight="650" fill="${unavailable ? "#8B949E" : "#F0F6FC"}">${esc(display(stat))}</text>`);
-      out.push(`<text x="${x + 14}" y="${y + 51}" font-size="${mobile ? 12.5 : 13}" font-weight="550" fill="#9AA7B5">${esc(stat.label)}</text>`);
+    const positions = [[28, 94], [214, 94], [28, 164], [214, 164]];
+    availableStats.slice(0, 4).forEach((stat, index) => {
+      const [x, y] = positions[index];
+      const label = stat.id === "visitors" ? "visitors (tracked identities)" : stat.label;
+      const labelSize = stat.id === "visitors" ? 10.5 : 13;
+      out.push(`<text x="${x}" y="${y}" font-size="29" font-weight="650" fill="#F0F6FC">${esc(display(stat))}</text>`);
+      out.push(`<text x="${x}" y="${y + 20}" font-size="${labelSize}" font-weight="550" fill="#9AA7B5">${esc(label)}</text>`);
     });
   }
 
@@ -460,41 +429,39 @@ function cardContents(project, mobile = false) {
 }
 
 function renderCardSvg(project) {
-  const width = 580, height = cardHeight(project);
-  const latestEventAt = project.latestIncludedEventAt ?? null;
-  const alt = project.trackingStatus === "tracked"
-    ? `${project.name}: ${Object.values(project.stats).map((stat) => `${stat.status === "unavailable" ? "unavailable" : display(stat)} ${stat.label}`).join(". ")}. ${project.dataQualityNote ?? "Tracked identities, with bots and internal test accounts excluded."} ${latestEventAt ? `Latest qualifying activity ${fmtIST(latestEventAt)}.` : `Checked ${fmtIST(project.queryRefreshedAt)}.`}`
-    : `${project.name}: tracking not live yet. No production events observed. Checked ${fmtIST(project.queryRefreshedAt)}.`;
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(alt)}" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"><title>${esc(alt)}</title>${cardContents(project)}</svg>\n`;
+  const alt = cardAlt(project);
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${CARD_WIDTH}" height="${CARD_HEIGHT}" viewBox="0 0 ${CARD_WIDTH} ${CARD_HEIGHT}" role="img" aria-label="${esc(alt)}" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"><title>${esc(alt)}</title>${cardContents(project)}</svg>\n`;
 }
 
-function renderBoard(projects, mobile = false) {
-  const width = mobile ? 390 : 1200;
-  const cardWidth = mobile ? 390 : 580;
-  const gap = mobile ? 12 : 16;
-  const margin = mobile ? 0 : 10;
-  const columns = mobile ? 1 : 2;
-  const rows = Math.ceil(projects.length / columns);
-  const rowHeights = Array.from({ length: rows }, (_, row) => Math.max(...projects.slice(row * columns, (row + 1) * columns).map((project) => cardHeight(project, mobile))));
-  const rowOffsets = rowHeights.map((_, row) => margin + rowHeights.slice(0, row).reduce((sum, value) => sum + value + gap, 0));
-  const height = margin * 2 + rowHeights.reduce((sum, value) => sum + value, 0) + (rows - 1) * gap;
-  const groups = projects.map((project, index) => {
-    const x = margin + (index % columns) * (cardWidth + gap);
-    const y = rowOffsets[Math.floor(index / columns)];
-    return `<g transform="translate(${x} ${y})">${cardContents(project, mobile)}</g>`;
-  }).join("");
-  const alt = projects.map((project) => project.trackingStatus === "tracked"
-    ? `${project.name}: ${Object.values(project.stats).map((stat) => `${stat.status === "unavailable" ? "unavailable" : display(stat)} ${stat.label}`).join(". ")}. ${project.latestIncludedEventAt ? `Latest qualifying activity ${fmtIST(project.latestIncludedEventAt)}.` : `Checked ${fmtIST(project.queryRefreshedAt)}.`}`
-    : `${project.name}: tracking not live yet. Checked ${fmtIST(project.queryRefreshedAt)}.`).join("; ");
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(alt)}" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"><title>${esc(alt)}</title>${groups}</svg>\n`;
+function cardAlt(project) {
+  const stats = Object.entries(project.stats ?? {})
+    .filter(([, stat]) => stat.status !== "unavailable" && typeof stat.value === "number" && Number.isFinite(stat.value))
+    .map(([id, stat]) => ({ ...stat, id }));
+  const metrics = stats.map((stat) => `${display(stat)} ${stat.id === "visitors" ? "visitors (tracked identities)" : stat.label}`);
+  return metrics.some((_, index) => stats[index].value > 0)
+    ? `${project.name}: ${metrics.join(". ")}`
+    : `${project.name}: no qualifying counts yet`;
+}
+
+function renderBoard(projects) {
+  const height = projects.length * CARD_HEIGHT + Math.max(0, projects.length - 1) * BOARD_GAP;
+  const groups = projects.map((project, index) => `<g transform="translate(0 ${index * (CARD_HEIGHT + BOARD_GAP)})">${cardContents(project)}</g>`).join("");
+  const alt = projects.map(cardAlt).join("; ");
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${CARD_WIDTH}" height="${height}" viewBox="0 0 ${CARD_WIDTH} ${height}" role="img" aria-label="${esc(alt)}" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"><title>${esc(alt)}</title>${groups}</svg>\n`;
+}
+
+function formatUpdateDate(timestamp) {
+  if (!timestamp) return "unknown";
+  const date = dateInIST(timestamp);
+  return new Intl.DateTimeFormat("en-GB", {
+    timeZone: "UTC", day: "2-digit", month: "short", year: "numeric",
+  }).format(new Date(`${date}T00:00:00Z`));
 }
 
 function renderReadmeBlock(data, visibleProjects) {
-  const caption = `Tracked identities; bots and my test accounts excluded · “this week” = rolling 7 days · counts since 25 Aug 2026 · — = unavailable · <a href="stats/data.json">data</a>`;
-  const alt = visibleProjects.map((project) => project.trackingStatus === "tracked"
-    ? `${project.name}: ${Object.values(project.stats).map((stat) => `${stat.status === "unavailable" ? "unavailable" : display(stat)} ${stat.label}`).join(". ")}. ${project.latestIncludedEventAt ? `Latest qualifying activity ${fmtIST(project.latestIncludedEventAt)}.` : `Checked ${fmtIST(project.queryRefreshedAt)}.`}`
-    : `${project.name}: tracking not live yet; no production events observed`).join(". ");
-  return `${MARK_START}\n<p align="center">\n  <picture>\n    <source media="(max-width: 600px)" srcset="stats/cards/mobile.svg" />\n    <img src="stats/cards/desktop.svg" width="100%" alt="${esc(alt)}" />\n  </picture>\n</p>\n<p><sub>${caption}</sub></p>\n${MARK_END}`;
+  const latestRefresh = data.generatedAt ?? visibleProjects.map((project) => project.queryRefreshedAt).filter(Boolean).sort().at(-1);
+  const alt = visibleProjects.map(cardAlt).join(". ");
+  return `${MARK_START}\n<p align="center">\n  <img src="stats/cards/desktop.svg" width="390" alt="${esc(alt)}" />\n</p>\n<p align="center"><sub>Updated ${esc(formatUpdateDate(latestRefresh))}</sub></p>\n${MARK_END}`;
 }
 
 async function writeIfChanged(file, content) {
@@ -507,8 +474,9 @@ async function render(data, config) {
   await mkdir(CARDS_DIR, { recursive: true });
   const visible = config.projects.map((project) => data.projects[project.id]).filter(Boolean);
   for (const project of visible) await writeIfChanged(path.join(CARDS_DIR, `${project.name.toLowerCase()}.svg`), renderCardSvg(project));
-  await writeIfChanged(path.join(CARDS_DIR, "desktop.svg"), renderBoard(visible));
-  await writeIfChanged(path.join(CARDS_DIR, "mobile.svg"), renderBoard(visible, true));
+  const board = renderBoard(visible);
+  await writeIfChanged(path.join(CARDS_DIR, "desktop.svg"), board);
+  await writeIfChanged(path.join(CARDS_DIR, "mobile.svg"), board);
 
   const readme = await readFile(README, "utf8");
   const start = readme.indexOf(MARK_START), end = readme.indexOf(MARK_END);

@@ -26,12 +26,9 @@ I build products end to end: from ambiguous requirements and UX through frontend
 
 <!-- STATS:START -->
 <p align="center">
-  <picture>
-    <source media="(max-width: 600px)" srcset="stats/cards/mobile.svg" />
-    <img src="stats/cards/desktop.svg" width="100%" alt="Findin: 568 visitors. 55 this week. 317 players. 41 countries. Latest qualifying activity 18 Nov 2026, 15:00 IST.. Asterisms: 196 visitors. unavailable this week. 71 engaged. 28 countries. Latest qualifying activity 03 Nov 2026, 18:10 IST.. Portfolio: unavailable visitors. unavailable this week. unavailable resume views. unavailable countries. Checked 18 Nov 2026, 16:09 IST.. Chromelo: unavailable visitors. unavailable this week. unavailable countries. Checked 18 Nov 2026, 16:09 IST." />
-  </picture>
+  <img src="stats/cards/desktop.svg" width="390" alt="Findin: 568 visitors (tracked identities). 55 this week. 317 players. 41 countries. Asterisms: 196 visitors (tracked identities). 71 engaged. 28 countries. Portfolio: no qualifying counts yet. Chromelo: no qualifying counts yet" />
 </p>
-<p><sub>Tracked identities; bots and my test accounts excluded · “this week” = rolling 7 days · counts since 25 Aug 2026 · — = unavailable · <a href="stats/data.json">data</a></sub></p>
+<p align="center"><sub>Updated 18 Nov 2026</sub></p>
 <!-- STATS:END -->
 
 ---
