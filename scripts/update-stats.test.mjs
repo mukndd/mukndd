@@ -70,7 +70,7 @@ test("Asterisms keeps its production-host selector", () => {
   assert.match(sql, /properties\.\$host IN \('asterisms\.space'\)/);
 });
 
-test("zero-count projects use a short status line and the board stays one centered 390px column", (t) => {
+test("zero-count projects use a short status line and the board stays a centered two-column grid", (t) => {
   const rendered = fixture(t, (data) => {
     for (const id of ["portfolio", "chromelo"]) {
       for (const stat of Object.values(data.projects[id].stats)) {
@@ -83,15 +83,15 @@ test("zero-count projects use a short status line and the board stays one center
   });
   const readme = rendered.read("README.md");
   const board = rendered.read("stats/cards/desktop.svg");
-  assert.match(readme, /<p align="center">\s*<img src="stats\/cards\/desktop\.svg" width="390"/);
-  assert.doesNotMatch(readme, /<picture>|stats\/cards\/mobile\.svg|Through |Checked /);
+  assert.match(readme, /<p align="center">\s*<img src="stats\/cards\/desktop\.svg" width="100%"/);
+  assert.doesNotMatch(readme, /<picture>|Through |Checked /);
   const statsBlock = readme.slice(readme.indexOf("<!-- STATS:START -->"), readme.indexOf("<!-- STATS:END -->"));
   assert.doesNotMatch(statsBlock, /\bhumans?\b|real people/i);
   const updateDate = new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Kolkata", day: "2-digit", month: "short", year: "numeric" }).format(new Date(rendered.data.generatedAt));
   assert.ok(readme.includes(`Updated ${updateDate}`));
   assert.equal(board, rendered.read("stats/cards/mobile.svg"));
-  assert.match(board, /^<svg[^>]*width="390"/);
-  assert.deepEqual([...board.matchAll(/transform="translate\((\d+) (\d+)\)"/g)].map((m) => [Number(m[1]), Number(m[2])]), [[0, 0], [0, 222], [0, 444], [0, 666]]);
+  assert.match(board, /^<svg[^>]*width="796"/);
+  assert.deepEqual([...board.matchAll(/transform="translate\((\d+) (\d+)\)"/g)].map((m) => [Number(m[1]), Number(m[2])]), [[0, 0], [406, 0], [0, 346], [406, 346]]);
   assert.match(board, />Findin<\/text>/);
   assert.match(board, />Asterisms<\/text>/);
   assert.match(board, />Portfolio<\/text>/);

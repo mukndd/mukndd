@@ -394,8 +394,10 @@ const display = (stat) => stat.status === "unavailable"
   : new Intl.NumberFormat("en-US").format(stat.value) + (stat.suffix ?? "");
 
 const CARD_WIDTH = 390;
-const CARD_HEIGHT = 210;
-const BOARD_GAP = 12;
+const CARD_HEIGHT = 330;
+const BOARD_GAP = 16;
+const BOARD_COLUMNS = 2;
+const BOARD_WIDTH = CARD_WIDTH * BOARD_COLUMNS + BOARD_GAP;
 
 function cardContents(project) {
   const width = CARD_WIDTH;
@@ -407,21 +409,28 @@ function cardContents(project) {
   const title = esc(project.name);
   const out = [
     `<rect x="0.5" y="0.5" width="${width - 1}" height="${height - 1}" rx="14" fill="#0D1117" stroke="#30363D"/>`,
-    `<rect x="24" y="0" width="40" height="3" rx="1.5" fill="#A78BFA"/>`,
-    `<text x="24" y="36" font-size="18" font-weight="600" fill="#E6EDF3">${title}</text>`,
-    `<line x1="24" y1="52" x2="${width - 24}" y2="52" stroke="#30363D"/>`,
+    `<rect x="22" y="0" width="44" height="3" rx="1.5" fill="#A78BFA"/>`,
+    `<text x="22" y="36" font-size="24" font-weight="600" fill="#E6EDF3">${title}</text>`,
+    `<line x1="22" y1="52" x2="${width - 22}" y2="52" stroke="#30363D"/>`,
   ];
 
   if (!hasQualifyingCounts) {
-    out.push(`<text x="24" y="119" font-size="13" fill="#9AA7B5">No qualifying counts yet</text>`);
+    out.push(`<text x="22" y="190" font-size="16" fill="#9AA7B5">No qualifying counts yet</text>`);
   } else {
-    const positions = [[28, 94], [214, 94], [28, 164], [214, 164]];
-    availableStats.slice(0, 4).forEach((stat, index) => {
+    const [primary, ...secondary] = availableStats.slice(0, 4);
+    if (primary) {
+      out.push(`<rect x="18" y="64" width="354" height="82" rx="10" fill="#10151C" stroke="#222B36"/>`);
+      out.push(`<text x="32" y="106" font-size="46" font-weight="650" fill="#F0F6FC">${esc(display(primary))}</text>`);
+      const label = primary.id === "visitors" ? "visitors (tracked identities)" : primary.label;
+      out.push(`<text x="32" y="134" font-size="22" font-weight="550" fill="#9AA7B5">${esc(label)}</text>`);
+    }
+    const positions = [[18, 158], [201, 158], [18, 242], [201, 242]];
+    secondary.forEach((stat, index) => {
       const [x, y] = positions[index];
       const label = stat.id === "visitors" ? "visitors (tracked identities)" : stat.label;
-      const labelSize = stat.id === "visitors" ? 10.5 : 13;
-      out.push(`<text x="${x}" y="${y}" font-size="29" font-weight="650" fill="#F0F6FC">${esc(display(stat))}</text>`);
-      out.push(`<text x="${x}" y="${y + 20}" font-size="${labelSize}" font-weight="550" fill="#9AA7B5">${esc(label)}</text>`);
+      out.push(`<rect x="${x}" y="${y}" width="171" height="76" rx="10" fill="#10151C" stroke="#222B36"/>`);
+      out.push(`<text x="${x + 14}" y="${y + 39}" font-size="38" font-weight="650" fill="#F0F6FC">${esc(display(stat))}</text>`);
+      out.push(`<text x="${x + 14}" y="${y + 62}" font-size="19" font-weight="550" fill="#9AA7B5">${esc(label)}</text>`);
     });
   }
 
@@ -444,10 +453,15 @@ function cardAlt(project) {
 }
 
 function renderBoard(projects) {
-  const height = projects.length * CARD_HEIGHT + Math.max(0, projects.length - 1) * BOARD_GAP;
-  const groups = projects.map((project, index) => `<g transform="translate(0 ${index * (CARD_HEIGHT + BOARD_GAP)})">${cardContents(project)}</g>`).join("");
+  const rows = Math.ceil(projects.length / BOARD_COLUMNS);
+  const height = rows * CARD_HEIGHT + Math.max(0, rows - 1) * BOARD_GAP;
+  const groups = projects.map((project, index) => {
+    const x = (index % BOARD_COLUMNS) * (CARD_WIDTH + BOARD_GAP);
+    const y = Math.floor(index / BOARD_COLUMNS) * (CARD_HEIGHT + BOARD_GAP);
+    return `<g transform="translate(${x} ${y})">${cardContents(project)}</g>`;
+  }).join("");
   const alt = projects.map(cardAlt).join("; ");
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${CARD_WIDTH}" height="${height}" viewBox="0 0 ${CARD_WIDTH} ${height}" role="img" aria-label="${esc(alt)}" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"><title>${esc(alt)}</title>${groups}</svg>\n`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${BOARD_WIDTH}" height="${height}" viewBox="0 0 ${BOARD_WIDTH} ${height}" role="img" aria-label="${esc(alt)}" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"><title>${esc(alt)}</title>${groups}</svg>\n`;
 }
 
 function formatUpdateDate(timestamp) {
@@ -461,7 +475,7 @@ function formatUpdateDate(timestamp) {
 function renderReadmeBlock(data, visibleProjects) {
   const latestRefresh = data.generatedAt ?? visibleProjects.map((project) => project.queryRefreshedAt).filter(Boolean).sort().at(-1);
   const alt = visibleProjects.map(cardAlt).join(". ");
-  return `${MARK_START}\n<p align="center">\n  <img src="stats/cards/desktop.svg" width="390" alt="${esc(alt)}" />\n</p>\n<p align="center"><sub>Updated ${esc(formatUpdateDate(latestRefresh))}</sub></p>\n${MARK_END}`;
+  return `${MARK_START}\n<p align="center">\n  <img src="stats/cards/desktop.svg" width="100%" alt="${esc(alt)}" />\n</p>\n<p align="center"><sub>Updated ${esc(formatUpdateDate(latestRefresh))}</sub></p>\n${MARK_END}`;
 }
 
 async function writeIfChanged(file, content) {
