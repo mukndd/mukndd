@@ -26,9 +26,9 @@ I build products end to end: from ambiguous requirements and UX through frontend
 
 <!-- STATS:START -->
 <p align="center">
-  <img src="stats/cards/desktop.svg" width="796" alt="Findin: 575 visitors (tracked identities). 48 this week. 322 players. 42 countries. Asterisms: 255 visitors (tracked identities). 60 this week. 109 engaged. 31 countries. Portfolio: 103 visitors (tracked identities). 28 this week. 33 resume views. 8 countries. Chromelo: 44 visitors (tracked identities). 17 this week. 5 countries" />
+  <img src="stats/cards/desktop.svg" width="796" alt="Findin: 577 visitors (tracked identities). 42 this week. 323 players. 42 countries. Asterisms: 280 visitors (tracked identities). 85 this week. 126 engaged. 31 countries. Portfolio: 103 visitors (tracked identities). 24 this week. 33 resume views. 8 countries. Chromelo: 44 visitors (tracked identities). 14 this week. 5 countries" />
 </p>
-<p align="center"><sub>Updated 22 Nov 2026</sub></p>
+<p align="center"><sub>Updated 23 Nov 2026</sub></p>
 <!-- STATS:END -->
 
 ---
